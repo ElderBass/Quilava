@@ -50,10 +50,7 @@ $(document).ready(function(){
       })
         .then((response) => {
             
-            console.log('response '+response);
             window.location.assign('/api/artist/'+response);
-        //response.render('profile', { artist: response })
-          //location.reload(); //not sure what to put here
           
         })
         .catch(handleLoginErr);

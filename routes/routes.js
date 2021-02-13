@@ -9,15 +9,11 @@ module.exports = function (app) {
   });
 
   app.get("/api/artist/:id", function (req, res) {
-    //console.log(req);
-    console.log("inside get route for artist/:id");
     db.Artists.findOne({
       where: {
         id: req.params.id,
       },
     }).then((data) => {
-      console.log("data from findOne query = "+data);
-      console.log(JSON.stringify(data));
       res.render("profile", { artist: data.dataValues });
     });
   });
@@ -68,11 +64,6 @@ module.exports = function (app) {
       city: req.body.city,
     })
       .then((data) => {
-        console.log("data in routes = ");
-        console.log(data.dataValues);
-
-        console.log(`Created new user!`);
-        //res.redirect(307, "/profile");
         res.json(data.dataValues.id);
       })
       .catch((err) => {
