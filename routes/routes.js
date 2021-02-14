@@ -99,10 +99,18 @@ module.exports = function (app) {
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
+      ArtistId: req.body.ArtistId
     }).then(function (data) {
       console.log("query data in routes");
       console.log(data);
       res.json(data);
     });
   });
+
+  app.get("/api/artists/blog", function(req, res){
+    db.Blogs.findAll({})
+    .then(function(results) {
+      res.json(results);
+    })
+  })
 };
