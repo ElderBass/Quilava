@@ -30,7 +30,7 @@ module.exports = function (app) {
 
   app.get("/api/artists/genre/:genre", function (req, res) {
     
-    console.log(req.params.genre)
+    console.log("req.params ", req.params.genre)
     db.Artists.findAll({
       where: {
         genre: req.params.genre,

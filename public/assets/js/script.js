@@ -12,7 +12,7 @@ $(document).ready(() => {
     let genre = $("input#genreSearch").val().trim();
     console.log(genre);
 
-    $.get("/api/artists/" + genre, function() {
+    $.get("/api/artists/genre/" + genre, function() {
         window.location.assign('/api/artists/genre/'+genre);
     });
   });
