@@ -1,6 +1,22 @@
-<button href='#signupForm'></button>
+<a href='#signupForm'><button>Signup</button></a>
+
+<a href='#loginForm'><button>Login</button></a>
+
+<button id="browseAll">Browse All Artists</button>
 
 
+
+<form class='genreSearch'>
+  <label for="searchForArtist">Browse by Genre</label>
+  <input type="text" class="form-control" id="genreSearch" name="genre" placeholder="Enter Genre">
+  <button type='submit' class="btn btn-default">Search</button>
+</form>
+
+<form class='citySearch'>
+  <label>Browse by City</label>
+  <input type="text" class="form-control" id="citySearch" name="city" placeholder="Enter a City">
+  <button type='submit' class="btn btn-default">Search</button>
+</form>
 
 <!-- Landing/Welcome stuff -->
 
@@ -33,26 +49,26 @@
                 </div> --}}
                 <div class="form-group">
                     <label for="exampleInputPassword1">First Name*</label>
-                    <input type="password" class="form-control" id="first-name-input" name="first_name"
+                    <input type="text" class="form-control" id="first-name-input" name="first_name"
                         placeholder="Password">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Last Name*</label>
-                    <input type="password" class="form-control" id="last-name-input" name="last_name"
+                    <input type="text" class="form-control" id="last-name-input" name="last_name"
                         placeholder="Password">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Stage Name*</label>
-                    <input type="password" class="form-control" id="stage-name-input" name="stage_name"
+                    <input type="text" class="form-control" id="stage-name-input" name="stage_name"
                         placeholder="Stage Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Genre*</label>
-                    <input type="password" class="form-control" id="genre-input" name="genre" placeholder="Genre">
+                    <input type="text" class="form-control" id="genre-input" name="genre" placeholder="Genre">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">City*</label>
-                    <input type="password" class="form-control" id="city-input" name="city" placeholder="Genre">
+                    <input type="text" class="form-control" id="city-input" name="city" placeholder="City">
                 </div>
                 <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -65,3 +81,24 @@
         </div>
     </div>
 </div>
+
+  <div class="container" id="loginForm">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>Login Form</h2>
+        <form class="login">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="login-email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="login-password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
+        <br />
+        <p>Or sign up <a href="/">here</a></p>
+      </div>
+    </div>
+  </div>
