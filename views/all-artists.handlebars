@@ -1,0 +1,16 @@
+<h1>Quilava</h1>
+
+<h3>Artists</h3>
+
+{{#each artists}}
+
+<div class='container'>
+    <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;"/>
+    <hr>
+    <h6>{{this.first_name}} {{this.last_name}}</h6>
+    <p>Stage Name: {{this.stage_name}}</p>
+    <p>Genre: {{this.genre}}</p>
+    <p>Location: {{this.city}}</p>
+</div>
+
+{{/each}}

@@ -22,7 +22,8 @@ module.exports = function (app) {
   // Find all Authors and return them to the user with res.json
   app.get("/api/artists", function (req, res) {
     db.Artists.findAll({}).then(function (dbArtists) {
-      res.render("index", { artists: dbArtists });
+      let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
+      res.render("all-artists", { artists: unpack(dbArtists) });
     });
   });
 
