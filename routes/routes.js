@@ -19,7 +19,8 @@ module.exports = function (app) {
   });
   //================================================
 
-  // Find all Authors and return them to the user with res.json
+  // Find all Artists, or by Genre and Location
+  //================================================
   app.get("/api/artists", function (req, res) {
     db.Artists.findAll({}).then(function (dbArtists) {
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
@@ -27,17 +28,36 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/artists/:genre", function (req, res) {
-    // Find one Author with the id in req.params.id and return them to the user with res.json
+  app.get("/api/artists/genre/:genre", function (req, res) {
+    
+    console.log(req.params.genre)
     db.Artists.findAll({
       where: {
         genre: req.params.genre,
       },
     }).then(function (dbArtists) {
-      res.render("index", { artists: dbArtists });
+      console.log(JSON.parse(JSON.stringify(dbArtists)));
+      let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
+     res.render("search", { artists: unpack(dbArtists) });
     });
   });
 
+  app.get("/api/artists/city/:city", function (req, res) {
+    
+    console.log(req.params.city)
+    db.Artists.findAll({
+      where: {
+        city: req.params.city,
+      },
+    }).then(function (dbArtists) {
+      console.log(JSON.parse(JSON.stringify(dbArtists)));
+      let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
+     res.render("search", { artists: unpack(dbArtists) });
+    });
+  });
+
+
+  //=============================================
   app.post(
     "/api/login",
     /* passport.authenticate("local"),*/ (req, res) => {
