@@ -106,7 +106,7 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-//this is just getting all blog posts though. Need to grab only the posts for that artist
+//this is just getting all blog posts though. Need to grab only the posts for that
   app.get("/api/artists/blog", function(req, res){
     db.Blogs.findAll({})
     .then(function(results) {
