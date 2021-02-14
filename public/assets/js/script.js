@@ -77,6 +77,7 @@ $(document).ready(() => {
       post.append(title, body);
 
       console.log(post);
+      //prepend doesn't do shit here. Don't know why
       $("#blogFeed").prepend(post);
     }
   }
