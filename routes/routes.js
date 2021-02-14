@@ -29,8 +29,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/artists/genre/:genre", function (req, res) {
-    
-    console.log("req.params ", req.params.genre)
+    console.log("req.params ", req.params.genre);
     db.Artists.findAll({
       where: {
         genre: req.params.genre,
@@ -38,13 +37,12 @@ module.exports = function (app) {
     }).then(function (dbArtists) {
       console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-     res.render("search", { artists: unpack(dbArtists) });
+      res.render("search", { artists: unpack(dbArtists) });
     });
   });
 
   app.get("/api/artists/city/:city", function (req, res) {
-    
-    console.log(req.params.city)
+    console.log(req.params.city);
     db.Artists.findAll({
       where: {
         city: req.params.city,
@@ -52,11 +50,11 @@ module.exports = function (app) {
     }).then(function (dbArtists) {
       console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-     res.render("search", { artists: unpack(dbArtists) });
+      res.render("search", { artists: unpack(dbArtists) });
     });
   });
 
-
+  // Login and Signup Routes
   //=============================================
   app.post(
     "/api/login",
@@ -91,4 +89,28 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
+
+  //Blog Post routes
+  //==================================================
+  app.post("/api/artists/blog", function (req, res) {
+    console.log("req.body");
+    console.log(req.body);
+
+    db.Blogs.create({
+      title: req.body.title,
+      body: req.body.body,
+      ArtistId: req.body.ArtistId
+    }).then(function (data) {
+      console.log("query data in routes");
+      console.log(data);
+      res.json(data);
+    });
+  });
+//this is just getting all blog posts though. Need to grab only the posts for that
+  app.get("/api/artists/blog", function(req, res){
+    db.Blogs.findAll({})
+    .then(function(results) {
+      res.json(results);
+    })
+  })
 };
