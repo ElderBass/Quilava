@@ -1,14 +1,18 @@
-<h1>{{artist.first_name}} {{artist.last_name}}</h1>
+{{!--  --}}
+<div>
+    <h1>{{artist.first_name}} {{artist.last_name}}</h1>
 
-<aside>
+    <aside>
 
-    <h4><strong>Artist Info</strong></h4>
-    <p>Stage Name: {{artist.stage_name}}</p>
-    <p>Genre: {{artist.genre}}</p>
-    <p>Location: {{artist.city}}</p>
-    <p>Email: {{artist.email}}</p>
+        <h4><strong>Artist Info</strong></h4>
+        <p>Stage Name: {{artist.stage_name}}</p>
+        <p>Genre: {{artist.genre}}</p>
+        <p>Location: {{artist.city}}</p>
+        <p>Email: {{artist.email}}</p>
 
-</aside>
+    </aside>
+</div>
+
 
 <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}} data-bs-toggle="modal"
     data-bs-target="#blogPost" style="background-color: #F37900;">
