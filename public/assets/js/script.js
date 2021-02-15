@@ -47,26 +47,30 @@ $(document).ready(() => {
     let blog = {
       title: title,
       body: body,
-      ArtistId: id, //id is what it should be, but it's not setting ArtistId to it for whatever reason
+      ArtistId: id,
     };
 
     $.post("/api/artists/blog", blog, function (result) {
       //renderFeed(result, event);
-      location.reload();
+      console.log("result in blog 'post' query fronted");
+      console.log(result);
+      //renderFeed(result);
+     // location.reload();
+     window.location.assign("/api/artist/" + result.ArtistId);
     });
   });
 
-  $.get("/api/artists/blog", function (results) {
-    // event.preventDefault();
-    renderFeed(results);
-    //location.reload();
-  });
+  //   $.get("/api/artists/blog", function (results) {
+  //     // event.preventDefault();
+  //    // renderFeed(results);
+  //     location.reload();
+  //   });
   //this disappears right away and I'm not sure why
   function renderFeed(data) {
     let post = $("<div>");
     post.attr("class", "container");
     post.attr("style", "border: solid, 3px, black");
-    console.log(data);
+    //console.log(data);
     for (let i = 0; i < data.length; i++) {
       let title = $("<h4>");
       title.text(data[i].title);
@@ -84,63 +88,77 @@ $(document).ready(() => {
 
   //Signup Form stuff
   //===================================================
-   const signUpForm = $("form.signup");
-    const emailInput = $("input#email-input");
-    const passwordInput = $("input#password-input")
-    const firstName = $("input#first-name-input");
-    const lastName = $("input#last-name-input");
-    const stageName = $("input#stage-name-input");
-    const genre = $("input#genre-input");
-    const city = $("input#city-input")
-      
-    // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("submit", event => {
-      event.preventDefault();
-      const user = {
-        email: emailInput.val().trim(),
-        password: passwordInput.val().trim(),
-        first_name: firstName.val().trim(),
-        last_name: lastName.val().trim(),
-        stage_name: stageName.val().trim(),
-        genre: genre.val().trim(),
-        city: city.val().trim()
-      };
-  
-      if (!user.email || !user.password) {
-        return;
-      }
-      // If we have an email and password, run the signUpUser function
-      signUpUser(user.email, user.password, user.first_name, user.last_name, user.stage_name, user.genre, user.city);
-      emailInput.val("");
-      passwordInput.val("");
-      firstName.val("");
-      lastName.val("");
-      stageName.val("");
-      genre.val("");
-      city.val("");
-    });
-  
-    // Does a post to the signup route. If successful, we are redirected to the members page
-    // Otherwise we log any errors
-    function signUpUser(email, password, firstName, lastName, stageName, genre, city) {
-      $.post("/api/signup", {
-        email: email,
-        password: password,
-        first_name: firstName,
-        last_name: lastName,
-        stage_name: stageName,
-        genre: genre,
-        city: city
-      })
-        .then((response) => {
-            
-            window.location.assign('/api/artist/'+response);
-          
-        })
-        .catch(handleLoginErr);
+  const signUpForm = $("form.signup");
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
+  const firstName = $("input#first-name-input");
+  const lastName = $("input#last-name-input");
+  const stageName = $("input#stage-name-input");
+  const genre = $("input#genre-input");
+  const city = $("input#city-input");
+
+  // When the signup button is clicked, we validate the email and password are not blank
+  signUpForm.on("submit", (event) => {
+    event.preventDefault();
+    const user = {
+      email: emailInput.val().trim(),
+      password: passwordInput.val().trim(),
+      first_name: firstName.val().trim(),
+      last_name: lastName.val().trim(),
+      stage_name: stageName.val().trim(),
+      genre: genre.val().trim(),
+      city: city.val().trim(),
+    };
+
+    if (!user.email || !user.password) {
+      return;
     }
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
-      }
+    // If we have an email and password, run the signUpUser function
+    signUpUser(
+      user.email,
+      user.password,
+      user.first_name,
+      user.last_name,
+      user.stage_name,
+      user.genre,
+      user.city
+    );
+    emailInput.val("");
+    passwordInput.val("");
+    firstName.val("");
+    lastName.val("");
+    stageName.val("");
+    genre.val("");
+    city.val("");
+  });
+
+  // Does a post to the signup route. If successful, we are redirected to the members page
+  // Otherwise we log any errors
+  function signUpUser(
+    email,
+    password,
+    firstName,
+    lastName,
+    stageName,
+    genre,
+    city
+  ) {
+    $.post("/api/signup", {
+      email: email,
+      password: password,
+      first_name: firstName,
+      last_name: lastName,
+      stage_name: stageName,
+      genre: genre,
+      city: city,
+    })
+      .then((response) => {
+        window.location.assign("/api/artist/" + response);
+      })
+      .catch(handleLoginErr);
+  }
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
 });
