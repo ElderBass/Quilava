@@ -13,9 +13,21 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       },
+      include: db.Blogs,
     }).then((data) => {
-      res.render("profile", { artist: data.dataValues });
+      console.log("data from 'inner join' query")
+      console.log(data)
+      console.log(data.dataValues.Blogs)
+     // console.log(JSON.parse(JSON.stringify(data)))
+     // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));   
+      res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs });
     });
+    // db.Blogs.findAll({
+    //   where:
+    //   {
+    //     ArtistId: req.params.id
+    //   }
+    // }).then()
   });
   //================================================
 
@@ -99,18 +111,17 @@ module.exports = function (app) {
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
-      ArtistId: req.body.ArtistId
+      ArtistId: req.body.ArtistId,
     }).then(function (data) {
       console.log("query data in routes");
       console.log(data);
       res.json(data);
     });
   });
-//this is just getting all blog posts though. Need to grab only the posts for that
-  app.get("/api/artists/blog", function(req, res){
-    db.Blogs.findAll({})
-    .then(function(results) {
-      res.json(results);
-    })
-  })
+  //this is just getting all blog posts though. Need to grab only the posts for that
+  // app.get("/api/artists/blog", function (req, res) {
+  //   db.Blogs.findAll({}).then(function (results) {
+  //     res.json(results);
+  //   });
+  // });
 };
