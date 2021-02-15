@@ -107,28 +107,27 @@
 <h2>Extras</h2>
 <div class="container" id="extrasFeed">
     {{#unless extras}}
-        <div class="container" style="background-color:  rgb(221,19,1); color:white; padding: 15px; text-algin:center;">
-            <h6>Customize your profile to personalize your page.</h6>
-        </div>
+    <div class="container" style="background-color:  rgb(221,19,1); color:white; padding: 15px; text-algin:center;">
+        <h6>Customize your profile to personalize your page.</h6>
+    </div>
     {{/unless}}
 
     {{#if extras}}
-        {{#each extras}}
-            <div class="container">
-                <div class="row">
-                    <h4>About Me:</h4>
-                    <p>{{this.dataValues.bio}}</p>
-                </div>
-                <div class="row">
-                    <p>Link to GitHub: <a href="{{this.dataValues.github}}" target="_blank">{{this.dataValues.github}}</a></p>
-                    <p>Link to Twitch: <a href="{{this.dataValues.twitch}}" target="_blank">{{this.dataValues.twitch}}</a></p>
-                </div>
-                <div class="row">
-                    <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
-                            target="_blank">{{this.dataValues.favorite_mix}}</a></p>
-                </div>
-
-            </div>
-        {{/each}}
+    {{#each extras}}
+    <div class="container">
+        <div class="row">
+            <h4>About Me:</h4>
+            <p>{{this.dataValues.bio}}</p>
+        </div>
+        <div class="row">
+            <p>Link to GitHub: <a href="{{this.dataValues.github}}" target="_blank">{{this.dataValues.github}}</a></p>
+            <p>Link to Twitch: <a href="{{this.dataValues.twitch}}" target="_blank">{{this.dataValues.twitch}}</a></p>
+        </div>
+        <div class="row">
+            <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
+                    target="_blank">{{this.dataValues.favorite_mix}}</a></p>
+        </div>
+    </div>
+    {{/each}}
     {{/if}}
 </div>

@@ -1,4 +1,8 @@
+//const { response } = require("express");
+
 $(document).ready(() => {
+  //Search Results functions and requests
+  //=======================================================
   $("#browseAll").on("click", function () {
     $.get("/api/artists", function () {
       console.log("getting artists");
@@ -6,6 +10,7 @@ $(document).ready(() => {
     });
   });
 
+  //Searching by Genre
   $("form.genreSearch").on("submit", function (event) {
     event.preventDefault();
 
@@ -17,6 +22,7 @@ $(document).ready(() => {
     });
   });
 
+  //Searching by City
   $("form.citySearch").on("submit", function (event) {
     event.preventDefault();
 
@@ -28,6 +34,9 @@ $(document).ready(() => {
     });
   });
 
+
+  //Blog Post Functions
+  //===========================================================
   $("#newBlogBtn").on("click", function () {
     $("#blogPost").modal("show");
   });
