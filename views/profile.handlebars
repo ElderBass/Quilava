@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <h1>{{artist.first_name}} {{artist.last_name}}</h1>
 
 <aside>
@@ -16,6 +17,28 @@
 </button>
 
 <!-- Modal -->
+=======
+{{!-- Profile Information --}}
+<div class="container" id="profileContainer">
+    <div>
+        <h1>{{artist.first_name}} {{artist.last_name}}</h1>
+
+        <aside>
+
+            <h4><strong>Artist Info</strong></h4>
+            <p>Stage Name: {{artist.stage_name}}</p>
+            <p>Genre: {{artist.genre}}</p>
+            <p>Location: {{artist.city}}</p>
+            <p>Email: {{artist.email}}</p>
+
+        </aside>
+    </div>
+</div>
+
+
+
+<!-- For Creating New Blogs -->
+>>>>>>> Stashed changes
 <div class="modal fade" id="blogPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -44,6 +67,7 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <h2>Your Feed</h2>
 <div class="container" id="blogFeed">
     {{#unless blog}}
@@ -68,6 +92,168 @@
 </button>
 
 <!-- Modal -->
+=======
+<div class="container" id="blogFeed">
+    <div class="row">
+        <h2>Your Feed</h2>
+        <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}} data-bs-toggle="modal"
+            data-bs-target="#blogPost" style="background-color: #DD1301; color:white; float: right;">
+            Create New Blog Post
+        </button>
+    </div>
+    <div class="row">
+        {{#unless blog}}
+        <div class="container" style="background-color: #77797A; color:white; padding: 15px; text-algin:center;">
+            <h6>Your Feed Is Currently Empty. Tell Us What's Goin' On.</h6>
+        </div>
+        {{/unless}}
+
+        {{#if blog}}
+        {{#each blog}}
+        <div class="container">
+            <h4>{{this.dataValues.title}}</h4>
+            <p>{{this.dataValues.body}}</p>
+            <button class="editPostBtn" data-id={{this.dataValues.id}}><i class="fas fa-pencil-alt"></i></button>
+            <button class="deletePostBtn" data-id={{this.dataValues.id}}><i class="fa fa-trash"></i></i></button>
+        </div>
+        <!-- For Editing Blog Posts -->
+        <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="blogEntry">Edit Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editBlog">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" id="editPostTitle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Message:</label>
+                                <textarea class="form-control" id="editPostBody"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary saveChanges">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--For Deleting Posts -->
+        <div class="modal" id="confirmDelete" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Post?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this post forever?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="deleteBtn" class="btn btn-primary deletePost">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+<!--=============================================================================================== -->
+
+
+<!-- Mixes Carousel -->
+<!-- =====================================================================================-->
+<div class="container" id="mixesContainer">
+    <div class="row">
+        <h2>Your Mixes</h2>
+        <button type="button" class="btn btn-default" id="newMixBtn" data-id={{artist.id}} data-bs-toggle="modal"
+            data-bs-target="#newMixModal" style="background-color: #F37900; float: right;">
+            Add To Your Mixes
+        </button>
+    </div>
+    <div class="row">
+        {{#unless mixes}}
+        <div class="container" style="background-color:  rgb(221,19,1); color:white; padding: 15px; text-algin:center;">
+            <h6>You Haven't Entered Any Mixes Yet. Show Us What You've Got.</h6>
+        </div>
+        {{/unless}}
+
+        {{#if mixes}} <!--I don't have the faintest fucking clue why this isn't displaying-->
+        <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {{#each mixes}}
+                <div class="carousel-item ">
+                    <img src="../../assets/record.png" class="d-block w-100" alt="Record Image">
+                    <div class="carousel-caption">
+                        <a href="{{this.dataValues.url}}" target="_blank">
+                            <h5>{{this.dataValues.name}}</h5>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="carousel-item">
+                    <div class="container" style:"background-color: red">
+                        {{!-- <iframe alt="This Video Failed to Load" width="560" height="315"
+                            src="{{this.dataValues.url}}" allowfullscreen></iframe> --}}
+                    </div>
+                </div> -->
+                {{/each}}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<!--New Mix Modal-->
+<div class="modal fade" id="newMixModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mixes">Mixology 101</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="newMixForm" data-id={{artist.id}}>
+                    <div class="mb-3">
+                        <label for="newMixName" class="col-form-label">Enter a Name For This Mix:</label>
+                        <input type="text" class="form-control" id="newMixName" placeholder="Mix Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newMixURL" class="col-form-label">Enter Link to Embed Mix:</label>
+                        <input type="text" class="form-control" id="newMixURL" placeholder="Embed Link">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="addMixBtn">Add Mix</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- For Customizing Profile and adding Extra Information -->
+
+<!-- Customize Page Modal -->
+>>>>>>> Stashed changes
 <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -104,6 +290,7 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <h2>Extras</h2>
 <div class="container" id="extrasFeed">
     {{#unless extras}}
@@ -131,3 +318,46 @@
     {{/each}}
     {{/if}}
 </div>
+=======
+
+<div class="container" id="extrasFeed">
+    <div class="row">
+        <h2>Extras</h2>
+        <button type="button" class="btn btn-default" id="customizeBtn" data-id={{artist.id}} data-bs-toggle="modal"
+            data-bs-target="#customInfo" style="background-color: #DD1301; color:white;">
+            Customize Your Profile
+        </button>
+    </div>
+    <div class="row">
+        {{#unless extras}}
+        <div class="container" style="background-color: #77797A; color:white; padding: 15px; text-algin:center;">
+            <h6>Customize your profile to personalize your page.</h6>
+        </div>
+        {{/unless}}
+
+        {{#if extras}}
+        {{#each extras}}
+        <div class="container">
+            <div class="row">
+                <h4>About Me:</h4>
+                <p>{{this.dataValues.bio}}</p>
+            </div>
+            <div class="row">
+                <h4>Links:</h4>
+                <p>Link to GitHub: <a href="{{this.dataValues.github}}" target="_blank">{{this.dataValues.github}}</a>
+                </p>
+                <p>Link to Twitch: <a href="{{this.dataValues.twitch}}" target="_blank">{{this.dataValues.twitch}}</a>
+                </p>
+            </div>
+            <div class="row">
+                <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
+                        target="_blank">{{this.dataValues.favorite_mix}}</a></p>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+<!-- =====================================================================================-->
+>>>>>>> Stashed changes

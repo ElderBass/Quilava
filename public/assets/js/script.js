@@ -34,7 +34,10 @@ $(document).ready(() => {
     });
   });
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   //Blog Post Functions
   //===========================================================
   $("#newBlogBtn").on("click", function () {
@@ -66,6 +69,75 @@ $(document).ready(() => {
       window.location.assign("/api/artist/" + result.ArtistId);
     });
   });
+<<<<<<< Updated upstream
+=======
+
+  $(".editPostBtn").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    console.log(id);
+
+    $("form#editBlog").attr("data-id", id);
+    $("#editPost").modal("show");
+  });
+
+  $(".saveChanges").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    // $(this).closest("form").data("id", id);
+    $(this).closest("form").submit();
+  });
+
+  $("#editBlog").on("submit", function (event) {
+    event.preventDefault();
+    console.log("made it inside edit changes button");
+    let id = $(this).data("id");
+    console.log(id);
+    let title = $("input#editPostTitle").val().trim();
+    let body = $("textarea#editPostBody").val().trim();
+
+    let blog = {
+      title: title,
+      body: body,
+    };
+    $.ajax({
+      url: "/api/artists/blog/" + id,
+      method: "PUT",
+      data: blog,
+    }).then(function (result) {
+      console.log("result in blog 'post' query fronted");
+      console.log(result);
+      location.reload();
+      //window.location.assign("/api/artist/" + result.ArtistId);
+    });
+  });
+
+  $(".deletePostBtn").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    console.log("delete button data-id = " + id);
+
+    $("button#deleteBtn").attr("data-id", id);
+    $("#confirmDelete").modal("show");
+  });
+
+  $(".deletePost").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    console.log(id);
+    //$(this).closest("form").submit();
+
+    $.ajax({
+      url: "/api/artists/blog/" + id,
+      method: "DELETE",
+    }).then(function (result) {
+      console.log("result in blog 'delete' query fronted");
+      console.log(result);
+      location.reload();
+    });
+  });
+
+>>>>>>> Stashed changes
   //Extras Form POST Request
   //===================================================
   $("#customizeBtn").on("click", function () {
@@ -103,6 +175,43 @@ $(document).ready(() => {
     });
   });
 
+<<<<<<< Updated upstream
+=======
+  //Mixes Post Request
+  //===================================================
+  $("#newMixBtn").on("click", function () {
+    $("#newMixModal").modal("show");
+  });
+
+  $("#addMixBtn").on("click", function (event) {
+    event.preventDefault();
+    $(this).closest("form").submit();
+  });
+
+  $("#newMixForm").on("submit", function (event) {
+    event.preventDefault();
+    console.log("Mixes form submission");
+
+    let url = $("input#newMixURL").val().trim();
+    let name = $("input#newMixName").val().trim();
+
+    let id = $(this).data("id");
+
+    let mix = {
+      url: url,
+      name: name,
+      ArtistId: id,
+    };
+
+    $.post("/api/artists/mixes", mix, function (result) {
+      console.log("result in Mixes 'post' query fronted");
+      console.log(result);
+
+      window.location.assign("/api/artist/" + result.ArtistId);
+    });
+  });
+
+>>>>>>> Stashed changes
   //Signup Form stuff
   //===================================================
   const signUpForm = $("form.signup");
@@ -178,6 +287,7 @@ $(document).ready(() => {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+<<<<<<< Updated upstream
 
   // <<------ Drum Lite ------>>
 {
@@ -259,4 +369,6 @@ $(document).ready(() => {
       });
     
     };
+=======
+>>>>>>> Stashed changes
 });

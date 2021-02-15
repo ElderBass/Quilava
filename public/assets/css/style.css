@@ -1,4 +1,5 @@
 .footer {
+<<<<<<< Updated upstream
     position: fixed;
     left: 0;
     bottom: 0;
@@ -6,10 +7,21 @@
     background-color: #edeacb;
     color: #77797A;
     text-align: center
+=======
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #483d8b;
+    color: white;
+    text-align: center;
+    padding: 8px;
+>>>>>>> Stashed changes
 };
 
 .navbar {
     margin-bottom: 20px;
+<<<<<<< Updated upstream
 }
 
 /* <<------ Drum Lite ------>> */
@@ -78,3 +90,6 @@
     border: 3px solid #f37900; 
   }
   
+=======
+};
+>>>>>>> Stashed changes

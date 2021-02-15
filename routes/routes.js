@@ -12,6 +12,7 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
+<<<<<<< Updated upstream
       },
       include: [db.Blogs, db.Extras],
     }).then((data) => {
@@ -21,6 +22,20 @@ module.exports = function (app) {
      // console.log(JSON.parse(JSON.stringify(data)))
      // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));   
       res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs, extras: data.dataValues.Extras });
+=======
+      }, //how to order by date/newest with a join?
+      include: [db.Blogs, db.Extras, db.Mixes],
+      order: [["id", "DESC"]],
+    }).then((data) => {
+      console.log("data from 'inner join' query");
+      console.log(data);
+      res.render("profile", {
+        artist: data.dataValues,
+        blog: data.dataValues.Blogs,
+        extras: data.dataValues.Extras,
+        mixes: data.dataValues.Mixes
+      });
+>>>>>>> Stashed changes
     });
   });
   //================================================
@@ -65,8 +80,12 @@ module.exports = function (app) {
   app.post(
     "/api/login",
     /* passport.authenticate("local"),*/ (req, res) => {
+<<<<<<< Updated upstream
       // Sending back a password, even a hashed password, isn't a good idea
 
+=======
+    
+>>>>>>> Stashed changes
       console.log("inside api/login post");
 
       console.log(req.body);
@@ -113,8 +132,45 @@ module.exports = function (app) {
     });
   });
 
+<<<<<<< Updated upstream
 // Extras Routes
 //==========================================================
+=======
+  app.put("/api/artists/blog/:id", function (req, res) {
+    console.log("put request req.params");
+
+    let id = parseInt(req.params.id);
+
+    db.Blogs.update(req.body, {
+      where: {
+        id: id,
+      },
+    }).then(function (result) {
+      console.log("result from put request:");
+      console.log(JSON.parse(result));
+      res.send(result);
+    });
+  });
+
+  app.delete("/api/artists/blog/:id", function (req, res) {
+    console.log("delete request req.params");
+
+    let id = parseInt(req.params.id);
+
+    db.Blogs.destroy({
+      where: {
+        id: id,
+      },
+    }).then(function (result) {
+      console.log("result from delete request:");
+      console.log(result);
+      res.end();
+    });
+  })
+
+  // Extras Routes
+  //==========================================================
+>>>>>>> Stashed changes
   app.post("/api/artists/extras", function (req, res) {
     console.log("req.body for extras post request");
     console.log(req.body);
@@ -131,4 +187,24 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+<<<<<<< Updated upstream
+=======
+
+  //Mixes Routes
+  //=================================================
+  app.post("/api/artists/mixes", function(req, res){
+    console.log("req.body for adding mixes = ");
+    console.log(req.body);
+
+    db.Mixes.create({
+      url: req.body.url,
+      name: req.body.name,
+      ArtistId: req.body.ArtistId
+    }).then(function(result){
+      console.log("query data in MIXES post route .then");
+      console.log(result);
+      res.json(result);
+    })
+  })
+>>>>>>> Stashed changes
 };
