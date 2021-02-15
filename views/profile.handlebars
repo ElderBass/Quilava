@@ -1,14 +1,20 @@
-<h1>{{artist.first_name}} {{artist.last_name}}</h1>
+{{!-- Profile Information --}}
+<div class="container" id="profileContainer">
+    <div>
+        <h1>{{artist.first_name}} {{artist.last_name}}</h1>
 
-<aside>
+        <aside>
 
-    <h4><strong>Artist Info</strong></h4>
-    <p>Stage Name: {{artist.stage_name}}</p>
-    <p>Genre: {{artist.genre}}</p>
-    <p>Location: {{artist.city}}</p>
-    <p>Email: {{artist.email}}</p>
+            <h4><strong>Artist Info</strong></h4>
+            <p>Stage Name: {{artist.stage_name}}</p>
+            <p>Genre: {{artist.genre}}</p>
+            <p>Location: {{artist.city}}</p>
+            <p>Email: {{artist.email}}</p>
 
-</aside>
+        </aside>
+    </div>
+</div>
+
 
 
 <!-- For Creating New Blogs -->
@@ -44,13 +50,13 @@
     <div class="row">
         <h2>Your Feed</h2>
         <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}} data-bs-toggle="modal"
-            data-bs-target="#blogPost" style="background-color: #F37900; float: right;">
+            data-bs-target="#blogPost" style="background-color: #DD1301; color:white; float: right;">
             Create New Blog Post
         </button>
     </div>
     <div class="row">
         {{#unless blog}}
-        <div class="container" style="background-color:  rgb(221,19,1); color:white; padding: 15px; text-algin:center;">
+        <div class="container" style="background-color: #77797A; color:white; padding: 15px; text-algin:center;">
             <h6>Your Feed Is Currently Empty. Tell Us What's Goin' On.</h6>
         </div>
         {{/unless}}
@@ -160,13 +166,13 @@
     <div class="row">
         <h2>Extras</h2>
         <button type="button" class="btn btn-default" id="customizeBtn" data-id={{artist.id}} data-bs-toggle="modal"
-            data-bs-target="#customInfo" style="background-color: #F37900;">
+            data-bs-target="#customInfo" style="background-color: #DD1301; color:white;">
             Customize Your Profile
         </button>
     </div>
     <div class="row">
         {{#unless extras}}
-        <div class="container" style="background-color:  rgb(221,19,1); color:white; padding: 15px; text-algin:center;">
+        <div class="container" style="background-color: #77797A; color:white; padding: 15px; text-algin:center;">
             <h6>Customize your profile to personalize your page.</h6>
         </div>
         {{/unless}}

@@ -1,17 +1,21 @@
-<h1>Results:</h1>
-<hr>
 
-{{#each artists}}
 
 <div class='container'>
-    <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;"/>
-    <br>
-    <h6>{{this.first_name}} {{this.last_name}}</h6>
-    <p>Stage Name: {{this.stage_name}}</p>
-    <p>Genre: {{this.genre}}</p>
-    <p>Location: {{this.city}}</p>
-    <a href="/api/artist/{{this.id}}"><button class="btn btn-danger" data-id={{this.id}}>Jump to Profile</button></a>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Search Results:</h1>
+            <hr>
+            {{#each artists}}
+            <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;"/>
+            <br>
+            <h6>{{this.first_name}} {{this.last_name}}</h6>
+            <p>Stage Name: {{this.stage_name}}</p>
+            <p>Genre: {{this.genre}}</p>
+            <p>Location: {{this.city}}</p>
+            <a href="/api/artist/{{this.id}}"><button class="btn btn-danger" data-id={{this.id}}>Jump to Profile</button></a>
+            {{/each}}
+            <hr>
+        </div>
+    </div>
 </div>
-<hr>
 
-{{/each}}
