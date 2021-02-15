@@ -51,40 +51,48 @@ $(document).ready(() => {
     };
 
     $.post("/api/artists/blog", blog, function (result) {
-      //renderFeed(result, event);
       console.log("result in blog 'post' query fronted");
       console.log(result);
-      //renderFeed(result);
-     // location.reload();
-     window.location.assign("/api/artist/" + result.ArtistId);
+
+      window.location.assign("/api/artist/" + result.ArtistId);
     });
   });
+  //Extras Form POST Request
+  //===================================================
+  $("#customizeBtn").on("click", function () {
+    $("#customInfo").modal("show");
+  });
 
-  //   $.get("/api/artists/blog", function (results) {
-  //     // event.preventDefault();
-  //    // renderFeed(results);
-  //     location.reload();
-  //   });
-  //this disappears right away and I'm not sure why
-  function renderFeed(data) {
-    let post = $("<div>");
-    post.attr("class", "container");
-    post.attr("style", "border: solid, 3px, black");
-    //console.log(data);
-    for (let i = 0; i < data.length; i++) {
-      let title = $("<h4>");
-      title.text(data[i].title);
+  $("#saveExtrasBtn").on("click", function (event) {
+    event.preventDefault();
+    $(this).closest("form").submit();
+  });
 
-      let body = $("<p>");
-      body.text(data[i].body);
+  $("#extras").on("submit", function (event) {
+    event.preventDefault();
+    console.log("extras form submission");
 
-      post.append(title, body);
+    let github = $("input#github").val().trim();
+    let twitch = $("input#twitch").val().trim();
+    let favorite = $("input#favorite-mix").val().trim();
+    let bio = $("textarea#bio").val().trim();
+    let id = $(this).data("id");
 
-      console.log(post);
-      //prepend doesn't do shit here. Don't know why
-      $("#blogFeed").prepend(post);
-    }
-  }
+    let extras = {
+      github: github,
+      twitch: twitch,
+      favorite_mix: favorite,
+      bio: bio,
+      ArtistId: id,
+    };
+
+    $.post("/api/artists/extras", extras, function (result) {
+      console.log("result in extras 'post' query fronted");
+      console.log(result);
+
+      window.location.assign("/api/artist/" + result.ArtistId);
+    });
+  });
 
   //Signup Form stuff
   //===================================================

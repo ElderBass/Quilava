@@ -13,21 +13,15 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       },
-      include: db.Blogs,
+      include: [db.Blogs, db.Extras],
     }).then((data) => {
       console.log("data from 'inner join' query")
       console.log(data)
       console.log(data.dataValues.Blogs)
      // console.log(JSON.parse(JSON.stringify(data)))
      // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));   
-      res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs });
+      res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs, extras: data.dataValues.Extras });
     });
-    // db.Blogs.findAll({
-    //   where:
-    //   {
-    //     ArtistId: req.params.id
-    //   }
-    // }).then()
   });
   //================================================
 
@@ -118,10 +112,23 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-  //this is just getting all blog posts though. Need to grab only the posts for that
-  // app.get("/api/artists/blog", function (req, res) {
-  //   db.Blogs.findAll({}).then(function (results) {
-  //     res.json(results);
-  //   });
-  // });
+
+// Extras Routes
+//==========================================================
+  app.post("/api/artists/extras", function (req, res) {
+    console.log("req.body for extras post request");
+    console.log(req.body);
+
+    db.Extras.create({
+      github: req.body.github,
+      twitch: req.body.twitch,
+      favorite_mix: req.body.favorite_mix,
+      bio: req.body.bio,
+      ArtistId: req.body.ArtistId,
+    }).then(function (data) {
+      console.log("query data in extras post route .then");
+      console.log(data);
+      res.json(data);
+    });
+  });
 };
