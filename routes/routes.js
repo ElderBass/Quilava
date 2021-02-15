@@ -12,19 +12,17 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
-      }, //how to order by date with a join?
-      include: [db.Blogs, db.Extras],
-      order: [["createdAt", "DESC"]],
+      }, //how to order by date/newest with a join?
+      include: [db.Blogs, db.Extras, db.Mixes],
+      order: [["id", "DESC"]],
     }).then((data) => {
       console.log("data from 'inner join' query");
       console.log(data);
-      console.log(data.dataValues.Blogs);
-      // console.log(JSON.parse(JSON.stringify(data)))
-      // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
         extras: data.dataValues.Extras,
+        mixes: data.dataValues.Mixes
       });
     });
   });
@@ -70,8 +68,7 @@ module.exports = function (app) {
   app.post(
     "/api/login",
     /* passport.authenticate("local"),*/ (req, res) => {
-      // Sending back a password, even a hashed password, isn't a good idea
-
+    
       console.log("inside api/login post");
 
       console.log(req.body);
@@ -168,4 +165,21 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  //Mixes Routes
+  //=================================================
+  app.post("/api/artists/mixes", function(req, res){
+    console.log("req.body for adding mixes = ");
+    console.log(req.body);
+
+    db.Mixes.create({
+      url: req.body.url,
+      name: req.body.name,
+      ArtistId: req.body.ArtistId
+    }).then(function(result){
+      console.log("query data in MIXES post route .then");
+      console.log(result);
+      res.json(result);
+    })
+  })
 };
