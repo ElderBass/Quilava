@@ -12,15 +12,20 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
-      },
+      }, //how to order by date with a join?
       include: [db.Blogs, db.Extras],
+      order: [["createdAt", "DESC"]],
     }).then((data) => {
-      console.log("data from 'inner join' query")
-      console.log(data)
-      console.log(data.dataValues.Blogs)
-     // console.log(JSON.parse(JSON.stringify(data)))
-     // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));   
-      res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs, extras: data.dataValues.Extras });
+      console.log("data from 'inner join' query");
+      console.log(data);
+      console.log(data.dataValues.Blogs);
+      // console.log(JSON.parse(JSON.stringify(data)))
+      // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));
+      res.render("profile", {
+        artist: data.dataValues,
+        blog: data.dataValues.Blogs,
+        extras: data.dataValues.Extras,
+      });
     });
   });
   //================================================
@@ -113,8 +118,24 @@ module.exports = function (app) {
     });
   });
 
-// Extras Routes
-//==========================================================
+  app.put("/api/artists/blog/:id", function (req, res) {
+    console.log("put request req.params");
+
+    let id = parseInt(req.params.id);
+
+    db.Blogs.update(req.body, {
+      where: {
+        id: id,
+      },
+    }).then(function (result) {
+      console.log("result from put request:");
+      console.log(JSON.parse(result));
+      res.send(result);
+    });
+  });
+
+  // Extras Routes
+  //==========================================================
   app.post("/api/artists/extras", function (req, res) {
     console.log("req.body for extras post request");
     console.log(req.body);

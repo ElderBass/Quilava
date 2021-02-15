@@ -10,12 +10,14 @@
 
 </aside>
 
+
+<!-- For Creating New Blogs -->
 <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}} data-bs-toggle="modal"
     data-bs-target="#blogPost" style="background-color: #F37900;">
     Create New Blog Post
 </button>
 
-<!-- Modal -->
+
 <div class="modal fade" id="blogPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -57,17 +59,50 @@
     <div class="container">
         <h4>{{this.dataValues.title}}</h4>
         <p>{{this.dataValues.body}}</p>
+        <button class="editPostBtn" data-id={{this.dataValues.id}}><i class="fas fa-pencil-alt"></i></button>
     </div>
+    <!-- For Editing Blog Posts -->
+    <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogEntry">Edit Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editBlog" data-id={{this.dataValues.id}}>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Title:</label>
+                            <input type="text" class="form-control" id="editPostTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="editPostBody"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary saveChanges">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     {{/each}}
     {{/if}}
 </div>
+<!--=============================================================================================== -->
 
+
+<!-- For Customizing Profile and adding Extra Information -->
 <button type="button" class="btn btn-default" id="customizeBtn" data-id={{artist.id}} data-bs-toggle="modal"
     data-bs-target="#customInfo" style="background-color: #F37900;">
     Customize Your Profile
 </button>
 
-<!-- Modal -->
+<!-- Customize Page Modal -->
 <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -131,3 +166,5 @@
     {{/each}}
     {{/if}}
 </div>
+
+<!-- =====================================================================================-->
