@@ -16,6 +16,12 @@ module.exports = function (app) {
     }).then((data) => {
       res.render("profile", { artist: data.dataValues });
     });
+    // db.Blogs.findAll({
+    //   where:
+    //   {
+    //     ArtistId: req.params.id
+    //   }
+    // }).then()
   });
   //================================================
 
