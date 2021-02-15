@@ -71,15 +71,14 @@ $(document).ready(() => {
     let id = $(this).data("id");
     console.log(id);
 
-    $('form#editBlog').attr("data-id", id)
+    $("form#editBlog").attr("data-id", id);
     $("#editPost").modal("show");
-    
   });
 
   $(".saveChanges").on("click", function (event) {
     event.preventDefault();
-    let id = $(this).data('id');
-   // $(this).closest("form").data("id", id);
+    let id = $(this).data("id");
+    // $(this).closest("form").data("id", id);
     $(this).closest("form").submit();
   });
 
@@ -95,17 +94,41 @@ $(document).ready(() => {
       title: title,
       body: body,
     };
-    $.ajax(
-      {
-        url: "/api/artists/blog/" + id,
-        method: "PUT",
-        data: blog,
-      }).then(function (result) {
-        console.log("result in blog 'post' query fronted");
-        console.log(result);
-        location.reload();
-        //window.location.assign("/api/artist/" + result.ArtistId);
-      })    
+    $.ajax({
+      url: "/api/artists/blog/" + id,
+      method: "PUT",
+      data: blog,
+    }).then(function (result) {
+      console.log("result in blog 'post' query fronted");
+      console.log(result);
+      location.reload();
+      //window.location.assign("/api/artist/" + result.ArtistId);
+    });
+  });
+
+  $(".deletePostBtn").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    console.log("delete button data-id = "+id);
+
+    $("button#deleteBtn").attr("data-id", id);
+    $("#confirmDelete").modal("show");
+  });
+
+  $(".deletePost").on("click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    console.log(id);
+    //$(this).closest("form").submit();
+
+    $.ajax({
+      url: "/api/artists/blog/" + id,
+      method: "DELETE",
+    }).then(function (result) {
+      console.log("result in blog 'delete' query fronted");
+      console.log(result);
+      location.reload();
+    });
   });
 
   //Extras Form POST Request

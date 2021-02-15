@@ -134,6 +134,22 @@ module.exports = function (app) {
     });
   });
 
+  app.delete("/api/artists/blog/:id", function (req, res) {
+    console.log("delete request req.params");
+
+    let id = parseInt(req.params.id);
+
+    db.Blogs.destroy({
+      where: {
+        id: id,
+      },
+    }).then(function (result) {
+      console.log("result from delete request:");
+      console.log(result);
+      res.end();
+    });
+  })
+
   // Extras Routes
   //==========================================================
   app.post("/api/artists/extras", function (req, res) {
