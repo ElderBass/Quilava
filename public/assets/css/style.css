@@ -8,6 +8,19 @@
 
 }
 
+.carousel-inner{
+  height: 450px;
+  width: 450px;
+  outline-style: double;
+  outline-color: grey;
+  align-items: center;
+}
+
+.carousel-caption {
+  color: white;
+  font-weight: 900;
+  
+}
 /* <<------ Drum Emulator ------>> */
 #drumulator {
     outline-style: double;
@@ -25,6 +38,11 @@
     margin-left: 100;
 
   }
+
+  h3 {
+    color: #f37900;
+  }
+
   h4 {
     color: #f37900;
     text-align: right;
