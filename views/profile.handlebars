@@ -144,29 +144,21 @@
         <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 {{#each mixes}}
-                <!--Still needs work. Add a check for 'if this' then 'set active item' - need to work on that shit -->
-                <div class="carousel-item active">
-                    {{!-- <img src="../../assets/record.png" width="300px" height="300px" class="d-block w-100"
-                        alt="Record Image">
-                    <div class="carousel-caption">
-                        <a href="{{this.dataValues.url}}" target="_blank">
-                            <h5>{{this.dataValues.name}}</h5>
-                        </a>
-                    </div> --}}
-                    <div class="ratio ratio-16x9">
-                        <iframe class="ratio > *" alt="This Video Failed to Load" width="560" height="315"
-                            src="{{this.dataValues.url}}" allowfullscreen></iframe>
-                    </div>
-                </div>
+                    {{#if isActive}}
+                        {{> mixes/mixes-block isActive=true}}
+                    {{/if}}
+                    {{#unless isActive}}
+                        {{> mixes/mixes-block isActive=false}}
+                    {{/unless}}
                 {{/each}}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
-                <span style="color: red;">Previous</span>
+                <span style="color: #F37900;">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#mixesCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
-                <span style="color: red;">Next</span>
+                <span style="color: #F37900;">Next</span>
             </button>
         </div>
         {{/if}}
