@@ -198,7 +198,7 @@ $(document).ready(() => {
       console.log("result in Mixes 'post' query fronted");
       console.log(result);
 
-      window.location.assign("/api/artist/" + result.ArtistId);
+      window.location.assign("/api/artist/" + result);
     });
   });
 

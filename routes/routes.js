@@ -18,6 +18,16 @@ module.exports = function (app) {
     }).then((data) => {
       console.log("data from 'inner join' query");
       console.log(data);
+      //add isActive here
+      if (data.dataValues.Mixes) {
+      for (let i = 0; i < data.dataValues.Mixes.length; i++) {
+        if (data.dataValues.Mixes[i].id === 1) {
+            data.dataValues.Mixes[i].isActive = true;
+        }
+      }
+    }
+      console.log(data);
+
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -171,15 +181,16 @@ module.exports = function (app) {
   app.post("/api/artists/mixes", function(req, res){
     console.log("req.body for adding mixes = ");
     console.log(req.body);
-
+    let artistId = parseInt(req.body.ArtistId);
     db.Mixes.create({
       url: req.body.url,
       name: req.body.name,
-      ArtistId: req.body.ArtistId
+      ArtistId: artistId
     }).then(function(result){
       console.log("query data in MIXES post route .then");
-      console.log(result);
-      res.json(result);
+
+      console.log(result.dataValues.ArtistId);
+      res.json(result.dataValues.ArtistId);
     })
   })
 };
