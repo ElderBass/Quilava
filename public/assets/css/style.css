@@ -12,8 +12,10 @@
   border-color: #DD1301;
 } */
 .btn-default {
-  background-color: #f37900;
+  color: #f37900;
+  background-color: #ffffff;
   border-color: #186384;
+  border-width: 5px;
 }
 
 #landingTopContainer {

@@ -2,6 +2,9 @@
 // =============================================================
 var express = require("express");
 var exphbs = require("express-handlebars");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
@@ -18,6 +21,11 @@ app.use(express.json());
 // Sets up Handlebars as the designated frontend technology
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+// Passport Middleware
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Allows use to use all the files/folders from 'public' as our static directory
 app.use(express.static("public"));
