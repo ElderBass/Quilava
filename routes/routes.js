@@ -1,5 +1,6 @@
 //route for home --> res.render index (landing page)
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function (app) {
   // Handlebars Routes
@@ -39,6 +40,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/artist/:id", function (req, res) {
+    console.log(req.session)
     db.Artists.findOne({
       where: {
         id: req.params.id,
@@ -47,7 +49,7 @@ module.exports = function (app) {
       order: [["id", "DESC"]],
     }).then((data) => {
       console.log("data from 'inner join' query");
-      console.log(data);
+      // console.log(data);
       //add isActive here
       if (data.dataValues.Mixes) {
       for (let i = 0; i < data.dataValues.Mixes.length; i++) {
@@ -56,7 +58,7 @@ module.exports = function (app) {
         }
       }
     }
-      console.log(data);
+      // console.log(data);
 
       res.render("profile", {
         artist: data.dataValues,
@@ -107,7 +109,7 @@ module.exports = function (app) {
   //=============================================
   app.post(
     "/api/login",
-    /* passport.authenticate("local"),*/ (req, res) => {
+    passport.authenticate("local"), (req, res) => {
     
       console.log("inside api/login post");
 
@@ -120,7 +122,7 @@ module.exports = function (app) {
   );
 
   app.post("/api/signup", (req, res) => {
-    console.log("req.body =", req.body);
+    // console.log("req.body =", req.body);
     db.Artists.create({
       email: req.body.email,
       password: req.body.password,
@@ -131,7 +133,7 @@ module.exports = function (app) {
       city: req.body.city,
     })
       .then((data) => {
-        res.json(data.dataValues.id);
+        res.redirect(307, "/api/login")
       })
       .catch((err) => {
         res.status(401).json(err);

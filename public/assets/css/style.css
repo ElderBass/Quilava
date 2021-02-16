@@ -1,13 +1,45 @@
+#page-container {
+  background-color: rgb(252,227,159, 0.4);
+}
+
 .navbar {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    background-color: #186384;
+}
+
+/* #navSearchBtn {
+  background-color: #f37900;
+  border-color: #DD1301;
+} */
+.btn-default {
+  color: #f37900;
+  background-color: #ffffff;
+  border-color: #186384;
+  border-width: 5px;
 }
 
 #landingTopContainer {
     padding-top: 20px;
     padding-bottom: 20px;
-
 }
 
+.carousel-inner{
+  height: 450px;
+  width: 450px;
+  outline-style: double;
+  outline-color: grey;
+  align-items: center;
+}
+
+.carousel-caption {
+  color: white;
+  font-weight: 900;
+  
+}
+
+#landingLowerContainer {
+  align-items: center;
+}
 /* Profile Page */
 #newBlogBtn {
   background-color: #DD1301;
@@ -49,7 +81,7 @@
 #drumulator {
     outline-style: double;
     outline-color: #f37900;
-    background-color: #EDEACB;
+    background-color: #186384;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,6 +94,17 @@
     margin-left: 100;
 
   }
+
+  h2 {
+    color: grey;
+
+  }
+
+  h3 {
+    color: #f37900;
+    font-family: 'Orbitron', sans-serif;
+  }
+
   h4 {
     color: #f37900;
     text-align: right;
@@ -69,17 +112,14 @@
   }
 
   #homeHeader {
-    color: #77797A;
     text-align: center;
   }
 
   #homeHeaderText {
-    color: #77797A;
     text-align: center;
   }
 
   #drumLiteDesc {
-    color: #77797A;
     text-align: center;
   }
 
@@ -170,7 +210,7 @@
     bottom: 0;
     width: 100%;
     height: 3.4rem;
-    background-color: #77797A;
+    background-color: #186384;
     color: white;
     text-align: center;
     padding: 8px;
