@@ -49,8 +49,11 @@ $(document).ready(function(){
         city: city
       })
         .then((response) => {
-            
-            window.location.assign('/api/artist/'+response);
+          console.log("response from signUpUser .then")
+            console.log("response.id = ", response.id);
+            console.log("response.id = ", response.email);
+
+            window.location.assign('/api/artist/'+response.id);
           
         })
         .catch(handleLoginErr);

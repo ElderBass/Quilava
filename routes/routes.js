@@ -40,17 +40,18 @@ module.exports = function (app) {
   });
 
   app.get("/api/artist/:id", function (req, res) {
+    console.log("inside api/artist/:id get")
     console.log(req.session)
     db.Artists.findOne({
       where: {
-        id: req.params.id,
+        id: req.params.id
+        //id: req.session.id,
       }, //how to order by date/newest with a join?
       include: [db.Blogs, db.Extras, db.Mixes],
       order: [["id", "DESC"]],
     }).then((data) => {
       console.log("data from 'inner join' query");
-      // console.log(data);
-      //add isActive here
+
       if (data.dataValues.Mixes) {
       for (let i = 0; i < data.dataValues.Mixes.length; i++) {
         if (data.dataValues.Mixes[i].id === 1) {
@@ -112,11 +113,11 @@ module.exports = function (app) {
     passport.authenticate("local"), (req, res) => {
     
       console.log("inside api/login post");
-
-      console.log(req.body);
-      res.json({
-        email: req.body.email,
-        id: req.body.id,
+      console.log(req.session);
+      //console.log(req.body.user);
+      res.send({
+        email: req.user.email,
+        id: req.user.id,
       });
     }
   );
