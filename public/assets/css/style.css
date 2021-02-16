@@ -8,6 +8,43 @@
 
 }
 
+/* Profile Page */
+#newBlogBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#blogText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+#newMixBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#newMixText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+#customizeProfBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#customizeProfText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
 /* <<------ Drum Emulator ------>> */
 #drumulator {
     outline-style: double;
@@ -31,16 +68,19 @@
 
   }
 
-  h5 {
+  #homeHeader {
     color: #77797A;
     text-align: center;
-
   }
 
-  h6 {
+  #homeHeaderText {
     color: #77797A;
     text-align: center;
+  }
 
+  #drumLiteDesc {
+    color: #77797A;
+    text-align: center;
   }
 
   .pad {
