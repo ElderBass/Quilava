@@ -8,6 +8,36 @@ module.exports = function (app) {
     res.render("index");
   });
 
+  //add get route for rendering the 'view only' artist page
+  app.get("/artist/:id", function (req, res) {
+    db.Artists.findOne({
+      where: {
+        id: req.params.id,
+      }, //how to order by date/newest with a join?
+      include: [db.Blogs, db.Extras, db.Mixes],
+      order: [["id", "DESC"]],
+    }).then((data) => {
+      console.log("data from 'inner join' query");
+      console.log(data);
+      //add isActive here
+      if (data.dataValues.Mixes) {
+      for (let i = 0; i < data.dataValues.Mixes.length; i++) {
+        if (data.dataValues.Mixes[i].id === 1) {
+            data.dataValues.Mixes[i].isActive = true;
+        }
+      }
+    }
+      console.log(data);
+
+      res.render("view-profile", {
+        artist: data.dataValues,
+        blog: data.dataValues.Blogs,
+        extras: data.dataValues.Extras,
+        mixes: data.dataValues.Mixes
+      });
+    });
+  });
+
   app.get("/api/artist/:id", function (req, res) {
     db.Artists.findOne({
       where: {
