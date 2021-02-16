@@ -179,7 +179,7 @@ module.exports = function (app) {
     }).then(function(result){
       console.log("query data in MIXES post route .then");
       console.log(result);
-      res.json(result);
+      res.json(result.datValues);
     })
   })
 };
