@@ -21,16 +21,57 @@
   font-weight: 900;
   
 }
+
+#landingLowerContainer {
+  align-items: center;
+}
+/* Profile Page */
+#newBlogBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#blogText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+#newMixBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#newMixText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+#customizeProfBtn {
+  background-color: #DD1301;
+  color:#ffffff;
+}
+
+#customizeProfText {
+  background-color: #77797A;
+  color:#ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
 /* <<------ Drum Emulator ------>> */
 #drumulator {
     outline-style: double;
-    outline-color: #f37900;
+    outline-color: grey;
     background-color: #EDEACB;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    font-family: TR-909;
+    font-family: 'Orbitron', sans-serif;
   }
 
   h1 {
@@ -39,8 +80,14 @@
 
   }
 
+  h2 {
+    color: grey;
+
+  }
+
   h3 {
     color: #f37900;
+    font-family: 'Orbitron', sans-serif;
   }
 
   h4 {
@@ -49,16 +96,19 @@
 
   }
 
-  h5 {
+  #homeHeader {
     color: #77797A;
     text-align: center;
-
   }
 
-  h6 {
+  #homeHeaderText {
     color: #77797A;
     text-align: center;
+  }
 
+  #drumLiteDesc {
+    color: #77797A;
+    text-align: center;
   }
 
   .pad {
@@ -89,6 +139,58 @@
 
   .pad-1, .pad-2, .pad-3, .pad-4, .pad-5, .pad-6, .pad-7, .pad-8, .pad-9, .pad-10, .pad-11, .pad-12 { 
     border: 3px solid #f37900; 
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 20px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #f37900;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #f37900;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
 
 .footer {
