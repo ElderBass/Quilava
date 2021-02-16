@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "rootroot",
     "database": "quilava_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -17,7 +17,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "jawsdb-curved-68125",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "use_env_variable": "JAWSDB_URL"
