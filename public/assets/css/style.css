@@ -1,16 +1,12 @@
 .footer {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #edeacb;
     color: #77797A;
-    text-align: center
-=======
-=======
->>>>>>> Stashed changes
+    text-align: center;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -19,16 +15,10 @@
     color: white;
     text-align: center;
     padding: 8px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 };
 
 .navbar {
     margin-bottom: 20px;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 }
 
 /* <<------ Drum Lite ------>> */
@@ -96,10 +86,3 @@
   .pad-1, .pad-2, .pad-3, .pad-4, .pad-5, .pad-6, .pad-7, .pad-8, .pad-9, .pad-10, .pad-11, .pad-12 { 
     border: 3px solid #f37900; 
   }
-  
-=======
-};
->>>>>>> Stashed changes
-=======
-};
->>>>>>> Stashed changes
