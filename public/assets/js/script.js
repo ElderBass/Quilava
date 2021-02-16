@@ -292,14 +292,17 @@ $(document).ready(() => {
     var padTen = new Audio('/assets/drum-sounds/snare-3.wav');
     var padEleven = new Audio('/assets/drum-sounds/clap-3.wav');
     var padTwelve = new Audio('/assets/drum-sounds/hat-3.wav');
+    
+    $("body").on("keydown", function (e){
+      if ($("#checkbox").is(":checked")==true){
+        e.stopImmediatePropagation();
+      }else{
+        var code = e.keyCode;
+        var kc = String.fromCharCode(e.keyCode);
+        $("div[data-code='"+code+"']").addClass("active")
+        console.log(code);
   
-    $(window).keydown(function(e) {
-    var code = e.keyCode;
-    var kc = String.fromCharCode(e.keyCode);
-    $("div[data-code='"+code+"']").addClass("active")
-    console.log(code);
-  
-    switch(kc) {
+        switch(kc) {
         case "Q":
         padOne.load();
         padOne.play();
@@ -349,9 +352,10 @@ $(document).ready(() => {
         padTwelve.play();
         break;
         default:
-    }
-    });
-  
+          }
+        }
+      }
+    )
         $(window).keyup(function(e) { 
           var code = e.keyCode;
           $("div[data-code='"+code+"']").removeClass("active");
