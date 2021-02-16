@@ -30,6 +30,12 @@ module.exports = function(sequelize, DataTypes) {
         onDelete: "cascade"
       });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+      Artists.hasMany(models.Mixes, {
+        onDelete: "cascade"
+      });
+>>>>>>> Stashed changes
 =======
       Artists.hasMany(models.Mixes, {
         onDelete: "cascade"

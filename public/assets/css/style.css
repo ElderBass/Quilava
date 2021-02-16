@@ -1,5 +1,6 @@
 .footer {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     position: fixed;
     left: 0;
     bottom: 0;
@@ -8,6 +9,8 @@
     color: #77797A;
     text-align: center
 =======
+=======
+>>>>>>> Stashed changes
     position: absolute;
     left: 0;
     bottom: 0;
@@ -16,11 +19,15 @@
     color: white;
     text-align: center;
     padding: 8px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 };
 
 .navbar {
     margin-bottom: 20px;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 }
 
@@ -90,6 +97,9 @@
     border: 3px solid #f37900; 
   }
   
+=======
+};
+>>>>>>> Stashed changes
 =======
 };
 >>>>>>> Stashed changes

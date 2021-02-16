@@ -35,7 +35,10 @@ $(document).ready(() => {
   });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   //Blog Post Functions
@@ -70,7 +73,10 @@ $(document).ready(() => {
     });
   });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
   $(".editPostBtn").on("click", function (event) {
     event.preventDefault();
@@ -137,6 +143,9 @@ $(document).ready(() => {
     });
   });
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   //Extras Form POST Request
   //===================================================
@@ -176,7 +185,10 @@ $(document).ready(() => {
   });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   //Mixes Post Request
   //===================================================
   $("#newMixBtn").on("click", function () {
@@ -211,6 +223,9 @@ $(document).ready(() => {
     });
   });
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   //Signup Form stuff
   //===================================================
@@ -287,6 +302,7 @@ $(document).ready(() => {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
   // <<------ Drum Lite ------>>
@@ -369,6 +385,8 @@ $(document).ready(() => {
       });
     
     };
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 });

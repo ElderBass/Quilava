@@ -13,6 +13,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       },
       include: [db.Blogs, db.Extras],
     }).then((data) => {
@@ -23,6 +24,8 @@ module.exports = function (app) {
      // let unpack = (stuff) => JSON.parse(JSON.stringify(stuff));   
       res.render("profile", { artist: data.dataValues, blog: data.dataValues.Blogs, extras: data.dataValues.Extras });
 =======
+=======
+>>>>>>> Stashed changes
       }, //how to order by date/newest with a join?
       include: [db.Blogs, db.Extras, db.Mixes],
       order: [["id", "DESC"]],
@@ -35,6 +38,9 @@ module.exports = function (app) {
         extras: data.dataValues.Extras,
         mixes: data.dataValues.Mixes
       });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     });
   });
@@ -81,8 +87,12 @@ module.exports = function (app) {
     "/api/login",
     /* passport.authenticate("local"),*/ (req, res) => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       // Sending back a password, even a hashed password, isn't a good idea
 
+=======
+    
+>>>>>>> Stashed changes
 =======
     
 >>>>>>> Stashed changes
@@ -133,9 +143,12 @@ module.exports = function (app) {
   });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // Extras Routes
 //==========================================================
 =======
+=======
+>>>>>>> Stashed changes
   app.put("/api/artists/blog/:id", function (req, res) {
     console.log("put request req.params");
 
@@ -170,6 +183,9 @@ module.exports = function (app) {
 
   // Extras Routes
   //==========================================================
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   app.post("/api/artists/extras", function (req, res) {
     console.log("req.body for extras post request");
@@ -188,7 +204,10 @@ module.exports = function (app) {
     });
   });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
   //Mixes Routes
   //=================================================
@@ -206,5 +225,8 @@ module.exports = function (app) {
       res.json(result);
     })
   })
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 };
