@@ -26,6 +26,12 @@ module.exports = function(sequelize, DataTypes) {
       Artists.hasMany(models.Blogs, {
         onDelete: "cascade"
       });
+      Artists.hasMany(models.Extras, {
+        onDelete: "cascade"
+      });
+      Artists.hasMany(models.Mixes, {
+        onDelete: "cascade"
+      });
     };
   
     return Artists;
