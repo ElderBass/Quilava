@@ -1,55 +1,56 @@
 <div class="container" id="htmlNavButtons">
-  <a href='#signupForm'><button class="btn btn-default" style="background-color: #F37900;">Signup</button></a>
-  <a href='#loginForm'><button class="btn btn-default" style="background-color: #F37900;">Login</button></a>
+  <button type="button" data-bs-toggle="modal" data-bs-target="#signUpModal" class="btn btn-default"
+    style="background-color: #F37900;">Signup</button>
+  <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="loginModal" style="background-color: #F37900;">Login</button></a>
   <button class="btn btn-default" id="browseAll" style="background-color: #F37900;">Browse All Artists</button>
 </div>
 
 
-    {{!-- Top 2 Containers --}}
-    <div class="container" id="landingTopContainer">
+{{!-- Top 2 Containers --}}
+<div class="container" id="landingTopContainer">
+  <div class="row">
+    <div class="col">
+      <h5>TIRED OF BEING A WORTHLESS POS?</h5>
+      <h6>Create a QUILAVA profile and INSTANTLY become a "Mega Superstar Music Producer"!</h6>
+    </div>
+
+    <div class="col">
       <div class="row">
-        <div class="col">
-          <h5>TIRED OF BEING A WORTHLESS POS?</h5>
-          <h6>Create a QUILAVA profile and INSTANTLY become a "Mega Superstar Music Producer"!</h6>
+        <h6>First, let's see if you have one single creative bone in your stupid ugly body!</h6>
+      </div>
+
+      <div class="row" id="drumulator">
+        <h1>QUILAVA</h1>
+        <h4>DRUM EMULATOR</h4>
+
+        <div class="pad">
+          <div class="box pad-1" data-code="81">Q</div>
+          <div class="box pad-2" data-code="87">W</div>
+          <div class="box pad-3" data-code="69">E</div>
+          <div class="box pad-4" data-code="82">R</div>
+
+          <div class="box pad-5" data-code="65">A</div>
+          <div class="box pad-6" data-code="83">S</div>
+          <div class="box pad-7" data-code="68">D</div>
+          <div class="box pad-8" data-code="70">F</div>
+
+          <div class="box pad-9" data-code="90">Z</div>
+          <div class="box pad-10" data-code="88">X</div>
+          <div class="box pad-11" data-code="67">C</div>
+          <div class="box pad-12" data-code="86">V</div>
         </div>
-        
-        <div class="col">
-          <div class="row">
-            <h6>First, let's see if you have one single creative bone in your stupid ugly body!</h6>
-          </div>
-
-          <div class="row" id="drumulator">
-            <h1>QUILAVA</h1>
-            <h4>DRUM EMULATOR</h4>
-
-            <div class="pad">
-              <div class="box pad-1" data-code="81">Q</div>
-              <div class="box pad-2" data-code="87">W</div>
-              <div class="box pad-3" data-code="69">E</div>
-              <div class="box pad-4" data-code="82">R</div>
-
-              <div class="box pad-5" data-code="65">A</div>
-              <div class="box pad-6" data-code="83">S</div>
-              <div class="box pad-7" data-code="68">D</div>
-              <div class="box pad-8" data-code="70">F</div>
-
-              <div class="box pad-9" data-code="90">Z</div>
-              <div class="box pad-10" data-code="88">X</div>
-              <div class="box pad-11" data-code="67">C</div>
-              <div class="box pad-12" data-code="86">V</div>
-            </div>
-            <div>
-              <p>Enable Typing</p>
-                <label class="switch">
-                    <input type="checkbox" id="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-          </div>
+        <div>
+          <p>Enable Typing</p>
+          <label class="switch">
+            <input type="checkbox" id="checkbox">
+            <span class="slider"></span>
+          </label>
         </div>
-      </div>    
-    </div>        
-    {{!-- Top 2 Containers End --}}
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- Top 2 Containers End --}}
 
 
 <!-- Search Functionality -->
@@ -74,66 +75,72 @@
 
 
 <!-- Sign Up Form -->
-<div class="container" id="signupForm">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h2>Sign Up Form</h2>
-            <form class="signup">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address*</label>
-                    <input type="email" class="form-control" id="email-input" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password*</label>
-                    <input type="password" class="form-control" id="password-input" name="password"
-                        placeholder="Password">
-                </div>
-                {{!-- <div class="form-group">
-                    <label for="exampleInputPassword1">Confirm Password*</label>
-                    <input type="password" class="form-control" id="password-input" name="password"
-                        placeholder="Password">
-                </div> --}}
-                <div class="form-group">
-                    <label for="exampleInputPassword1">First Name*</label>
-                    <input type="text" class="form-control" id="first-name-input" name="first_name"
-                        placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Last Name*</label>
-                    <input type="text" class="form-control" id="last-name-input" name="last_name"
-                        placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Stage Name*</label>
-                    <input type="text" class="form-control" id="stage-name-input" name="stage_name"
-                        placeholder="Stage Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Genre*</label>
-                    <input type="text" class="form-control" id="genre-input" name="genre" placeholder="Genre">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">City*</label>
-                    <input type="text" class="form-control" id="city-input" name="city" placeholder="City">
-                </div>
-                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span> <span class="msg"></span>
-                </div>
-                <button type="submit" id="signupBtn" class="btn btn-default" style="background-color: #F37900;">Sign Up</button>
-            </form>
-            <br />
-            <p>Or log in <a href="/login" style="color: #F37900;">here</a></p>
-        </div>
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mixes">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="signup">
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputEmail1">Email address*</label>
+            <input type="email" class="form-control" id="email-input" name="email" placeholder="Email">
+          </div>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">Password*</label>
+            <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
+          </div>
+          {{!-- <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Password*</label>
+            <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
+          </div> --}}
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">First Name*</label>
+            <input type="text" class="form-control" id="first-name-input" name="first_name" placeholder="First Name">
+          </div>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">Last Name*</label>
+            <input type="text" class="form-control" id="last-name-input" name="last_name" placeholder="Last Name">
+          </div>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">Stage Name*</label>
+            <input type="text" class="form-control" id="stage-name-input" name="stage_name" placeholder="Stage Name">
+          </div>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">Genre*</label>
+            <input type="text" class="form-control" id="genre-input" name="genre" placeholder="Genre">
+          </div>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1">City*</label>
+            <input type="text" class="form-control" id="city-input" name="city" placeholder="City">
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="signupBtn" class="btn btn-default" style="background-color: #F37900;">Sign
+              Up</button>
+          </div>
+        </form>
+      </div>
+      {{!-- <p>Or log in <a href="/login" style="color: #F37900;">here</a></p> --}}
     </div>
+  </div>
 </div>
 
 <!-- Log In Form -->
-<div>
-  <div class="container" id="loginForm">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mixes">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <form class="login">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -143,10 +150,13 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="login-password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default" style="background-color: #F37900;">Login</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="loginBtn" class="btn btn-default"
+              style="background-color: #F37900;">Login</button>
+          </div>
         </form>
-        <br />
-        <p>Or sign up <a href="/" style="color: #F37900;">here</a></p>
+        {{!-- <p>Or sign up <a href="/" style="color: #F37900;">here</a></p> --}}
       </div>
     </div>
   </div>
