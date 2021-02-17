@@ -1,4 +1,7 @@
+
 $(document).ready(function () {
+ // let loggedIn;
+
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
@@ -66,10 +69,7 @@ $(document).ready(function () {
       .then((response) => {
         console.log("response from signUpUser .then");
         //this isn't working and I'm not sure why
-        $("#jumpToMyProfile").html(
-          `<a class="dropdown-item" href="/api/artist/${response.id}">My Profile</a>`
-        );
-
+        $("li#jumpToMyProfile").addClass("fucks");
         window.location.assign("/api/artist/" + response.id);
       })
       .catch(handleLoginErr);
@@ -78,4 +78,10 @@ $(document).ready(function () {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+  // if (loggedIn === true) {
+  //   $("#jumpToMyProfile").html(
+  //     `<a class="dropdown-item" href="/api/artist/${response.id}">My Profile</a>`
+  //   );
+  // }
 });
+

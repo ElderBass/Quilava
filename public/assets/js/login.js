@@ -1,3 +1,4 @@
+// let loggedIn;
 
 $(document).ready(() => {
     // Getting references to our form and inputs
@@ -32,6 +33,7 @@ $(document).ready(() => {
         .then((response) => {
           console.log("response in loginUser.then =")
           console.log(response)
+          loggedIn = true;
           window.location.assign("/api/artist/"+response.id)
           
         })
@@ -41,3 +43,9 @@ $(document).ready(() => {
     }
   });
   
+
+  // if (loggedIn === true) {
+  //   $("#jumpToMyProfile").html(
+  //     `<a class="dropdown-item" href="/api/artist/${response.id}">My Profile</a>`
+  //   );
+  // }
