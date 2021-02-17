@@ -1,10 +1,14 @@
 #page-container {
-  background-color: rgb(252,227,159, 0.4);
+  background-color: #186384
+
 }
 
 .navbar {
     margin-bottom: 15px;
     background-color: #186384;
+}
+p {
+  color: #ffffff;
 }
 
 .btn-default {
