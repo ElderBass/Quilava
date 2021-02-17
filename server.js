@@ -3,6 +3,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
+var path = require("path");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 var path = require("path");
@@ -29,7 +30,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Allows use to use all the files/folders from 'public' as our static directory
+<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, "public")));
+=======
+app.use(express.static(path.join(__dirname, '/public')));
+>>>>>>> 16f7fc4920de76d25dffe5c3bb272e1039be46d4
 
 // Routes
 // =============================================================
