@@ -9,8 +9,8 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  app.get("/api/artist/:id", function (req, res) {
-    console.log(req.session)
+  //add get route for rendering the 'view only' artist page
+  app.get("/artist/:id", function (req, res) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
@@ -19,7 +19,7 @@ module.exports = function (app) {
       order: [["id", "DESC"]],
     }).then((data) => {
       console.log("data from 'inner join' query");
-      // console.log(data);
+      console.log(data);
       //add isActive here
       if (data.dataValues.Mixes) {
       for (let i = 0; i < data.dataValues.Mixes.length; i++) {
@@ -28,7 +28,37 @@ module.exports = function (app) {
         }
       }
     }
-      // console.log(data);
+      console.log(data);
+
+      res.render("view-profile", {
+        artist: data.dataValues,
+        blog: data.dataValues.Blogs,
+        extras: data.dataValues.Extras,
+        mixes: data.dataValues.Mixes
+      });
+    });
+  });
+
+  app.get("/api/artist/:id", function (req, res) {
+    console.log("inside api/artist/:id get")
+    console.log(req.session)
+    db.Artists.findOne({
+      where: {
+        id: req.params.id
+        
+      }, //how to order by date/newest with a join?
+      include: [db.Blogs, db.Extras, db.Mixes],
+      order: [["id", "DESC"]],
+    }).then((data) => {
+      console.log("data from 'inner join' query");
+
+      if (data.dataValues.Mixes) {
+      for (let i = 0; i < data.dataValues.Mixes.length; i++) {
+        if (data.dataValues.Mixes[i].id === 1) {
+            data.dataValues.Mixes[i].isActive = true;
+        }
+      }
+    }
 
       res.render("profile", {
         artist: data.dataValues,
@@ -82,17 +112,17 @@ module.exports = function (app) {
     passport.authenticate("local"), (req, res) => {
     
       console.log("inside api/login post");
-
-      console.log(req.body);
-      res.json({
-        email: req.body.email,
-        id: req.body.id,
+      console.log(req.session);
+      
+      res.send({
+        email: req.user.email,
+        id: req.user.id,
       });
     }
   );
 
   app.post("/api/signup", (req, res) => {
-    // console.log("req.body =", req.body);
+    
     db.Artists.create({
       email: req.body.email,
       password: req.body.password,
