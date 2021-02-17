@@ -2,9 +2,9 @@ $(document).ready(() => {
   //Search Results functions and requests
   //=======================================================
   $("#browseAll").on("click", function () {
-    $.get("/api/artists", function () {
+    $.get("/artists", function () {
       console.log("getting artists");
-      window.location.assign("/api/artists");
+      window.location.assign("/artists");
     });
   });
 
@@ -15,8 +15,8 @@ $(document).ready(() => {
     let genre = $("input#genreSearch").val().trim();
     console.log(genre);
 
-    $.get("/api/artists/genre/" + genre, function () {
-      window.location.assign("/api/artists/genre/" + genre);
+    $.get("/artists/genre/" + genre, function () {
+      window.location.assign("/artists/genre/" + genre);
     });
   });
 
@@ -27,8 +27,8 @@ $(document).ready(() => {
     let city = $("input#citySearch").val().trim();
     //console.log(genre);
 
-    $.get("/api/artists/city/" + city, function () {
-      window.location.assign("/api/artists/city/" + city);
+    $.get("/artists/city/" + city, function () {
+      window.location.assign("/artists/city/" + city);
     });
   });
 

@@ -1,6 +1,7 @@
 //route for home --> res.render index (landing page)
 var db = require("../models");
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function (app) {
   // Handlebars Routes
@@ -28,8 +29,6 @@ module.exports = function (app) {
         }
       }
     }
-      console.log(data);
-
       res.render("view-profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -72,14 +71,14 @@ module.exports = function (app) {
 
   // Find all Artists, or by Genre and Location
   //================================================
-  app.get("/api/artists", function (req, res) {
+  app.get("/artists", function (req, res) {
     db.Artists.findAll({}).then(function (dbArtists) {
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
       res.render("all-artists", { artists: unpack(dbArtists) });
     });
   });
 
-  app.get("/api/artists/genre/:genre", function (req, res) {
+  app.get("/artists/genre/:genre", function (req, res) {
     console.log("req.params ", req.params.genre);
     db.Artists.findAll({
       where: {
@@ -92,7 +91,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/artists/city/:city", function (req, res) {
+  app.get("/artists/city/:city", function (req, res) {
     console.log(req.params.city);
     db.Artists.findAll({
       where: {
@@ -112,11 +111,12 @@ module.exports = function (app) {
     passport.authenticate("local"), (req, res) => {
     
       console.log("inside api/login post");
-      console.log(req.session);
+      console.log(req.session.passport.user.dataValues.first_name);
       
-      res.send({
+      res.json({
         email: req.user.email,
         id: req.user.id,
+        user: req.session.passport.user.dataValues.first_name
       });
     }
   );

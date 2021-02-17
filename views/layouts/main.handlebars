@@ -31,6 +31,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    {{!-- <div id="userName" class="hide"> Welcome, {{artist.first_name}}</div> --}}
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
@@ -39,15 +40,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Drumpad</a>
                             </li>
+                            <li id="jumpToMyProfile" class="hide" ><a class="dropdown-item" style="color: #F37900" href="/api/artist/{{artist.id}}">My Profile</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Profile
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li id="jumpToMyProfile">
-                                        <!--<a class="dropdown-item" >My Profile</a>-->
-                                    </li>
                                     <li><a class="dropdown-item" href="#">My Songs</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -66,7 +65,7 @@
 
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer" id="quilavaFooter">
         <a href="/"><button class="btn btn-default" style="float: left;">Home</button></a>
         <p>Quilava™ Footer</p>
     </footer>
@@ -75,8 +74,8 @@
     integrity='sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=='
     crossorigin='anonymous'></script>
 <script type='text/javascript' src='../../assets/js/drums.js'></script>
-<script type='text/javascript' src='../../assets/js/signup.js'></script>
 <script type='text/javascript' src='../../assets/js/login.js'></script>
 <script type='text/javascript' src='../../assets/js/script.js'></script>
+<script type='text/javascript' src='../../assets/js/signup.js'></script>
 
 </html>
