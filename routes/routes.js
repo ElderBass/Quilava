@@ -72,14 +72,14 @@ module.exports = function (app) {
 
   // Find all Artists, or by Genre and Location
   //================================================
-  app.get("/api/artists", function (req, res) {
+  app.get("/artists", function (req, res) {
     db.Artists.findAll({}).then(function (dbArtists) {
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
       res.render("all-artists", { artists: unpack(dbArtists) });
     });
   });
 
-  app.get("/api/artists/genre/:genre", function (req, res) {
+  app.get("/artists/genre/:genre", function (req, res) {
     console.log("req.params ", req.params.genre);
     db.Artists.findAll({
       where: {
@@ -92,7 +92,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/artists/city/:city", function (req, res) {
+  app.get("/artists/city/:city", function (req, res) {
     console.log(req.params.city);
     db.Artists.findAll({
       where: {
