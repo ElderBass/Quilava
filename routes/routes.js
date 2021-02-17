@@ -45,7 +45,7 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id
-        //id: req.session.id,
+        
       }, //how to order by date/newest with a join?
       include: [db.Blogs, db.Extras, db.Mixes],
       order: [["id", "DESC"]],
@@ -59,7 +59,6 @@ module.exports = function (app) {
         }
       }
     }
-      // console.log(data);
 
       res.render("profile", {
         artist: data.dataValues,
@@ -114,7 +113,7 @@ module.exports = function (app) {
     
       console.log("inside api/login post");
       console.log(req.session);
-      //console.log(req.body.user);
+      
       res.send({
         email: req.user.email,
         id: req.user.id,
@@ -123,7 +122,7 @@ module.exports = function (app) {
   );
 
   app.post("/api/signup", (req, res) => {
-    // console.log("req.body =", req.body);
+    
     db.Artists.create({
       email: req.body.email,
       password: req.body.password,

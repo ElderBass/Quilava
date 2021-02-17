@@ -1,0 +1,114 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="container">
+                <h1><strong>Artist Info</strong></h1>
+                <aside>
+                    <h3>{{artist.first_name}} {{artist.last_name}}</h3>
+                    <p>Stage Name: {{artist.stage_name}}</p>
+                    <p>Genre: {{artist.genre}}</p>
+                    <p>Location: {{artist.city}}</p>
+                    <p>Email: {{artist.email}}</p>
+                </aside>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="container" id="blogFeed">
+                <div class="row">
+                    <h2>Feed</h2>
+                </div>
+                <div class="row">
+                    {{#unless blog}}
+                    <div class="container" id="blogText">
+                        <h6>Their Feed Is Currently Empty. Check back later!</h6>
+                    </div>
+                    {{/unless}}
+
+                    {{#if blog}}
+                    {{#each blog}}
+                    <div class="container">
+                        <h4>{{this.dataValues.title}}</h4>
+                        <p>{{this.dataValues.body}}</p>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                </div>
+            </div> 
+            <div class="container" id="mixesContainer">
+                <div class="row">
+                    <h2>Mixes</h2>
+                </div>
+                <div class="row">
+                    {{#unless mixes}}
+                    <div class="container" id="newMixText">
+                        <h6>This Artist Hasn't Entered Any Mixes Yet. Check back later!</h6>
+                    </div>
+                    {{/unless}}
+
+                    {{#if mixes}}
+                    <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {{#each mixes}}
+                                {{#if isActive}}
+                                    {{> mixes/mixes-block isActive=true}}
+                                {{/if}}
+                                {{#unless isActive}}
+                                    {{> mixes/mixes-block isActive=false}}
+                                {{/unless}}
+                            {{/each}}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span style="color: #F37900;">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mixesCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span style="color: #F37900;">Next</span>
+                        </button>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+
+            <div class="container" id="extrasFeed">
+                <div class="row">
+                    <h2>Extras</h2>
+                </div>
+                <div class="row">
+                    {{#unless extras}}
+                    <div class="container" id="customizeProfText">
+                        <h6>This Artist Has Yet to Customize Their Information.</h6>
+                    </div>
+                    {{/unless}}
+
+                    {{#if extras}}
+                    {{#each extras}}
+                    <div class="container">
+                        <div class="row">
+                            <h4>About Me:</h4>
+                            <p>{{this.dataValues.bio}}</p>
+                        </div>
+                        <div class="row">
+                            <h4>Links:</h4>
+                            <p>Link to GitHub: <a href="{{this.dataValues.github}}"
+                                    target="_blank">{{this.dataValues.github}}</a>
+                            </p>
+                            <p>Link to Twitch: <a href="{{this.dataValues.twitch}}"
+                                    target="_blank">{{this.dataValues.twitch}}</a>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
+                                    target="_blank">{{this.dataValues.favorite_mix}}</a></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
