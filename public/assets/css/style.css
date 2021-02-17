@@ -40,10 +40,12 @@
 
 
 .btn-default {
-  color: #f37900;
-  background-color: #ffffff;
-  border-color: #186384;
-  border-width: 5px;
+  color: #fff;
+  background-color: #186384;
+  border-color: white;
+  border-width: 1px;
+  font-size: medium;
+  /* text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff; */
 }
 
 /* #navSearchBtn {
@@ -175,6 +177,7 @@
     font-size: 20px;
     color: #f37900;
     user-select: none;
+    border-radius: 25px;
   }
 
   .active {
@@ -256,4 +259,31 @@
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#drumpadButton {
+  text-shadow: 1px 0 0 #186384, 0 -1px 0 #186384, 0 1px 0 #186384, -1px 0 0 #186384;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#artistUnderlined {
+  text-decoration: underline;
+  color: black;
+  /* text-shadow: 1px 0 0 #DD1301, 0 -1px 0 #DD1301, 0 1px 0 #DD1301, -1px 0 0 #DD1301; */
+}
+
+#profilePosts {
+  color: black;
+  text-decoration: underline;
+}
+
+#boldInfo {
+  font-weight: bold;
 }
