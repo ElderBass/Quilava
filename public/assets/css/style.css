@@ -8,7 +8,7 @@
 }
 
 /* Custom Button */
-.customBtn:link,
+/* .customBtn:link,
 .customBtn:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -30,7 +30,7 @@
 .customBtn-white{
     background-color: #186384;
     color: #ffffff
-}
+} */
 
 #footerBtn {
   float: left;
@@ -38,16 +38,19 @@
   color: #ffffff;
 }
 
-/* #navSearchBtn {
-  background-color: #f37900;
-  border-color: #DD1301;
-}
+
 .btn-default {
   color: #f37900;
   background-color: #ffffff;
   border-color: #186384;
   border-width: 5px;
+}
+
+/* #navSearchBtn {
+  background-color: #f37900;
+  border-color: #DD1301;
 } */
+
 
 #landingTopContainer {
     padding-top: 20px;
