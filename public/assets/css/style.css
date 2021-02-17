@@ -55,15 +55,13 @@
 
 
 #landingTopContainer {
-    padding-top: 20px;
+    padding-top: 100px;
     padding-bottom: 20px;
 }
 
 .carousel-inner{
   height: 450px;
   width: 450px;
-  outline-style: double;
-  outline-color: grey;
   align-items: center;
 }
 
@@ -75,6 +73,7 @@
 
 #landingLowerContainer {
   align-items: center;
+  padding-bottom: 100px;
 }
 /* Profile Page */
 #newBlogBtn {
@@ -115,8 +114,7 @@
 
 /* <<------ Drum Emulator ------>> */
 #drumulator {
-    outline-style: double;
-    outline-color: #f37900;
+    padding: 30px;
     background-color: #186384;
     display: flex;
     flex-direction: column;
@@ -125,23 +123,12 @@
     font-family: 'Orbitron', sans-serif;
   }
 
-  h1 {
-    color: #f37900;
-    margin-left: 100;
-
-  }
-
-  h2 {
-    color: grey;
-
-  }
-
   h3 {
     color: #f37900;
     font-family: 'Orbitron', sans-serif;
   }
 
-  h4 {
+  h6 {
     color: #f37900;
     text-align: right;
 
