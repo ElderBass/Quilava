@@ -31,23 +31,25 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link active" aria-current="page" {{#if user}}href="/id/{{user}}"{{else}} href="/"{{/if}}>Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Drumpad</a>
                             </li>
+                            {{#if userName}} <li class="nav-item"><p style="color:#F37900"><strong>Welcome, {{userName}}</strong></p></div>{{/if}}
+                            {{#if userName}}<li class="nav-item" id="jumpToMyProfile" class="nav-item" ><a class="nav-link" style="color: #F37900" href="/api/artist/{{user}}">My Profile</a></li>{{/if}}
+                           
+                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Profile
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li id="jumpToMyProfile">
-                                        <!--<a class="dropdown-item" >My Profile</a>-->
-                                    </li>
                                     <li><a class="dropdown-item" href="#">My Songs</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -56,6 +58,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-default" id="navSearchBtn" type="submit">Search</button>
@@ -66,8 +69,8 @@
 
         </div>
     </div>
-    <footer class="footer">
-        <a href="/"><button class="btn btn-default" id="footerBtn">Home</button></a>
+    <footer class="footer" id="quilavaFooter">
+        <a {{#if user}}href="/id/{{user}}"{{else}} href="/"{{/if}}><button class="btn btn-default" id="footerBtn">Home</button></a>
         <p>Quilava™ Footer</p>
     </footer>
 </body>
@@ -75,8 +78,8 @@
     integrity='sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=='
     crossorigin='anonymous'></script>
 <script type='text/javascript' src='../../assets/js/drums.js'></script>
-<script type='text/javascript' src='../../assets/js/signup.js'></script>
 <script type='text/javascript' src='../../assets/js/login.js'></script>
 <script type='text/javascript' src='../../assets/js/script.js'></script>
+<script type='text/javascript' src='../../assets/js/signup.js'></script>
 
 </html>

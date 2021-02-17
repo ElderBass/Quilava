@@ -267,6 +267,11 @@ h6 {
   font-weight: bold;
 }
 
+/* <<<<<<< wrapping-forms */
+.hide {
+  display: none;
+}
+
 #customAboutMe {
   color: black;
 }
@@ -286,3 +291,4 @@ h6 {
 /* #centerItems {
   justify-content: center;
 } */
+/* >>>>>>> main */

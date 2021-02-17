@@ -6,6 +6,7 @@ var session = require("express-session");
 var path = require("path");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+var path = require("path");
 
 // Sets up the Express App
 // =============================================================

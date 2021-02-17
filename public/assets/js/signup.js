@@ -1,7 +1,4 @@
-
 $(document).ready(function () {
- // let loggedIn;
-
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
@@ -14,6 +11,18 @@ $(document).ready(function () {
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", (event) => {
     event.preventDefault();
+
+    // let profile = document.createElement("button")
+    // profile.text('My Profile')
+    // profile.on("click", function(){
+    //   alert('sup loser');
+    // })
+    // console.log(profile)
+    // $("quilavaFooter").append(profile);
+
+    
+    // $("li#jumpToMyProfile").removeClass();
+    // $("li#jumpToMyProfile").addClass("nav-item");
     const user = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
@@ -23,6 +32,7 @@ $(document).ready(function () {
       genre: genre.val().trim(),
       city: city.val().trim(),
     };
+
 
     if (!user.email || !user.password) {
       return;
@@ -44,6 +54,11 @@ $(document).ready(function () {
     stageName.val("");
     genre.val("");
     city.val("");
+
+    let profile = document.getElementById("jumpToMyProfile");
+    profile.classList.remove("hide");
+    profile.classList.add("nav-item");
+   
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
@@ -69,19 +84,21 @@ $(document).ready(function () {
       .then((response) => {
         console.log("response from signUpUser .then");
         //this isn't working and I'm not sure why
-        $("li#jumpToMyProfile").addClass("fucks");
-        window.location.assign("/api/artist/" + response.id);
+        console.log(response)
+        
+        // $("#jumpToMyProfile").removeClass("hide");
+       window.location.assign("/id/"+response.id)
+       // window.location.assign("/api/artist/" + response.id);
+
+            
+        let profile = document.getElementById("jumpToMyProfile");
+        profile.classList.remove("hide");
+        profile.classList.add("nav-item");
       })
       .catch(handleLoginErr);
   }
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text("Sorry but you didn't do that right.");
     $("#alert").fadeIn(500);
   }
-  // if (loggedIn === true) {
-  //   $("#jumpToMyProfile").html(
-  //     `<a class="dropdown-item" href="/api/artist/${response.id}">My Profile</a>`
-  //   );
-  // }
 });
-
