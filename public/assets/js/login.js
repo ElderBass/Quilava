@@ -1,3 +1,5 @@
+// let loggedIn;
+
 $(document).ready(() => {
     // Getting references to our form and inputs
     const loginForm = $("form.login");
@@ -22,15 +24,18 @@ $(document).ready(() => {
       passwordInput.val("");
     });
   
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    // loginUser does a post to our "api/login" route and if successful, redirects us to our profile page
     function loginUser(email, password) {
       $.post("/api/login", {
         email: email,
         password: password
       })
-        .then(() => {
-          location.reload();
-          // If there's an error, log the error
+        .then((response) => {
+          console.log("response in loginUser.then =")
+          console.log(response)
+          loggedIn = true;
+          window.location.assign("/api/artist/"+response.id)
+          
         })
         .catch(err => {
           console.log(err);
@@ -38,3 +43,9 @@ $(document).ready(() => {
     }
   });
   
+
+  // if (loggedIn === true) {
+  //   $("#jumpToMyProfile").html(
+  //     `<a class="dropdown-item" href="/api/artist/${response.id}">My Profile</a>`
+  //   );
+  // }
