@@ -1,21 +1,26 @@
-<h1 id="allArtistsHeader"
-    style="padding-left: 10px; background-color:#f37900; color: #fff;text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">
-    All Artists</h1>
 
-<div class='container'>
-    <div class="row">
-        {{#each artists}}
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;" />
-            <br>
-            <h6>{{this.first_name}} {{this.last_name}}</h6>
-            <p>Stage Name: {{this.stage_name}}</p>
-            <p>Genre: {{this.genre}}</p>
-            <p>Location: {{this.city}}</p>
-            <a href="/artist/{{this.id}}"><button class="btn btn-danger" data-id={{this.id}}>Jump to
-                    Profile</button></a>
-            <hr>
+        <h1 id="allArtistsHeader"
+            style="padding-left: 10px; background-color:#f37900; color: #fff;text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">
+            All Artists</h1>
+
+        <div class='container'>
+            <div class="row">
+                {{#each artists}}
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;" />
+                    <br>
+                    <h6>{{this.first_name}} {{this.last_name}}</h6>
+                    <p>Stage Name: {{this.stage_name}}</p>
+                    <p>Genre: {{this.genre}}</p>
+                    <p>Location: {{this.city}}</p>
+                    <a href="/artist/{{this.id}}"><button class="btn btn-danger" data-id={{this.id}}>Jump to
+                            Profile</button></a>
+                    <hr>
+                </div>
+                {{/each}}
+            </div>
         </div>
-        {{/each}}
+
+
     </div>
 </div>

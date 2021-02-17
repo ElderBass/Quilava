@@ -1,11 +1,20 @@
 //route for home --> res.render index (landing page)
 var db = require("../models");
 var passport = require("../config/passport");
-var isAuthenticated = require("../config/middleware/isAuthenticated")
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   // Handlebars Routes
   //===============================================
+  app.get("/id/:id", function (req, res) {
+    let id = req.params.id;
+    res.redirect("/user?valid=" + id);
+  });
+
+  app.get("/user", function (req, res) {
+    res.render("index", { user: req.user.id, userName: req.user.first_name });
+  });
+
   app.get("/", function (req, res) {
     res.render("index");
   });
@@ -23,28 +32,29 @@ module.exports = function (app) {
       console.log(data);
       //add isActive here
       if (data.dataValues.Mixes) {
-      for (let i = 0; i < data.dataValues.Mixes.length; i++) {
-        if (data.dataValues.Mixes[i].id === 1) {
+        for (let i = 0; i < data.dataValues.Mixes.length; i++) {
+          if (data.dataValues.Mixes[i].id === 1) {
             data.dataValues.Mixes[i].isActive = true;
+          }
         }
       }
-    }
       res.render("view-profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
         extras: data.dataValues.Extras,
-        mixes: data.dataValues.Mixes
+        mixes: data.dataValues.Mixes,
+        user: req.user.id,
+        userName: req.user.first_name,
       });
     });
   });
 
   app.get("/api/artist/:id", function (req, res) {
-    console.log("inside api/artist/:id get")
-    console.log(req.session)
+    console.log("inside api/artist/:id get");
+    console.log(req.session);
     db.Artists.findOne({
       where: {
-        id: req.params.id
-        
+        id: req.params.id,
       }, //how to order by date/newest with a join?
       include: [db.Blogs, db.Extras, db.Mixes],
       order: [["id", "DESC"]],
@@ -52,18 +62,19 @@ module.exports = function (app) {
       console.log("data from 'inner join' query");
 
       if (data.dataValues.Mixes) {
-      for (let i = 0; i < data.dataValues.Mixes.length; i++) {
-        if (data.dataValues.Mixes[i].id === 1) {
+        for (let i = 0; i < data.dataValues.Mixes.length; i++) {
+          if (data.dataValues.Mixes[i].id === 1) {
             data.dataValues.Mixes[i].isActive = true;
+          }
         }
       }
-    }
-
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
         extras: data.dataValues.Extras,
-        mixes: data.dataValues.Mixes
+        mixes: data.dataValues.Mixes,
+        user: data.dataValues.id,
+        userName: req.user.first_name,
       });
     });
   });
@@ -72,14 +83,21 @@ module.exports = function (app) {
   // Find all Artists, or by Genre and Location
   //================================================
   app.get("/artists", function (req, res) {
+    console.log("inside /aritsts");
+    console.log(req.user);
     db.Artists.findAll({}).then(function (dbArtists) {
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("all-artists", { artists: unpack(dbArtists) });
+      res.render("all-artists", {
+        artists: unpack(dbArtists),
+        user: req.user.id,
+        userName: req.user.first_name,
+      });
     });
   });
 
   app.get("/artists/genre/:genre", function (req, res) {
     console.log("req.params ", req.params.genre);
+    console.log("req.user.id = ", req.user.id);
     db.Artists.findAll({
       where: {
         genre: req.params.genre,
@@ -87,12 +105,16 @@ module.exports = function (app) {
     }).then(function (dbArtists) {
       console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("search", { artists: unpack(dbArtists) });
+      res.render("search", {
+        artists: unpack(dbArtists),
+        user: req.user.id,
+        userName: req.user.first_name,
+      });
     });
   });
 
   app.get("/artists/city/:city", function (req, res) {
-    console.log(req.params.city);
+    console.log("inside city search");
     db.Artists.findAll({
       where: {
         city: req.params.city,
@@ -100,29 +122,27 @@ module.exports = function (app) {
     }).then(function (dbArtists) {
       console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("search", { artists: unpack(dbArtists) });
+      res.render("search", {
+        artists: unpack(dbArtists),
+        user: req.user.id,
+        userName: req.user.first_name,
+      });
     });
   });
 
   // Login and Signup Routes
   //=============================================
-  app.post(
-    "/api/login",
-    passport.authenticate("local"), (req, res) => {
-    
-      console.log("inside api/login post");
-      console.log(req.session.passport.user.dataValues.first_name);
-      
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        user: req.session.passport.user.dataValues.first_name
-      });
-    }
-  );
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    console.log("inside api/login post");
+    console.log(req.session.passport.user.dataValues.first_name);
+
+    res.json({
+      email: req.user.email,
+      id: req.user.id,
+    });
+  });
 
   app.post("/api/signup", (req, res) => {
-    
     db.Artists.create({
       email: req.body.email,
       password: req.body.password,
@@ -133,7 +153,7 @@ module.exports = function (app) {
       city: req.body.city,
     })
       .then((data) => {
-        res.redirect(307, "/api/login")
+        res.redirect(307, "/api/login");
       })
       .catch((err) => {
         res.status(401).json(err);
@@ -187,7 +207,7 @@ module.exports = function (app) {
       console.log(result);
       res.end();
     });
-  })
+  });
 
   // Extras Routes
   //==========================================================
@@ -210,19 +230,19 @@ module.exports = function (app) {
 
   //Mixes Routes
   //=================================================
-  app.post("/api/artists/mixes", function(req, res){
+  app.post("/api/artists/mixes", function (req, res) {
     console.log("req.body for adding mixes = ");
     console.log(req.body);
     let artistId = parseInt(req.body.ArtistId);
     db.Mixes.create({
       url: req.body.url,
       name: req.body.name,
-      ArtistId: artistId
-    }).then(function(result){
+      ArtistId: artistId,
+    }).then(function (result) {
       console.log("query data in MIXES post route .then");
 
       console.log(result.dataValues.ArtistId);
       res.json(result.dataValues.ArtistId);
-    })
-  })
+    });
+  });
 };

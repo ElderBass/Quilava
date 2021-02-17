@@ -12,16 +12,17 @@ $(document).ready(function () {
   signUpForm.on("submit", (event) => {
     event.preventDefault();
 
-    let profile = $("<button>")
-    profile.text('My Profile')
-    profile.on("click", function(){
-      alert('sup loser');
-    })
-    console.log(profile)
-    $("quilavaFooter").append(profile);
+    // let profile = document.createElement("button")
+    // profile.text('My Profile')
+    // profile.on("click", function(){
+    //   alert('sup loser');
+    // })
+    // console.log(profile)
+    // $("quilavaFooter").append(profile);
+
     
-    $("li#jumpToMyProfile").removeClass();
-    $("li#jumpToMyProfile").addClass("nav-item");
+    // $("li#jumpToMyProfile").removeClass();
+    // $("li#jumpToMyProfile").addClass("nav-item");
     const user = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
@@ -53,6 +54,10 @@ $(document).ready(function () {
     stageName.val("");
     genre.val("");
     city.val("");
+
+    let profile = document.getElementById("jumpToMyProfile");
+    profile.classList.remove("hide");
+    profile.classList.add("nav-item");
    
   });
 
@@ -81,8 +86,14 @@ $(document).ready(function () {
         //this isn't working and I'm not sure why
         console.log(response)
         
-        $("#jumpToMyProfile").removeClass("hide");
-        window.location.assign("/api/artist/" + response.id);
+        // $("#jumpToMyProfile").removeClass("hide");
+       window.location.assign("/id/"+response.id)
+       // window.location.assign("/api/artist/" + response.id);
+
+            
+        let profile = document.getElementById("jumpToMyProfile");
+        profile.classList.remove("hide");
+        profile.classList.add("nav-item");
       })
       .catch(handleLoginErr);
   }
