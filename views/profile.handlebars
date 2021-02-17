@@ -2,20 +2,20 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="container">
-                <h1><strong>Artist Info</strong></h1>
+                <h1 id="artistUnderlined"><strong>Artist Info</strong></h1>
                 <aside>
                     <h3>{{artist.first_name}} {{artist.last_name}}</h3>
-                    <p>Stage Name: {{artist.stage_name}}</p>
-                    <p>Genre: {{artist.genre}}</p>
-                    <p>Location: {{artist.city}}</p>
-                    <p>Email: {{artist.email}}</p>
+                    <p id="boldInfo">Stage Name: {{artist.stage_name}}</p>
+                    <p id="boldInfo">Genre: {{artist.genre}}</p>
+                    <p id="boldInfo">Location: {{artist.city}}</p>
+                    <p id="boldInfo">Email: {{artist.email}}</p>
                 </aside>
             </div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="container" id="blogFeed">
                 <div class="row">
-                    <h2>Your Feed</h2>
+                    <h2 id="profilePosts">Your Feed</h2>
                     <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#blogPost">
                         Create New Blog Post
@@ -124,7 +124,7 @@
             </div> <!-- End of 'blog feed' container -->
             <div class="container" id="mixesContainer">
                 <div class="row">
-                    <h2>Your Mixes</h2>
+                    <h2 id="profilePosts">Your Mixes</h2>
                     <button type="button" class="btn btn-default" id="newMixBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#newMixModal">
                         Add To Your Mixes
@@ -238,7 +238,7 @@
             </div> <!-- end of customize modal-->
             <div class="container" id="extrasFeed">
                 <div class="row">
-                    <h2>Extras</h2>
+                    <h2 id="profilePosts">Extras</h2>
                     <button type="button" class="btn btn-default" id="customizeProfBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#customInfo" id="customizeProfBtn">
                         Customize Your Profile
