@@ -34,6 +34,7 @@ module.exports = function (app) {
           }
         }
       }
+
       res.render("view-profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -55,13 +56,7 @@ module.exports = function (app) {
       order: [[{ model: db.Blogs }, "createdAt", "DESC"]],
       include: [db.Blogs, db.Extras, db.Mixes],
     }).then((data) => {
-      if (data.dataValues.Mixes) {
-        for (let i = 0; i < data.dataValues.Mixes.length; i++) {
-          if (data.dataValues.Mixes[i].id === 1) {
-            data.dataValues.Mixes[i].isActive = true;
-          }
-        }
-      }
+
 
       res.render("profile", {
         artist: data.dataValues,
@@ -160,7 +155,7 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
-  
+
     // Route for logging user out
     app.get("/logout", (req, res) => {
       req.logout();
@@ -176,7 +171,7 @@ module.exports = function (app) {
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
-      ArtistId: req.body.ArtistId,
+      ArtistId: req.body.ArtistId
     }).then(function (data) {
       console.log("query data in routes");
       console.log(data);

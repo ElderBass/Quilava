@@ -25,7 +25,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     let city = $("input#citySearch").val().trim();
-    //console.log(genre);
 
     $.get("/artists/city/" + city, function () {
       window.location.assign("/artists/city/" + city);
@@ -43,6 +42,7 @@ $(document).ready(() => {
     $(this).closest("form").submit();
   });
 
+  
   $("#blogForm").on("submit", function (event) {
     event.preventDefault();
     console.log("form submission");
@@ -53,7 +53,7 @@ $(document).ready(() => {
     let blog = {
       title: title,
       body: body,
-      ArtistId: id,
+      ArtistId: id
     };
 
     $.post("/api/artists/blog", blog, function (result) {
@@ -89,7 +89,7 @@ $(document).ready(() => {
 
     let blog = {
       title: title,
-      body: body,
+      body: body
     };
     $.ajax({
       url: "/api/artists/blog/" + id,
@@ -292,7 +292,6 @@ $(document).ready(() => {
 
     let image = {
       image: url,
-      //ArtistId: id,
     };
 
     $.ajax({
@@ -302,7 +301,6 @@ $(document).ready(() => {
     }).then(function (result) {
       console.log(result);
       location.reload();
-      //window.location.assign("/user/" + result);
     });
   });
 });
