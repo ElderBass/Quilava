@@ -12,13 +12,13 @@
                     <p id="boldInfo">{{artist.genre}}</p>
                     {{!-- <p id="boldInfo">Email: {{artist.email}}</p> --}}
                 </aside>
-                <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+                <!--Add extra information to profile Modal -->
+                <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="extraInfo" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="extraInfo">Additonal Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -26,29 +26,26 @@
                                     <div class="mb-3">
                                         <label for="bio" class="col-form-label">Bio:</label>
                                         <textarea class="form-control" id="bio"
-                                        placeholder="Tell us about yourself! (Limit 500 Characters)">
+                                            placeholder="Tell us about yourself! (Limit 500 Characters)">
                                         </textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Bandcamp: </label>
-                                        <input type="text" class="form-control" id="github"
-                                        placeholder="Bandcamp">
+                                        <input type="text" class="form-control" id="bandcamp" placeholder="Bandcamp">
                                     </div>
                                     <div class="mb-3">
                                         <label for="github" class="col-form-label">Twitch: </label>
-                                        <input type="text" class="form-control" id="twitch"
-                                        placeholder="Twitch">
+                                        <input type="text" class="form-control" id="twitch" placeholder="Twitch">
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Discogs: </label>
-                                        <input type="text" class="form-control" id="favorite-mix"
-                                        placeholder="Discogs">
+                                        <input type="text" class="form-control" id="discogs" placeholder="Discogs">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
+                                            data-bs-dismiss="modal">Close</button>
                                         <button type="button" class="btn btn-primary" id="saveExtrasBtn">Save
-                                        Changes</button>
+                                            Changes</button>
                                     </div>
                                 </form>
                             </div>
@@ -60,77 +57,120 @@
                         <h5 id="aboutArtistProfile">About {{artist.stage_name}}:</h5>
                     </div>
                     <div class="row">
-                    {{#unless extras}}
-                    <div class="container" id="customAboutMe">
-                        <p>Add a bio and some external links to your profile!</p>
+                        {{#unless extras}}
+                        <div class="container" id="customAboutMe">
+                            <p>Add a bio and some external links to your profile!</p>
+                        </div>
+                        <button type="button" class="btn btn-default" id="editInfoBtn" data-id={{artist.id}}
+                            data-bs-toggle="modal" data-bs-target="#customInfo">
+                            Edit Profile
+                        </button>
+                        {{/unless}}
+                        {{#if extras}}
+                        {{#each extras}}
+                        <div class="container">
+                            <div class="row">
+                                {{!-- <h4>About Me:</h4> --}}
+                                <p>{{this.dataValues.bio}}</p>
+                            </div>
+                            <div class="row">
+                                {{!-- <h4>Links:</h4> --}}
+                                <p>Bandcamp: <a href="{{this.dataValues.github}}"
+                                        target="_blank">{{this.dataValues.github}}</a>
+                                </p>
+                                <p>Twitch: <a href="{{this.dataValues.twitch}}"
+                                        target="_blank">{{this.dataValues.twitch}}</a>
+                                </p>
+
+                            </div>
+                            <div class="row">
+                                <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
+                                        target="_blank">{{this.dataValues.favorite_mix}}</a></p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default" id="remixInfoBtn" data-id={{artist.id}}
+                            data-bs-toggle="modal" data-bs-target="#customInfo">
+                            Edit Profile
+                        </button>
+                        {{/each}}
+                        {{/if}}
                     </div>
-                    {{/unless}}
-                    {{#if extras}}
-                    {{#each extras}}
-                    <div class="container">
-                        <div class="row">
-                            {{!-- <h4>About Me:</h4> --}}
-                            <p>{{this.dataValues.bio}}</p>
-                        </div>
-                        <div class="row">
-                            {{!-- <h4>Links:</h4> --}}
-                            <p>Bandcamp: <a href="{{this.dataValues.github}}"
-                                target="_blank">{{this.dataValues.github}}</a>
-                            </p>
-                            <p>Twitch: <a href="{{this.dataValues.twitch}}"
-                                target="_blank">{{this.dataValues.twitch}}</a>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
-                                target="_blank">{{this.dataValues.favorite_mix}}</a></p>
-                        </div>
-                    </div>
-                    {{/each}}
-                    {{/if}}
                 </div>
-                <button type="button" class="btn btn-default" id="editInfoBtn" data-id={{artist.id}}
-                data-bs-toggle="modal" data-bs-target="#customInfo" id="editInfoBtn">
-                Edit Profile
-                </button>
             </div>
         </div>
-    </div>
-    <div class="col-sm-9 col-md-9 col-lg-9">
-        <div class="container" id="blogFeed">
-            <div class="row">
-                <h2 id="profilePosts">Your Feed</h2>
-                <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
-                    data-bs-toggle="modal" data-bs-target="#blogPost">
-                    Create Post
-                </button>
+        <!-- Modal for editing Extras info -->
+        <div class="modal fade" id="remixInfoModal" tabindex="-1" aria-labelledby="remix" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="remix">Profile Remix</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="remixForm" data-id={{artist.id}}>
+                            <div class="mb-3">
+                                <label for="bio" class="col-form-label">Bio:</label>
+                                <textarea class="form-control" id="remixBio"
+                                    placeholder="Tell us about yourself! (Limit 500 Characters)">
+                                        </textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Bandcamp: </label>
+                                <input type="text" class="form-control" id="remix-bandcamp" placeholder="Bandcamp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="github" class="col-form-label">Twitch: </label>
+                                <input type="text" class="form-control" id="remix-twitch" placeholder="Twitch">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Discogs: </label>
+                                <input type="text" class="form-control" id="remix-discogs" placeholder="Discogs">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="remixExtrasBtn">Remix</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                {{#unless blog}}
-                <div class="container" id="blogText">
-                    <h5>-- Empty --</h5><br>
-                    <p>Tell Your Fans What's Goin' On!</p>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="container" id="blogFeed">
+                <div class="row">
+                    <h2 id="profilePosts">Your Feed</h2>
+                    <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
+                        data-bs-toggle="modal" data-bs-target="#blogPost">
+                        Create Post
+                    </button>
                 </div>
-                {{/unless}}
-                {{#if blog}}
-                {{#each blog}}
-                <div class="container">
-                    <h4>{{this.dataValues.title}}</h4>
-                    <p>{{this.dataValues.body}}</p>
-                    <button class="editPostBtn" data-id={{this.dataValues.id}}><i
-                    class="fas fa-pencil-alt"></i></button>
-                    <button class="deletePostBtn" data-id={{this.dataValues.id}}><i
-                    class="fa fa-trash"></i></i></button>
-                </div>
-                <!-- For Editing Blog Posts -->
-                <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="blogEntry">Edit Post</h5>
+                <div class="row">
+                    {{#unless blog}}
+                    <div class="container" id="blogText">
+                        <h5>-- Empty --</h5><br>
+                        <p>Tell Your Fans What's Goin' On!</p>
+                    </div>
+                    {{/unless}}
+                    {{#if blog}}
+                    {{#each blog}}
+                    <div class="container">
+                        <h4>{{this.dataValues.title}}</h4>
+                        <p>{{this.dataValues.body}}</p>
+                        <button class="editPostBtn" data-id={{this.dataValues.id}}><i
+                                class="fas fa-pencil-alt"></i></button>
+                        <button class="deletePostBtn" data-id={{this.dataValues.id}}><i
+                                class="fa fa-trash"></i></i></button>
+                    </div>
+                    <!-- For Editing Blog Posts -->
+                    <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="blogEntry">Edit Post</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
-                            </div>
+                                </div>
                                 <div class="modal-body">
                                     <form id="editBlog">
                                         <div class="mb-3">
@@ -139,11 +179,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Message:</label>
-                                                <textarea class="form-control" id="editPostBody"></textarea>
+                                            <textarea class="form-control" id="editPostBody"></textarea>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
+                                                data-bs-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-primary saveChanges">Save
                                                 Changes</button>
                                         </div>
@@ -180,8 +220,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="blogEntry">What's Happening?</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     </button>
                                 </div>
                                 <div class="modal-body">
@@ -224,7 +263,7 @@
                     {{/unless}}
                     {{#if mixes}}
                     <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner"> 
+                        <div class="carousel-inner">
                             {{#each mixes}}
                             {{#if isActive}}
                             {{> mixes/mixes-block isActive=true}}
@@ -292,13 +331,16 @@
                         <div class="modal-body">
                             <form id="deleteMixForm" data-id={{artist.id}}>
                                 <div class="mb-3">
-                                    <label for="deleteMixURL" class="col-form-label">Enter Embed Link of Mix You Wish To Delete:</label>
-                                    <input type="text" class="form-control" id="deleteMixURL" placeholder="Embed Link of Mix You're Just Not Feeling">
+                                    <label for="deleteMixURL" class="col-form-label">Enter Embed Link of Mix You Wish To
+                                        Delete:</label>
+                                    <input type="text" class="form-control" id="deleteMixURL"
+                                        placeholder="Embed Link of Mix You're Just Not Feeling">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" id="confirmDeleteMix">Delete Mix</button>
+                                    <button type="button" class="btn btn-primary" id="confirmDeleteMix">Delete
+                                        Mix</button>
                                 </div>
                             </form>
                         </div>
