@@ -133,7 +133,9 @@ module.exports = function (app) {
   //=============================================
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     console.log("inside api/login post");
-    console.log(req.session.passport.user.dataValues.first_name);
+    
+    console.log("req.body =", req.body);
+    console.log("req.user =", req.user);
 
     res.json({
       email: req.user.email,

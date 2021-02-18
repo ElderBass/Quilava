@@ -156,8 +156,6 @@ $(document).ready(() => {
     };
 
     $.post("/api/artists/extras", extras, function (result) {
-      console.log("result in extras 'post' query fronted");
-      console.log(result);
 
       window.location.assign("/user/" + result.ArtistId);
     });

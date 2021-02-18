@@ -13,8 +13,6 @@ $(document).ready(() => {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim()
       };
-      
-      $("#jumpToMyProfile").removeClass("hide");
 
       if (!userData.email || !userData.password) {
         return;
@@ -34,7 +32,7 @@ $(document).ready(() => {
       })
         .then((response) => {
           console.log(response);
-          window.location.assign("/api/artist/"+response.id)
+          window.location.assign("/id/"+response.id)
           
         })
         .catch(err => {
