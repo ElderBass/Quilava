@@ -132,6 +132,9 @@ h6 {
     align-items: center;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
+    text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
+    border-style: solid;
+    border-color: #F64c72;
   }
 
 
@@ -241,10 +244,12 @@ h6 {
 }
 .card {
   background-color: #2F2FA2;
+  border-style: solid;
+  border-color: #F64c72;
 }
 
 .card-text {
-  color: #F64c72;
+  color: white;
   background-color: #2F2FA2;
   text-align: center;
 }
@@ -259,7 +264,7 @@ h6 {
 }
 
 #drumpadButton {
-  text-shadow: 1px 0 0 #186384, 0 -1px 0 #186384, 0 1px 0 #186384, -1px 0 0 #186384;
+  text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
 }
 
 .slider.round {
@@ -304,6 +309,14 @@ h6 {
   text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
   font-family: 'Orbitron', sans-serif;
   padding-left: 0px;
+}
+
+#drumMachineText {
+  text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
+}
+
+.searchBtn {
+  margin-top: 10px;
 }
 
 /* #centerItems {
