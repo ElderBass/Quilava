@@ -359,9 +359,9 @@ textarea {
 
 .hide {
   display: none;
+}
 
-#kitName {
+#kitName  {
   color: white;
   text-align: left;
-
 }
