@@ -248,6 +248,21 @@ module.exports = function (app) {
     });
   });
 
+  app.delete("/delete/mix", function (req, res) {
+    console.log("mix delete request req.body");
+    console.log(req.body);
+
+    db.Mixes.destroy({
+      where: {
+        url: req.body.url,
+      },
+    }).then(function (result) {
+      console.log("result from delete request:");
+      console.log(result);
+      res.end();
+    });
+  });
+
   //Profile Picture PUT route
   //========================================
   app.put("/artists/image", function (req, res) {
