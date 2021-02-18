@@ -7,7 +7,7 @@
             <div class="row">
                 {{#each artists}}
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                    <img src='../assets/record.png' alt='record clipart' style="width: 300px; height: 300px;" />
+                    <img src="{{this.image}}" alt='Artist Profile Picture' style="width: 300px; height: 300px;" />
                     <br>
                     <h6>{{this.first_name}} {{this.last_name}}</h6>
                     <p>Stage Name: {{this.stage_name}}</p>
