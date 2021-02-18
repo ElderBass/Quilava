@@ -29,6 +29,7 @@
                         <div class="container">
                             <h4>{{this.dataValues.title}}</h4>
                             <p>{{this.dataValues.body}}</p>
+                            <p id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
                         </div>
                         {{/each}}
                         {{/if}}
