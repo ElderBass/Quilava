@@ -200,6 +200,14 @@ $(document).ready(() => {
   //Updating Profile Picture
   //======================================================
 
+  // let profilePic = $("#profilePic");
+  // var tooltip = new bootstrap.Tooltip(profilePic, options)
+
+  // profilePic.on("hover", function() {
+  //   tooltip.show();
+  // })
+  $('[data-bs-toggle="tooltip"]').tooltip(); 
+
   $("#profilePic").on("click", function (event) {
     event.preventDefault();
     $("#profilePicModal").modal("show");
