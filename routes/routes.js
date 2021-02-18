@@ -34,6 +34,7 @@ module.exports = function (app) {
           }
         }
       }
+
       res.render("view-profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -176,7 +177,7 @@ module.exports = function (app) {
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
-      ArtistId: req.body.ArtistId,
+      ArtistId: req.body.ArtistId
     }).then(function (data) {
       console.log("query data in routes");
       console.log(data);

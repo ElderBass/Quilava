@@ -43,6 +43,7 @@ $(document).ready(() => {
     $(this).closest("form").submit();
   });
 
+  
   $("#blogForm").on("submit", function (event) {
     event.preventDefault();
     console.log("form submission");
@@ -53,7 +54,7 @@ $(document).ready(() => {
     let blog = {
       title: title,
       body: body,
-      ArtistId: id,
+      ArtistId: id
     };
 
     $.post("/api/artists/blog", blog, function (result) {
@@ -89,7 +90,7 @@ $(document).ready(() => {
 
     let blog = {
       title: title,
-      body: body,
+      body: body
     };
     $.ajax({
       url: "/api/artists/blog/" + id,
