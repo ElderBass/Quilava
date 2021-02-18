@@ -55,13 +55,7 @@ module.exports = function (app) {
       order: [[{ model: db.Blogs }, "createdAt", "DESC"]],
       include: [db.Blogs, db.Extras, db.Mixes],
     }).then((data) => {
-      if (data.dataValues.Mixes) {
-        for (let i = 0; i < data.dataValues.Mixes.length; i++) {
-          if (data.dataValues.Mixes[i].id === 1) {
-            data.dataValues.Mixes[i].isActive = true;
-          }
-        }
-      }
+
 
       res.render("profile", {
         artist: data.dataValues,
@@ -160,7 +154,7 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
-  
+
     // Route for logging user out
     app.get("/logout", (req, res) => {
       req.logout();
