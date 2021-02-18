@@ -1,17 +1,17 @@
 // <<------ Drum Emulator ------>>
 
-var padOne = new Audio("/assets/drum-sounds/kick-1.wav");
-var padTwo = new Audio("/assets/drum-sounds/snare-1.wav");
-var padThree = new Audio("/assets/drum-sounds/clap-1.wav");
-var padFour = new Audio("/assets/drum-sounds/hat-1.wav");
-var padFive = new Audio("/assets/drum-sounds/kick-2.wav");
-var padSix = new Audio("/assets/drum-sounds/snare-2.wav");
-var padSeven = new Audio("/assets/drum-sounds/clap-2.wav");
-var padEight = new Audio("/assets/drum-sounds/hat-2.wav");
-var padNine = new Audio("/assets/drum-sounds/kick-3.wav");
-var padTen = new Audio("/assets/drum-sounds/snare-3.wav");
-var padEleven = new Audio("/assets/drum-sounds/clap-3.wav");
-var padTwelve = new Audio("/assets/drum-sounds/hat-3.wav");
+var padOne = new Audio("/assets/drum-lite-sounds/kick-1.wav");
+var padTwo = new Audio("/assets/drum-lite-sounds/snare-1.wav");
+var padThree = new Audio("/assets/drum-lite-sounds/clap-1.wav");
+var padFour = new Audio("/assets/drum-lite-sounds/hat-1.wav");
+var padFive = new Audio("/assets/drum-lite-sounds/kick-2.wav");
+var padSix = new Audio("/assets/drum-lite-sounds/snare-2.wav");
+var padSeven = new Audio("/assets/drum-lite-sounds/clap-2.wav");
+var padEight = new Audio("/assets/drum-lite-sounds/hat-2.wav");
+var padNine = new Audio("/assets/drum-lite-sounds/kick-3.wav");
+var padTen = new Audio("/assets/drum-lite-sounds/snare-3.wav");
+var padEleven = new Audio("/assets/drum-lite-sounds/clap-3.wav");
+var padTwelve = new Audio("/assets/drum-lite-sounds/hat-3.wav");
 
 $("body").on("keydown", function (e) {
   if ($("#checkbox").is(":checked") == false) {
