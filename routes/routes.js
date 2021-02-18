@@ -4,6 +4,7 @@ var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
+
   // Handlebars Routes
   //===============================================
   app.get("/id/:id", function (req, res) {
