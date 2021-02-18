@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="container" id="centerItems">
-                {{!-- <h4 id="artistUnderlined"><strong>Artist Info</strong></h4> --}}
+                <h4 id="artistUnderlined"><strong>Artist Info</strong></h4>
                 <aside>
                     <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
                         data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
@@ -246,10 +246,14 @@
                             <span style="color: #F37900;">Next</span>
                         </button>
                     </div>
+                    <button type="button" class="btn btn-default" id="deleteMixBtn" data-id={{artist.id}}
+                        data-bs-toggle="modal" data-bs-target="#deleteMixModal">
+                        Remove a Mix
+                    </button>
                     {{/if}}
                 </div>
             </div>
-            <!--End of mixes container-->
+            <!--Adding Mixes Modal-->
             <div class="modal fade" id="newMixModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -278,11 +282,31 @@
                     </div>
                 </div>
             </div>
-            <!--End of mixes modal-->
+            <!--Delete Mix Modal-->
+            <div class="modal fade" id="deleteMixModal" tabindex="-1" aria-labelledby="deleteMix" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteMix">Not Digging It?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="deleteMixForm" data-id={{artist.id}}>
+                                <div class="mb-3">
+                                    <label for="deleteMixURL" class="col-form-label">Enter Embed Link of Mix You Wish To Delete:</label>
+                                    <input type="text" class="form-control" id="deleteMixURL" placeholder="Embed Link of Mix You're Just Not Feeling">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="confirmDeleteMix">Delete Mix</button>
+                                </div>
+                            </form>
+                        </div>
 
-            <!-- end of customize modal-->
-
-            <!--Add shit here-->
+                    </div>
+                </div>
+            </div>
         </div>
         <!--End of col-9 -->
     </div>

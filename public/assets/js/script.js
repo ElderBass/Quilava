@@ -197,16 +197,42 @@ $(document).ready(() => {
     });
   });
 
+  //Delete a Mix
+  $("#newMixBtn").on("click", function () {
+    $("#newMixModal").modal("show");
+  });
+
+  $("#confirmDeleteMix").on("click", function (event) {
+    event.preventDefault();
+    $(this).closest("form").submit();
+  });
+
+  $("#deleteMixForm").on("submit", function (event) {
+    event.preventDefault();
+    console.log("Mixes deletion submission");
+
+    let url = $("input#deleteMixURL").val().trim();
+    let id = $(this).data("id");
+
+    let mix = {
+      url: url,
+      ArtistId: id,
+    };
+
+    $.ajax({
+      url: "/delete/mix",
+      method: "DELETE",
+      data: mix,
+    }).then(function (result) {
+      console.log("result in blog 'delete' query fronted");
+      console.log(result);
+      location.reload();
+    });
+  });
+
   //Updating Profile Picture
   //======================================================
-
-  // let profilePic = $("#profilePic");
-  // var tooltip = new bootstrap.Tooltip(profilePic, options)
-
-  // profilePic.on("hover", function() {
-  //   tooltip.show();
-  // })
-  $('[data-bs-toggle="tooltip"]').tooltip(); 
+  $('[data-bs-toggle="tooltip"]').tooltip();
 
   $("#profilePic").on("click", function (event) {
     event.preventDefault();
