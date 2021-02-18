@@ -2,16 +2,18 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="container" id="artistNameBold">
-                <h3>{{artist.stage_name}}</h3>
-                <aside>
-                    <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
-                        data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
-                        title="Click to Change Profile Picture">
-                    <p id="boldInfo">NAME: {{artist.first_name}} {{artist.last_name}}</p>
-                    <p id="boldInfo">{{artist.city}}</p>
-                    <p id="boldInfo">{{artist.genre}}</p>
-                    {{!-- <p id="boldInfo">Email: {{artist.email}}</p> --}}
-                </aside>
+                <div class="row">
+                    <h3>{{artist.stage_name}}</h3>
+                    <aside>
+                        <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
+                            data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
+                            title="Click to Change Profile Picture">
+                            <hr>
+                        <p id="boldInfo">NAME: {{artist.first_name}} {{artist.last_name}}</p>
+                        <p id="boldInfo">{{artist.city}}</p>
+                        <p id="boldInfo">{{artist.genre}}</p>
+                    </aside>
+                </div>
                 <!--Add extra information to profile Modal -->
                 <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="extraInfo" aria-hidden="true">
                     <div class="modal-dialog">
@@ -54,48 +56,49 @@
                         </div>
                     </div>
                 </div>
-                <div class="container" id="extrasFeed">
-                    <div class="row">
-                        <h5 id="aboutArtistProfile">About {{artist.stage_name}}:</h5>
-                    </div>
-                    <div class="row">
-                        {{#unless extras}}
-                        <div class="container" id="customAboutMe">
-                            <p>Add a bio and some external links to your profile!</p>
+                <div class="row">
+                    <div class="container" id="extrasFeed">
+                        <div class="row">
+                            <h5 id="aboutArtistProfile">About {{artist.stage_name}}:</h5>
                         </div>
-                        <button type="button" class="btn btn-default" id="editInfoBtn" data-id={{artist.id}}
-                            data-bs-toggle="modal" data-bs-target="#customInfo">
-                            Edit Profile
-                        </button>
-                        {{/unless}}
-                        {{#if extras}}
-                        {{#each extras}}
-                        <div class="container">
-                            <div class="row">
-                                {{!-- <h4>About Me:</h4> --}}
-                                <p>{{this.dataValues.bio}}</p>
+                        <div class="row">
+                            {{#unless extras}}
+                            <div class="container" id="customAboutMe">
+                                <p>Add a bio and some external links to your profile!</p>
                             </div>
-                            <div class="row">
-                                {{!-- <h4>Links:</h4> --}}
-                                <p>Bandcamp: <a href="{{this.dataValues.bandcamp}}"
-                                        target="_blank">{{this.dataValues.bandcamp}}</a>
-                                </p>
-                                <p>Twitch: <a href="{{this.dataValues.twitch}}"
-                                        target="_blank">{{this.dataValues.twitch}}</a>
-                                </p>
-
+                            <button type="button" class="btn btn-default" id="editInfoBtn" data-id={{artist.id}}
+                                data-bs-toggle="modal" data-bs-target="#customInfo">
+                                Edit Profile
+                            </button>
+                            {{/unless}}
+                            {{#if extras}}
+                            {{#each extras}}
+                            <div class="container">
+                                <div class="row">
+                                    {{!-- <h4>About Me:</h4> --}}
+                                    <p>{{this.dataValues.bio}}</p>
+                                </div>
+                                <div class="row">
+                                    {{!-- <h4>Links:</h4> --}}
+                                    <p>Bandcamp: <a id="extrasLinks" href="{{this.dataValues.bandcamp}}"
+                                            target="_blank">{{this.dataValues.bandcamp}}</a>
+                                    </p>
+                                    <p>Twitch: <a  id="extrasLinks" href="{{this.dataValues.twitch}}"
+                                            target="_blank">{{this.dataValues.twitch}}</a>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <p>Discogs: <a  id="extrasLinks" href="{{this.dataValues.discogs}}"
+                                            target="_blank">{{this.dataValues.discogs}}</a></p>
+                                </div>
                             </div>
-                            <div class="row">
-                                <p>Discogs: <a href="{{this.dataValues.discogs}}"
-                                        target="_blank">{{this.dataValues.discogs}}</a></p>
-                            </div>
+                            <button type="button" class="btn btn-default" id="remixInfoBtn" data-id={{artist.id}}
+                                data-bs-toggle="modal" data-bs-target="#customInfo">
+                                Edit Profile
+                            </button>
+                            {{/each}}
+                            {{/if}}
                         </div>
-                        <button type="button" class="btn btn-default" id="remixInfoBtn" data-id={{artist.id}}
-                            data-bs-toggle="modal" data-bs-target="#customInfo">
-                            Edit Profile
-                        </button>
-                        {{/each}}
-                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -252,6 +255,7 @@
                     </div>
                 </div>
             </div> <!-- End of 'blog feed' container -->
+           <br><br>
             <div class="container" id="mixesContainer">
                 <div class="row">
                     <h2 id="profilePosts">Your Mixes</h2>
@@ -276,10 +280,6 @@
                             <div class="carousel-item active">
                                 <div class="ratio ratio-16x9">
                                     {{{ this.dataValues.url}}}
-
-                                    <div class="carousel-caption d-none d-md-block d-lg-block">
-                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
-                                    </div>
                                 </div>
                             </div>
                             {{else}}
@@ -287,10 +287,6 @@
                             <div class="carousel-item">
                                 <div class="ratio ratio-16x9">
                                     {{{ this.dataValues.url}}}
-
-                                    <div class="carousel-caption d-none d-md-block d-lg-block">
-                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
-                                    </div>
                                 </div>
                             </div>
                             {{/if}}
@@ -327,12 +323,8 @@
                         <div class="modal-body">
                             <form id="newMixForm" data-id={{artist.id}}>
                                 <div class="mb-3">
-                                    <label for="newMixName" class="col-form-label">Name This Mix:</label>
-                                    <input type="text" class="form-control" id="newMixName" placeholder="Mix Name">
-                                </div>
-                                <div class="mb-3">
                                     <label for="newMixURL" class="col-form-label">Enter Embed Code:</label>
-                                    <input type="text" class="form-control" id="newMixURL" placeholder="Embed Link">
+                                    <input type="text" class="form-control" id="newMixURL" placeholder="Grab Embed Link From YouTube">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
