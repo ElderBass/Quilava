@@ -29,7 +29,7 @@ var kitFourPadTwo = new Audio("/assets/drum-main-sounds/kit4/snare-4.wav");
 var kitFourPadThree = new Audio("/assets/drum-main-sounds/kit4/closed-hat-4.wav");
 var kitFourPadFour = new Audio("/assets/drum-main-sounds/kit4/open-hat-4.wav");
 var kitFourPadFive = new Audio("/assets/drum-main-sounds/kit4/clap-4.wav");
-var kitFourPadSix = new Audio("/assets/drum-main-sounds/kit14/perc-4-a.wav");
+var kitFourPadSix = new Audio("/assets/drum-main-sounds/kit4/perc-4-a.wav");
 var kitFourPadSeven = new Audio("/assets/drum-main-sounds/kit4/perc-4-b.wav");
 
 
@@ -129,7 +129,7 @@ $("body").on("keydown", function (e) {
         break;
         case "1":
         kitOnePadOne.load();
-        kitOonePadOne.play();
+        kitOnePadOne.play();
         break;
       case "2":
         kitOnePadTwo.load();
