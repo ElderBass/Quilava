@@ -5,7 +5,7 @@ $(document).ready(() => {
     const loginForm = $("form.login");
     const emailInput = $("input#login-email");
     const passwordInput = $("input#login-password");
-  
+ 
     // When the form is submitted, we validate there's an email and password entered
     loginForm.on("submit", event => {
       event.preventDefault();
@@ -26,7 +26,7 @@ $(document).ready(() => {
   
     // loginUser does a post to our "api/login" route and if successful, redirects us to our profile page
     function loginUser(email, password) {
-      $.post("/api/login", {
+      $.post("/login", {
         email: email,
         password: password
       })

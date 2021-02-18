@@ -131,7 +131,7 @@ module.exports = function (app) {
 
   // Login and Signup Routes
   //=============================================
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+  app.post("/login", passport.authenticate("local"), (req, res) => {
     console.log("inside api/login post");
     
     console.log("req.body =", req.body);
@@ -154,12 +154,18 @@ module.exports = function (app) {
       city: req.body.city,
     })
       .then((data) => {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/login");
       })
       .catch((err) => {
         res.status(401).json(err);
       });
   });
+  
+    // Route for logging user out
+    app.get("/logout", (req, res) => {
+      req.logout();
+      res.redirect("/");
+    });
 
   //Blog Post routes
   //==================================================

@@ -35,21 +35,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" {{#if user}}href="/id/{{user}}"{{else}} href="/"{{/if}}>Home</a>
+                                <a class="nav-link active" href="/drumpad">Drumpad</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/drumpad">Drumpad</a>
-                            </li>
+                        </ul>
+                        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                             {{#if userName}} 
                             <li class="nav-item"><span class="nav-link" style="color:#F64C72">Welcome, {{userName}}!</span></li>
                             <li class="nav-item" id="jumpToMyProfile"><a class="nav-link" style="color: #F64C72" href="/user/{{user}}">My Profile</a></li>
+                            <li class="nav-item" id="logoutLink"><a class="nav-link" style="color: white;" href="/logout">Logout</a></li>
                             {{/if}}
                         </ul>
-                        
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-default" id="navSearchBtn" type="submit">Search</button>
-                        </form>
                     </div>
             </nav>
             {{{body}}}
