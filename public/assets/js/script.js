@@ -25,7 +25,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     let city = $("input#citySearch").val().trim();
-    //console.log(genre);
 
     $.get("/artists/city/" + city, function () {
       window.location.assign("/artists/city/" + city);
