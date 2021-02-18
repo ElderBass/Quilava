@@ -38,23 +38,12 @@
                                 <a class="nav-link active" aria-current="page" {{#if user}}href="/id/{{user}}"{{else}} href="/"{{/if}}>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Drumpad</a>
+                                <a class="nav-link" href="/drumpad">Drumpad</a>
                             </li>
                             {{#if userName}} 
                             <li class="nav-item"><span class="nav-link" style="color:#F64C72">Welcome, {{userName}}!</span></li>
-                            {{/if}}
-                            {{#if userName}}
                             <li class="nav-item" id="jumpToMyProfile"><a class="nav-link" style="color: #F64C72" href="/user/{{user}}">My Profile</a></li>
                             {{/if}}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">My Songs</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Discover</a></li>
-                                </ul>
-                            </li>
                         </ul>
                         
                         <form class="d-flex">
