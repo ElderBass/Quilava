@@ -2,21 +2,19 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="row">
-                <div class="container">
-                    <aside>
-                        <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture">
-                        <h3>{{artist.stage_name}}</h3>
-                        <p>{{artist.genre}}</p>
-                        <p>{{artist.city}}</p>
-                        <p>Real Name: {{artist.first_name}} {{artist.last_name}}</p>
-                        {{!-- <p>Email: {{artist.email}}</p> --}}
-                    </aside>
-                </div>
+                <h3 style="margin-bottom: 10px;">{{artist.stage_name}}</h3>
+                <aside>
+                    <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture">
+                    <hr>
+                    <p >Real Name: {{artist.first_name}} {{artist.last_name}}</p>
+                    <p>{{artist.genre}}</p>
+                    <p>{{artist.city}}</p>
+                </aside>
             </div>
             <div class="row">
                 <div class="container" id="extrasFeed">
                     <div class="row">
-                        <h2>Extras</h2>
+                        <h4 style="color: #F64C72;">Artist Info</h2>
                     </div>
                     <div class="row">
                         {{#unless extras}}
@@ -34,15 +32,15 @@
                             </div>
                             <div class="row">
                                 <h4>Links:</h4>
-                                <p>Bandcamp: <a href="{{this.dataValues.bandcamp}}"
+                                <p>Bandcamp: <a id="extrasLinks" href="{{this.dataValues.bandcamp}}"
                                         target="_blank">{{this.dataValues.bandcamp}}</a>
                                 </p>
-                                <p>Twitch: <a href="{{this.dataValues.twitch}}"
+                                <p>Twitch: <a id="extrasLinks" href="{{this.dataValues.twitch}}"
                                         target="_blank">{{this.dataValues.twitch}}</a>
                                 </p>
                             </div>
                             <div class="row">
-                                <p>Discogs: <a href="{{this.dataValues.discogs}}"
+                                <p>Discogs: <a id="extrasLinks" href="{{this.dataValues.discogs}}"
                                         target="_blank">{{this.dataValues.discogs}}</a></p>
                             </div>
                         </div>
@@ -55,35 +53,36 @@
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">
                 <div class="container" id="blogFeed">
-                    <h2>Message Feed</h2>
+                    <h2 style="color: white;">Message Feed</h2>
                 </div>
-
-
+                <hr>
                 {{#unless blog}}
                 <div class="container" id="blogText">
-                    <h5>Check back later!</h5>
+                    <h5>This artist hasn't updated since, like, forever. Check back later!</h5>
                 </div>
                 {{/unless}}
 
                 {{#if blog}}
                 {{#each blog}}
-                <div class="container">
-                    <h4>{{this.dataValues.title}}</h4>
-                    <p>{{this.dataValues.body}}</p>
-                    <p id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
+                <div class="container"  style="background-color: #99738E;">
+                    <h4 id="blogTitle" >{{this.dataValues.title}}</h4>
+                    <p style="font-size: 20px;">{{this.dataValues.body}}</p>
+                    <p style="font-size: 8px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
                 </div>
                 {{/each}}
                 {{/if}}
             </div>
+            <br><br>
             <div class="row">
                 <div class="container" id="mixesContainer">
                     <div class="row">
-                        <h2>Mixes</h2>
+                        <h2 style="color: white;">Mixes</h2>
                     </div>
+                    <hr>
                     <div class="row">
                         {{#unless mixes}}
                         <div class="container" id="newMixText">
-                            <h5>Check back later!</h5>
+                            <h5> This artist hasn't updated since, like, forever. Check back later!</h5>
                         </div>
                         {{/unless}}
 
