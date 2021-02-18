@@ -36,27 +36,26 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" style="color:rgb(255, 255, 255)"  href="/drumpad">Enter Studio</a>
+                                <a class="nav-link" style="color:rgb(255, 255, 255)" href="/drumpad">Enter
+                                    Studio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:rgb(255, 255, 255)" href="/artists" id="browseAll">Browse Artists</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                             {{#unless userName}}
-                            <li class="nav-item">
-                                <button class="btn btn-default" id="browseAll">Browse Artists</button>
-                            </li>
+
                             <li class="nav-item">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#signUpModal"
                                     class="btn btn-default" style="background-color: #F64C72;">Signup</button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-default" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal" style="background-color: #F64C72;">Login</button>
+                                <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                    style="background-color: #F64C72;">Login</button>
                             </li>
                             {{/unless}}
                             {{#if userName}}
-                            <li class="nav-item">
-                                <button class="btn btn-default" id="browseAll">Browse Artists</button>
-                            </li>
                             <li class="nav-item"><span class="nav-link" style="color:#F64C72">Welcome,
                                     {{userName}}!</span></li>
                             <li class="nav-item" id="jumpToMyProfile"><a class="nav-link" style="color: #F64C72"
