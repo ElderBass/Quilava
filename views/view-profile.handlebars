@@ -45,17 +45,30 @@
                         </div>
                         {{/unless}}
 
-                        {{#if mixes}}
-                        <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                {{#each mixes}}
-                                {{#if isActive}}
-                                {{> mixes/mixes-block isActive=true}}
-                                {{/if}}
-                                {{#unless isActive}}
-                                {{> mixes/mixes-block isActive=false}}
-                                {{/unless}}
-                                {{/each}}
+                    {{#if mixes}}
+                    <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {{#each mixes}}
+                             {{#if @first}}
+                            <div class="carousel-item active">
+                                <div class="ratio ratio-16x9">
+                                    {{{ this.dataValues.url}}}
+                                    <div class="carousel-caption d-none d-md-block d-lg-block">
+                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
+                            <div class="carousel-item">
+                                <div class="ratio ratio-16x9">
+                                    {{{ this.dataValues.url}}}
+                                    <div class="carousel-caption d-none d-md-block d-lg-block">
+                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
                                 data-bs-slide="prev">
