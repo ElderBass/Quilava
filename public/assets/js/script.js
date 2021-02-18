@@ -292,7 +292,6 @@ $(document).ready(() => {
 
     let image = {
       image: url,
-      //ArtistId: id,
     };
 
     $.ajax({
@@ -302,7 +301,6 @@ $(document).ready(() => {
     }).then(function (result) {
       console.log(result);
       location.reload();
-      //window.location.assign("/user/" + result);
     });
   });
 });

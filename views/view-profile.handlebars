@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
@@ -13,101 +12,102 @@
             </div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
-            <div class="container" id="blogFeed">
-                <div class="row">
+            <div class="row">
+                <div class="container" id="blogFeed">
                     <h2>Message Feed</h2>
                 </div>
                 <div class="row">
-                    {{#unless blog}}
-                    <div class="container" id="blogText">
-                        <h5>Check back later!</h5>
-                    </div>
-                    {{/unless}}
+                    <div class="row">
+                        {{#unless blog}}
+                        <div class="container" id="blogText">
+                            <h5>Check back later!</h5>
+                        </div>
+                        {{/unless}}
 
-                    {{#if blog}}
-                    {{#each blog}}
-                    <div class="container">
-                        <h4>{{this.dataValues.title}}</h4>
-                        <p>{{this.dataValues.body}}</p>
+                        {{#if blog}}
+                        {{#each blog}}
+                        <div class="container">
+                            <h4>{{this.dataValues.title}}</h4>
+                            <p>{{this.dataValues.body}}</p>
+                        </div>
+                        {{/each}}
+                        {{/if}}
                     </div>
-                    {{/each}}
-                    {{/if}}
                 </div>
-            </div> 
-            <div class="container" id="mixesContainer">
-                <div class="row">
-                    <h2>Mixes</h2>
-                </div>
-                <div class="row">
-                    {{#unless mixes}}
-                    <div class="container" id="newMixText">
-                        <h5>Check back later!</h5>
+                <div class="container" id="mixesContainer">
+                    <div class="row">
+                        <h2>Mixes</h2>
                     </div>
-                    {{/unless}}
+                    <div class="row">
+                        {{#unless mixes}}
+                        <div class="container" id="newMixText">
+                            <h5>Check back later!</h5>
+                        </div>
+                        {{/unless}}
 
-                    {{#if mixes}}
-                    <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {{#each mixes}}
+                        {{#if mixes}}
+                        <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                {{#each mixes}}
                                 {{#if isActive}}
-                                    {{> mixes/mixes-block isActive=true}}
+                                {{> mixes/mixes-block isActive=true}}
                                 {{/if}}
                                 {{#unless isActive}}
-                                    {{> mixes/mixes-block isActive=false}}
+                                {{> mixes/mixes-block isActive=false}}
                                 {{/unless}}
-                            {{/each}}
+                                {{/each}}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                <span style="color: #F37900;">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#mixesCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                                <span style="color: #F37900;">Next</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                            <span style="color: #F37900;">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#mixesCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                            <span style="color: #F37900;">Next</span>
-                        </button>
+                        {{/if}}
                     </div>
-                    {{/if}}
                 </div>
-            </div>
 
-            <div class="container" id="extrasFeed">
-                <div class="row">
-                    <h2>Extras</h2>
-                </div>
-                <div class="row">
-                    {{#unless extras}}
-                    <div class="container" id="customizeProfText">
-                        <h6>{{artist.stage_name}} Has Not Customized Any Information.</h6>
+                <div class="container" id="extrasFeed">
+                    <div class="row">
+                        <h2>Extras</h2>
                     </div>
-                    {{/unless}}
+                    <div class="row">
+                        {{#unless extras}}
+                        <div class="container" id="customizeProfText">
+                            <h6>{{artist.stage_name}} Has Not Customized Any Information.</h6>
+                        </div>
+                        {{/unless}}
 
-                    {{#if extras}}
-                    {{#each extras}}
-                    <div class="container">
-                        <div class="row">
-                            <h4>About {{artist.stage_name}}:</h4>
-                            <p>{{this.dataValues.bio}}</p>
+                        {{#if extras}}
+                        {{#each extras}}
+                        <div class="container">
+                            <div class="row">
+                                <h4>About {{artist.stage_name}}:</h4>
+                                <p>{{this.dataValues.bio}}</p>
+                            </div>
+                            <div class="row">
+                                <h4>Links:</h4>
+                                <p>Bandcamp: <a href="{{this.dataValues.bandcamp}}"
+                                        target="_blank">{{this.dataValues.bandcamp}}</a>
+                                </p>
+                                <p>Twitch: <a href="{{this.dataValues.twitch}}"
+                                        target="_blank">{{this.dataValues.twitch}}</a>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p>Discogs: <a href="{{this.dataValues.discogs}}"
+                                        target="_blank">{{this.dataValues.discogs}}</a></p>
+                            </div>
                         </div>
-                        <div class="row">
-                            <h4>Links:</h4>
-                            <p>Bandcamp: <a href="{{this.dataValues.github}}"
-                                    target="_blank">{{this.dataValues.github}}</a>
-                            </p>
-                            <p>Twitch: <a href="{{this.dataValues.twitch}}"
-                                    target="_blank">{{this.dataValues.twitch}}</a>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
-                                    target="_blank">{{this.dataValues.favorite_mix}}</a></p>
-                        </div>
+                        {{/each}}
+                        {{/if}}
                     </div>
-                    {{/each}}
-                    {{/if}}
                 </div>
             </div>
         </div>
     </div>
-</div>

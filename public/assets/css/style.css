@@ -340,3 +340,7 @@ textarea {
 #formInputTitles {
   color: #444;
 }
+
+.hide {
+  display: none;
+}

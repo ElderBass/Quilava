@@ -18,8 +18,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="formInputTitles">Additonal Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -27,22 +26,22 @@
                                     <div class="mb-3">
                                         <label for="bio" class="col-form-label" id="formInputTitles">Bio: </label>
                                         <textarea type="text" class="form-control" id="bio"
-                                        placeholder="Tell us about yourself! (Limit 500 Characters)"></textarea>
+                                            placeholder="Tell us about yourself! (Limit 500 Characters)"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="bandcamp" class="col-form-label" id="formInputTitles">Bandcamp: </label>
+                                        <label for="bandcamp" class="col-form-label" id="formInputTitles">Bandcamp:
+                                        </label>
                                         <input type="text" class="form-control" id="bandcamp"
-                                        placeholder="Bandcamp link">
+                                            placeholder="Bandcamp link">
                                     </div>
                                     <div class="mb-3">
                                         <label for="twitch" class="col-form-label" id="formInputTitles">Twitch: </label>
-                                        <input type="text" class="form-control" id="twitch"
-                                        placeholder="Twitch link">
+                                        <input type="text" class="form-control" id="twitch" placeholder="Twitch link">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="discogs" class="col-form-label" id="formInputTitles">Discogs: </label>
-                                        <input type="text" class="form-control" id="discogs"
-                                        placeholder="Discogs link">
+                                        <label for="discogs" class="col-form-label" id="formInputTitles">Discogs:
+                                        </label>
+                                        <input type="text" class="form-control" id="discogs" placeholder="Discogs link">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -78,8 +77,8 @@
                             </div>
                             <div class="row">
                                 {{!-- <h4>Links:</h4> --}}
-                                <p>Bandcamp: <a href="{{this.dataValues.github}}"
-                                        target="_blank">{{this.dataValues.github}}</a>
+                                <p>Bandcamp: <a href="{{this.dataValues.bandcamp}}"
+                                        target="_blank">{{this.dataValues.bandcamp}}</a>
                                 </p>
                                 <p>Twitch: <a href="{{this.dataValues.twitch}}"
                                         target="_blank">{{this.dataValues.twitch}}</a>
@@ -87,8 +86,8 @@
 
                             </div>
                             <div class="row">
-                                <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
-                                        target="_blank">{{this.dataValues.favorite_mix}}</a></p>
+                                <p>Discogs: <a href="{{this.dataValues.discogs}}"
+                                        target="_blank">{{this.dataValues.discogs}}</a></p>
                             </div>
                         </div>
                         <button type="button" class="btn btn-default" id="remixInfoBtn" data-id={{artist.id}}
@@ -268,14 +267,28 @@
                     <div id="mixesCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             {{#each mixes}}
-                            {{#if isActive}}
-                            {{> mixes/mixes-block isActive=true}}
+                             {{#if @first}}
+                            <div class="carousel-item active">
+                                <div class="ratio ratio-16x9">
+                                    {{{ this.dataValues.url}}}
+
+                                    <div class="carousel-caption d-none d-md-block d-lg-block">
+                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
                             {{/if}}
-                            {{#unless isActive}}
-                            {{> mixes/mixes-block isActive=false}}
-                            {{/unless}}
-                            {{/each}}
+                            <div class="carousel-item">
+                                <div class="ratio ratio-16x9">
+                                    {{{ this.dataValues.url}}}
+
+                                    <div class="carousel-caption d-none d-md-block d-lg-block">
+                                        <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        {{/each}}
 
                         <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
                             data-bs-slide="prev">
