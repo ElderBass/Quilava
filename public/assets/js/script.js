@@ -218,13 +218,10 @@ $(document).ready(() => {
     console.log("Mixes form submission");
 
     let url = $("input#newMixURL").val().trim();
-    let name = $("input#newMixName").val().trim();
-
     let id = $(this).data("id");
 
     let mix = {
       url: url,
-      name: name,
       ArtistId: id,
     };
 
