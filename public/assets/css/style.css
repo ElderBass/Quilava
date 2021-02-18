@@ -157,7 +157,7 @@ h6 {
   }
 
   .padFull {
-    width: 1750px;
+    width: 1000px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -177,13 +177,27 @@ h6 {
     border-radius: 25px;
   }
 
+  .boxFull {
+    width: 125px;
+    height: 125px;
+    margin: auto;
+    background-color: #77797A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #F64c72;
+    user-select: none;
+    border-radius: 25px;
+  }
+
   .active {
     background-color: darken(#444, 10%);
     transform: scale(1.1);
     transition: all .2s;
   }
 
-  .pad-1, .pad-2, .pad-3, .pad-4, .pad-5, .pad-6, .pad-7, .pad-8, .pad-9, .pad-10, .pad-11, .pad-12 { 
+  .pad-1, .pad-2, .pad-3, .pad-4, .pad-5, .pad-6, .pad-7, .pad-8, .pad-9, .pad-10, .pad-11, .pad-12, .pad-13, .pad-14, .pad-15, .pad-15, .pad-16, .pad-17, .pad-18, .pad-19, .pad-20, .pad-21, .pad-22, .pad-23, .pad-24, .pad-25, .pad-26, .pad-27, .pad-28 { 
     border: 3px solid #F64c72; 
   }
 
@@ -314,6 +328,7 @@ h6 {
 
 #drumMachineText {
   text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
+  text-align: right;
 }
 
 .searchBtn {
@@ -339,4 +354,9 @@ textarea {
 
 #formInputTitles {
   color: #444;
+}
+
+#kitName {
+  color: white;
+  text-align: left;
 }
