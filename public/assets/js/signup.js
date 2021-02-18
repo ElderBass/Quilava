@@ -72,10 +72,7 @@ $(document).ready(function () {
     })
       .then((response) => {
         console.log("response from signUpUser .then");
-        //this isn't working and I'm not sure why
-        console.log(response)
-        
-        // $("#jumpToMyProfile").removeClass("hide");
+
        window.location.assign("/id/"+response.id)
        // window.location.assign("/api/artist/" + response.id);
 

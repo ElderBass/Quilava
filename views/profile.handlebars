@@ -17,56 +17,32 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-<<<<<<< HEAD
                                 <h5 class="modal-title" id="formInputTitles">Additonal Information</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close">
-=======
-                                <h5 class="modal-title" id="extraInfo">Additonal Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
->>>>>>> 82b810c2db4881cdef3081fab43fabf80480fa73
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <form id="extras" data-id={{artist.id}}>
                                     <div class="mb-3">
-<<<<<<< HEAD
                                         <label for="bio" class="col-form-label" id="formInputTitles">Bio: </label>
-                                        <input type="text" class="form-control" id="bio"
-                                        placeholder="Tell us about yourself! (Limit 500 Characters)">
+                                        <textarea type="text" class="form-control" id="bio"
+                                        placeholder="Tell us about yourself! (Limit 500 Characters)"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label" id="formInputTitles">Bandcamp: </label>
-                                        <input type="text" class="form-control" id="github"
+                                        <label for="bandcamp" class="col-form-label" id="formInputTitles">Bandcamp: </label>
+                                        <input type="text" class="form-control" id="bandcamp"
                                         placeholder="Bandcamp link">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="github" class="col-form-label" id="formInputTitles">Twitch: </label>
+                                        <label for="twitch" class="col-form-label" id="formInputTitles">Twitch: </label>
                                         <input type="text" class="form-control" id="twitch"
                                         placeholder="Twitch link">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label" id="formInputTitles">Discogs: </label>
-                                        <input type="text" class="form-control" id="favorite-mix"
+                                        <label for="discogs" class="col-form-label" id="formInputTitles">Discogs: </label>
+                                        <input type="text" class="form-control" id="discogs"
                                         placeholder="Discogs link">
-=======
-                                        <label for="bio" class="col-form-label">Bio:</label>
-                                        <textarea class="form-control" id="bio"
-                                            placeholder="Tell us about yourself! (Limit 500 Characters)">
-                                        </textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Bandcamp: </label>
-                                        <input type="text" class="form-control" id="bandcamp" placeholder="Bandcamp">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="github" class="col-form-label">Twitch: </label>
-                                        <input type="text" class="form-control" id="twitch" placeholder="Twitch">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Discogs: </label>
-                                        <input type="text" class="form-control" id="discogs" placeholder="Discogs">
->>>>>>> 82b810c2db4881cdef3081fab43fabf80480fa73
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -137,21 +113,21 @@
                     <div class="modal-body">
                         <form id="remixForm" data-id={{artist.id}}>
                             <div class="mb-3">
-                                <label for="bio" class="col-form-label">Bio:</label>
+                                <label for="remixBio" class="col-form-label">Bio:</label>
                                 <textarea class="form-control" id="remixBio"
                                     placeholder="Tell us about yourself! (Limit 500 Characters)">
                                         </textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Bandcamp: </label>
+                                <label for="remix-bandcamp" class="col-form-label">Bandcamp: </label>
                                 <input type="text" class="form-control" id="remix-bandcamp" placeholder="Bandcamp">
                             </div>
                             <div class="mb-3">
-                                <label for="github" class="col-form-label">Twitch: </label>
+                                <label for="remix-twitch" class="col-form-label">Twitch: </label>
                                 <input type="text" class="form-control" id="remix-twitch" placeholder="Twitch">
                             </div>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Discogs: </label>
+                                <label for="remix-discogs" class="col-form-label">Discogs: </label>
                                 <input type="text" class="form-control" id="remix-discogs" placeholder="Discogs">
                             </div>
                             <div class="modal-footer">
