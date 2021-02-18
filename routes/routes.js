@@ -49,7 +49,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/artist/:id", function (req, res) {
+  app.get("/user/:id", function (req, res) {
     console.log("inside api/artist/:id get");
     console.log(req.session);
     db.Artists.findOne({
@@ -68,6 +68,7 @@ module.exports = function (app) {
           }
         }
       }
+      console.log(data.dataValues);
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -243,6 +244,22 @@ module.exports = function (app) {
 
       console.log(result.dataValues.ArtistId);
       res.json(result.dataValues.ArtistId);
+    });
+  });
+
+  //Profile Picture PUT route
+  //========================================
+  app.put("/artists/image", function (req, res) {
+    console.log("put request for PROFILE PIC");
+    console.log(req.body)
+    db.Artists.update(req.body, {
+      where: {
+        id: req.user.id,
+      },
+    }).then(function (result) {
+      console.log("result from put request:");
+      console.log(JSON.parse(result));
+      res.send(result);
     });
   });
 };

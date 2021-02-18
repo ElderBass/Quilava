@@ -60,7 +60,7 @@ $(document).ready(() => {
       console.log("result in blog 'post' query fronted");
       console.log(result);
 
-      window.location.assign("/api/artist/" + result.ArtistId);
+      window.location.assign("/user/" + result.ArtistId);
     });
   });
 
@@ -115,7 +115,7 @@ $(document).ready(() => {
     event.preventDefault();
     let id = $(this).data("id");
     console.log(id);
-   
+
     $.ajax({
       url: "/api/artists/blog/" + id,
       method: "DELETE",
@@ -159,7 +159,7 @@ $(document).ready(() => {
       console.log("result in extras 'post' query fronted");
       console.log(result);
 
-      window.location.assign("/api/artist/" + result.ArtistId);
+      window.location.assign("/user/" + result.ArtistId);
     });
   });
 
@@ -193,9 +193,43 @@ $(document).ready(() => {
       console.log("result in Mixes 'post' query fronted");
       console.log(result);
 
-      window.location.assign("/api/artist/" + result);
+      window.location.assign("/user/" + result);
     });
   });
 
+  //Updating Profile Picture
+  //======================================================
 
+  $("#profilePic").on("click", function (event) {
+    event.preventDefault();
+    $("#profilePicModal").modal("show");
+  });
+
+  $("#savePictureBtn").on("click", function (event) {
+    event.preventDefault();
+    $(this).closest("form").submit();
+  });
+
+  $("#editPicForm").on("submit", function (event) {
+    event.preventDefault();
+    console.log("Profile Pic form submission");
+
+    let url = $("input#newPicURL").val().trim();
+    let id = $(this).data("id");
+
+    let image = {
+      image: url,
+      //ArtistId: id,
+    };
+
+    $.ajax({
+      url: "/artists/image",
+      method: "PUT",
+      data: image,
+    }).then(function (result) {
+      console.log(result);
+      location.reload();
+      //window.location.assign("/user/" + result);
+    });
+  });
 });
