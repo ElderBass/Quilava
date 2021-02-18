@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/80b7719dc5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <title>Quilava</title>
+    <title>QUILAVA</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
         <div id="content-wrap">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Quilava</a>
+                    <a class="navbar-brand" href="/" style="color:#F64C72">QUILAVA</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -40,20 +40,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Drumpad</a>
                             </li>
-                            {{#if userName}} <li class="nav-item"><p style="color:#F37900"><strong>Welcome, {{userName}}</strong></p></div>{{/if}}
-                            {{#if userName}}<li class="nav-item" id="jumpToMyProfile" class="nav-item" ><a class="nav-link" style="color: #F37900" href="/user/{{user}}">My Profile</a></li>{{/if}}
-                           
-                            
+                            {{#if userName}} <li class="nav-item"><p style="color:#F64C72">Welcome, {{userName}}!</p></div>
+                            {{/if}}
+                            {{#if userName}}<li class="nav-item" id="jumpToMyProfile"><a class="nav-link" style="color: #F64C72" href="/user/{{user}}">My Profile</a></li>{{/if}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Profile
-                                </a>
+                                    data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">My Songs</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#">Discover</a></li>
                                 </ul>
                             </li>
@@ -71,7 +66,7 @@
     </div>
     <footer class="footer" id="quilavaFooter">
         <a {{#if user}}href="/id/{{user}}"{{else}} href="/"{{/if}}><button class="btn btn-default" id="footerBtn">Home</button></a>
-        <p>Quilava™ Footer</p>
+        <p style="color:#3f47b8">QUILAVA&#174; 2021</p>
     </footer>
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'

@@ -7,10 +7,12 @@
     margin-bottom: 15px;
     background-color: #242582;
 }
+.navbar-brand {
+  font-family: 'Orbitron', sans-serif
+}
 
 .footer {
   position: absolute;
-  bottom: 0;
   width: 100%;
   height: 3.4rem;
   background-color: #242582;
@@ -18,9 +20,12 @@
   text-align: center;
   padding: 8px;
 }
-
+#artistNameBold {
+  color: #ffffff;
+}
 p {
   color: white;
+  line-height: 0.9;
 }
 
 h3 {
@@ -70,16 +75,10 @@ h6 {
     padding-bottom: 20px;
 }
 
-.carousel-inner{
+#carouselLanding {
   height: 450px;
   width: 450px;
   align-items: center;
-}
-
-.carousel-caption {
-  color: white;
-  font-weight: 900;
-  
 }
 
 #landingLowerContainer {
@@ -122,8 +121,6 @@ h6 {
   padding: 15px;
   text-align: center;
 }
-
-
 
 /* <<------ Drum Emulator ------>> */
 #drumulator {
@@ -278,14 +275,14 @@ h6 {
 }
 
 #artistUnderlined {
-  text-decoration: underline;
-  color: black;
+  /* text-decoration: underline; Should not underline text unless it's a link*/
+  color: rgb(255, 255, 255);
   /* text-shadow: 1px 0 0 #DD1301, 0 -1px 0 #DD1301, 0 1px 0 #DD1301, -1px 0 0 #DD1301; */
 }
 
 #profilePosts {
-  color: black;
-  text-decoration: underline;
+  color: rgb(255, 255, 255);
+  /* text-decoration: underline; Should not underline text unless it's a link*/
 }
 
 #boldInfo {
@@ -293,16 +290,16 @@ h6 {
 }
 
 #customAboutMe {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 #editInfoBtn {
-  background-color: #f37900;
+  background-color: #F64c72;
   color:white;
 }
 
 #artistInfo {
-  color: #f37900;
+  color: #F64c72;
   text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
   font-family: 'Orbitron', sans-serif;
   padding-left: 0px;
@@ -317,11 +314,13 @@ h6 {
 }
 
 #profilePic {
-  border: solid 3px #F37900;
+  border: solid 3px #99738E;
 }
 
-#profilePosts {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 30px;
-  color: #ffffff;
+#aboutArtistProfile {
+  color: #99738E;
+}
+
+#searchFunction {
+  padding-bottom: 100px;
 }

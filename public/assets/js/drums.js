@@ -14,7 +14,7 @@ var padEleven = new Audio("/assets/drum-sounds/clap-3.wav");
 var padTwelve = new Audio("/assets/drum-sounds/hat-3.wav");
 
 $("body").on("keydown", function (e) {
-  if ($("#checkbox").is(":checked") == true) {
+  if ($("#checkbox").is(":checked") == false) {
     e.stopImmediatePropagation();
   } else {
     var code = e.keyCode;

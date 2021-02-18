@@ -3,25 +3,24 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="container">
-                <h1><strong>Artist Info</strong></h1>
                 <aside>
-                    <h3>{{artist.first_name}} {{artist.last_name}}</h3>
-                    <p>Stage Name: {{artist.stage_name}}</p>
-                    <p>Genre: {{artist.genre}}</p>
-                    <p>Location: {{artist.city}}</p>
-                    <p>Email: {{artist.email}}</p>
+                    <h3>{{artist.stage_name}}</h3>
+                    <p>{{artist.genre}}</p>
+                    <p>{{artist.city}}</p>
+                    <p>Real Name: {{artist.first_name}} {{artist.last_name}}</p>
+                    {{!-- <p>Email: {{artist.email}}</p> --}}
                 </aside>
             </div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="container" id="blogFeed">
                 <div class="row">
-                    <h2>Feed</h2>
+                    <h2>Message Feed</h2>
                 </div>
                 <div class="row">
                     {{#unless blog}}
                     <div class="container" id="blogText">
-                        <h6>Their Feed Is Currently Empty. Check back later!</h6>
+                        <h5>Check back later!</h5>
                     </div>
                     {{/unless}}
 
@@ -42,7 +41,7 @@
                 <div class="row">
                     {{#unless mixes}}
                     <div class="container" id="newMixText">
-                        <h6>This Artist Hasn't Entered Any Mixes Yet. Check back later!</h6>
+                        <h5>Check back later!</h5>
                     </div>
                     {{/unless}}
 
@@ -80,7 +79,7 @@
                 <div class="row">
                     {{#unless extras}}
                     <div class="container" id="customizeProfText">
-                        <h6>This Artist Has Yet to Customize Their Information.</h6>
+                        <h6>{{artist.stage_name}} Has Not Customized Any Information.</h6>
                     </div>
                     {{/unless}}
 
@@ -88,20 +87,20 @@
                     {{#each extras}}
                     <div class="container">
                         <div class="row">
-                            <h4>About Me:</h4>
+                            <h4>About {{artist.stage_name}}:</h4>
                             <p>{{this.dataValues.bio}}</p>
                         </div>
                         <div class="row">
                             <h4>Links:</h4>
-                            <p>Link to GitHub: <a href="{{this.dataValues.github}}"
+                            <p>Bandcamp: <a href="{{this.dataValues.github}}"
                                     target="_blank">{{this.dataValues.github}}</a>
                             </p>
-                            <p>Link to Twitch: <a href="{{this.dataValues.twitch}}"
+                            <p>Twitch: <a href="{{this.dataValues.twitch}}"
                                     target="_blank">{{this.dataValues.twitch}}</a>
                             </p>
                         </div>
                         <div class="row">
-                            <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
+                            <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
                                     target="_blank">{{this.dataValues.favorite_mix}}</a></p>
                         </div>
                     </div>
