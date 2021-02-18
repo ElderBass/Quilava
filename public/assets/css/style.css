@@ -38,6 +38,15 @@ h6 {
   text-align: right;
 }
 
+#blogTitle {
+  background-color:#553D67; 
+  color:#F64c72; 
+  font-family: 'Orbitron', sans-serif; 
+  padding: 8px;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
 .btn-default {
   color: #fff;
   background-color: #99738E;
@@ -87,7 +96,7 @@ h6 {
 }
 /* Profile Page */
 #newBlogBtn {
-  background-color: #553D67;
+  background-color: #F64c72;
   color:#ffffff;
 }
 
@@ -99,7 +108,7 @@ h6 {
 }
 
 #newMixBtn {
-  background-color: #553D67;
+  background-color: #F64c72;
   color:#ffffff;
 }
 
