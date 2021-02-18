@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Extras = sequelize.define("Extras", {
-    favorite_mix: DataTypes.TEXT,
-    image: DataTypes.TEXT,
-      github: DataTypes.TEXT,
+    
+      bandcamp: DataTypes.TEXT,
+      discogs: DataTypes.TEXT,
       twitch: DataTypes.TEXT,
       bio: {
         type: DataTypes.TEXT,

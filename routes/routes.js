@@ -1,7 +1,6 @@
 //route for home --> res.render index (landing page)
 var db = require("../models");
 var passport = require("../config/passport");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
@@ -26,12 +25,14 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       }, //how to order by date/newest with a join?
-      include: [db.Blogs, db.Extras, db.Mixes],
-      order: [["id", "DESC"]],
+      include: [{
+        model: db.Blogs,
+        order: [["createdAt", "DESC"]]
+      },
+         db.Extras, db.Mixes],
     }).then((data) => {
       console.log("data from 'inner join' query");
-      console.log(data);
-      //add isActive here
+
       if (data.dataValues.Mixes) {
         for (let i = 0; i < data.dataValues.Mixes.length; i++) {
           if (data.dataValues.Mixes[i].id === 1) {
@@ -58,11 +59,15 @@ module.exports = function (app) {
         id: req.params.id,
       }, //how to order by date/newest with a join?
       include: [db.Blogs, db.Extras, db.Mixes],
-      order: [["id", "DESC"]],
+      order: [["createdAt", "DESC"]],
     }).then((data) => {
+
       console.log("data from 'inner join' query");
 
-      if (data.dataValues.Mixes) {
+      // data.dataValues.Blogs.sort(function(b, a){
+      //   return b - a;
+      // })
+     if (data.dataValues.Mixes) {
         for (let i = 0; i < data.dataValues.Mixes.length; i++) {
           if (data.dataValues.Mixes[i].id === 1) {
             data.dataValues.Mixes[i].isActive = true;
@@ -227,6 +232,20 @@ module.exports = function (app) {
       console.log("query data in extras post route .then");
       console.log(data);
       res.json(data);
+    });
+  });
+
+  app.put("/artists/extras", function (req, res) {
+    console.log("put request forEXTRAS REMIX");
+    console.log(req.body)
+    db.Extras.update(req.body, {
+      where: {
+        ArtistId: req.user.id,
+      },
+    }).then(function (result) {
+      console.log("result from EXTRAS PUT :");
+      console.log(JSON.parse(result));
+      res.send(result);
     });
   });
 
