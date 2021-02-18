@@ -147,6 +147,7 @@
                         Create Post
                     </button>
                 </div>
+                <hr>
                 <div class="row">
                     {{#unless blog}}
                     <div class="container" id="blogText">
@@ -156,15 +157,17 @@
                     {{/unless}}
                     {{#if blog}}
                     {{#each blog}}
-                    <div class="container">
-                        <h4>{{this.dataValues.title}}</h4>
-                        <p>{{this.dataValues.body}}</p>
-                        <p id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
-                        <button class="editPostBtn" data-id={{this.dataValues.id}}><i
-                                class="fas fa-pencil-alt"></i></button>
-                        <button class="deletePostBtn" data-id={{this.dataValues.id}}><i
-                                class="fa fa-trash"></i></i></button>
+                    <div class="container" style="background-color: #99738E;">
+                        
+                        <h4 id="blogTitle" >{{this.dataValues.title}}</h4>
+                        <p style="font-size: 20px;">{{this.dataValues.body}}</p>
+                        <p style="font-size: 8px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
+                        <i id="editPostBtn" data-id={{this.dataValues.id}}
+                                class="fas fa-pencil-alt"></i>
+                        <i id="deletePostBtn" data-id={{this.dataValues.id}}
+                                class="fa fa-trash"></i>
                     </div>
+                    <hr>
                     <!-- For Editing Blog Posts -->
                     <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
                         <div class="modal-dialog">
@@ -257,6 +260,7 @@
                         Add Audio/Video
                     </button>
                 </div>
+                <hr>
                 <div class="row">
                     {{#unless mixes}}
                     <div class="container" id="newMixText">
