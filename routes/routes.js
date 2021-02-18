@@ -3,7 +3,6 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
-
   // Handlebars Routes
   //===============================================
   app.get("/id/:id", function (req, res) {
@@ -24,15 +23,10 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
-      }, //how to order by date/newest with a join?
-      include: [{
-        model: db.Blogs,
-        order: [["createdAt", "DESC"]]
       },
-         db.Extras, db.Mixes],
+      order: [[{ model: db.Blogs }, "createdAt", "DESC"]],
+      include: [db.Blogs, db.Extras, db.Mixes],
     }).then((data) => {
-      console.log("data from 'inner join' query");
-
       if (data.dataValues.Mixes) {
         for (let i = 0; i < data.dataValues.Mixes.length; i++) {
           if (data.dataValues.Mixes[i].id === 1) {
@@ -57,24 +51,18 @@ module.exports = function (app) {
     db.Artists.findOne({
       where: {
         id: req.params.id,
-      }, //how to order by date/newest with a join?
+      },
+      order: [[{ model: db.Blogs }, "createdAt", "DESC"]],
       include: [db.Blogs, db.Extras, db.Mixes],
-      order: [["createdAt", "DESC"]],
     }).then((data) => {
-
-      console.log("data from 'inner join' query");
-
-      // data.dataValues.Blogs.sort(function(b, a){
-      //   return b - a;
-      // })
-     if (data.dataValues.Mixes) {
+      if (data.dataValues.Mixes) {
         for (let i = 0; i < data.dataValues.Mixes.length; i++) {
           if (data.dataValues.Mixes[i].id === 1) {
             data.dataValues.Mixes[i].isActive = true;
           }
         }
       }
-      console.log(data.dataValues);
+
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -86,9 +74,9 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/drumpad', function(req, res) {
+  app.get("/drumpad", function (req, res) {
     res.render("fullDrumpad");
-  })
+  });
   //================================================
 
   // Find all Artists, or by Genre and Location
@@ -241,7 +229,7 @@ module.exports = function (app) {
 
   app.put("/artists/extras", function (req, res) {
     console.log("put request forEXTRAS REMIX");
-    console.log(req.body)
+    console.log(req.body);
     db.Extras.update(req.body, {
       where: {
         ArtistId: req.user.id,
@@ -290,7 +278,7 @@ module.exports = function (app) {
   //========================================
   app.put("/artists/image", function (req, res) {
     console.log("put request for PROFILE PIC");
-    console.log(req.body)
+    console.log(req.body);
     db.Artists.update(req.body, {
       where: {
         id: req.user.id,
