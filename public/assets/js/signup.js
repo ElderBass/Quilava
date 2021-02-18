@@ -12,17 +12,6 @@ $(document).ready(function () {
   signUpForm.on("submit", (event) => {
     event.preventDefault();
 
-    // let profile = document.createElement("button")
-    // profile.text('My Profile')
-    // profile.on("click", function(){
-    //   alert('sup loser');
-    // })
-    // console.log(profile)
-    // $("quilavaFooter").append(profile);
-
-    
-    // $("li#jumpToMyProfile").removeClass();
-    // $("li#jumpToMyProfile").addClass("nav-item");
     const user = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),

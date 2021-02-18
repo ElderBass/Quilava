@@ -1,10 +1,12 @@
-
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="container" id="centerItems">
-                <h4 id="artistUnderlined"><strong>Artist Info</strong></h4>
+                {{!-- <h4 id="artistUnderlined"><strong>Artist Info</strong></h4> --}}
                 <aside>
+                    <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
+                        data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
+                        title="Click to Change Profile Picture">
                     <h2 id="artistInfo">{{artist.first_name}} {{artist.last_name}}</h2>
                     <p id="boldInfo">Stage Name: {{artist.stage_name}}</p>
                     <p id="boldInfo">Genre: {{artist.genre}}</p>
@@ -284,4 +286,28 @@
         <!--End of col-9 -->
     </div>
     <!--end of row -->
+</div>
+
+<div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="editPic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editPic">Choose Profile Picture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editPicForm">
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Picture URL:</label>
+                        <input class="form-control" id="newPicURL"></input>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="savePictureBtn">Save
+                            Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

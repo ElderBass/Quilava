@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       stage_name: DataTypes.STRING,
       genre: DataTypes.STRING,
       city:  DataTypes.STRING,
+      image: {
+        type: DataTypes.STRING,
+        defaultValue: "../assets/record.png"
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,

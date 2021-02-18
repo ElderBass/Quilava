@@ -285,11 +285,6 @@ h6 {
   font-weight: bold;
 }
 
-/* <<<<<<< wrapping-forms */
-.hide {
-  display: none;
-}
-
 #customAboutMe {
   color: black;
 }
@@ -310,3 +305,6 @@ h6 {
   justify-content: center;
 } */
 /* >>>>>>> main */
+#profilePic {
+  border: solid 3px #F37900;
+}
