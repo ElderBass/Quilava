@@ -123,6 +123,8 @@ h6 {
   text-align: center;
 }
 
+
+
 /* <<------ Drum Emulator ------>> */
 #drumulator {
     padding: 30px;
@@ -314,10 +316,12 @@ h6 {
   margin-top: 10px;
 }
 
-/* #centerItems {
-  justify-content: center;
-} */
-/* >>>>>>> main */
 #profilePic {
   border: solid 3px #F37900;
+}
+
+#profilePosts {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color: #ffffff;
 }

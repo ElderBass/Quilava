@@ -7,11 +7,11 @@
                     <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
                         data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
                         title="Click to Change Profile Picture">
-                    <h2 id="artistInfo">{{artist.first_name}} {{artist.last_name}}</h2>
-                    <p id="boldInfo">Stage Name: {{artist.stage_name}}</p>
-                    <p id="boldInfo">Genre: {{artist.genre}}</p>
-                    <p id="boldInfo">Location: {{artist.city}}</p>
-                    <p id="boldInfo">Email: {{artist.email}}</p>
+                    <h2 id="artistInfo">{{artist.stage_name}}</h2>
+                    <p id="boldInfo">{{artist.genre}}</p>
+                    <p id="boldInfo">{{artist.city}}</p>
+                    <p id="boldInfo">Real Name: {{artist.first_name}} {{artist.last_name}}</p>
+                    {{!-- <p id="boldInfo">Email: {{artist.email}}</p> --}}
                 </aside>
                 <div class="modal fade" id="customInfo" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
                     <div class="modal-dialog">
@@ -31,17 +31,17 @@
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Bandcamp: </label>
                                         <input type="text" class="form-control" id="github"
-                                            placeholder="Link to GitHub profile">
+                                            placeholder="Bandcamp">
                                     </div>
                                     <div class="mb-3">
                                         <label for="github" class="col-form-label">Twitch: </label>
                                         <input type="text" class="form-control" id="twitch"
-                                            placeholder="Link to Twitch Account">
+                                            placeholder="Twitch">
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Discogs: </label>
                                         <input type="text" class="form-control" id="favorite-mix"
-                                            placeholder="Enter link to Mix">
+                                            placeholder="Discogs">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -56,12 +56,12 @@
                 </div>
                 <div class="container" id="extrasFeed">
                     <div class="row">
-                        <h1 id="profilePosts">About Me</h1>
+                        {{!-- <h5 id="profilePosts">About {{artist.stage_name}}</h5> --}}
                     </div>
                     <div class="row">
                         {{#unless extras}}
                         <div class="container" id="customAboutMe">
-                            <p>Customize your profile to personalize your page.</p>
+                            <p>Customize your profile!</p>
                         </div>
                         {{/unless}}
 
@@ -73,16 +73,16 @@
                                 <p>{{this.dataValues.bio}}</p>
                             </div>
                             <div class="row">
-                                <h4>Links:</h4>
-                                <p>Link to GitHub: <a href="{{this.dataValues.github}}"
+                                {{!-- <h4>Links:</h4> --}}
+                                <p>Bandcamp: <a href="{{this.dataValues.github}}"
                                         target="_blank">{{this.dataValues.github}}</a>
                                 </p>
-                                <p>Link to Twitch: <a href="{{this.dataValues.twitch}}"
+                                <p>Twitch: <a href="{{this.dataValues.twitch}}"
                                         target="_blank">{{this.dataValues.twitch}}</a>
                                 </p>
                             </div>
                             <div class="row">
-                                <p>My current favorite Mix <a href="{{this.dataValues.favorite_mix}}"
+                                <p>Discogs: <a href="{{this.dataValues.favorite_mix}}"
                                         target="_blank">{{this.dataValues.favorite_mix}}</a></p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                     </div>
                     <button type="button" class="btn btn-default" id="editInfoBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#customInfo" id="editInfoBtn">
-                        Edit Info
+                        Edit Profile
                     </button>
                 </div>
             </div>
@@ -99,10 +99,10 @@
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="container" id="blogFeed">
                 <div class="row">
-                    <h2 id="profilePosts">Your Feed</h2>
+                    <h2 id="profilePosts">{{artist.stage_name}} Feed</h2>
                     <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#blogPost">
-                        Create New Blog Post
+                        Create Post
                     </button>
                 </div>
                 <div class="row">
@@ -206,12 +206,13 @@
                     </div>
                 </div>
             </div> <!-- End of 'blog feed' container -->
+
             <div class="container" id="mixesContainer">
                 <div class="row">
-                    <h2 id="profilePosts">Your Mixes</h2>
+                    <h2 id="profilePosts">Mixes</h2>
                     <button type="button" class="btn btn-default" id="newMixBtn" data-id={{artist.id}}
                         data-bs-toggle="modal" data-bs-target="#newMixModal">
-                        Add To Your Mixes
+                        Add Mix
                     </button>
                 </div>
                 <div class="row">
