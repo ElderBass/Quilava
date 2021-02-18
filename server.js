@@ -7,6 +7,9 @@ var path = require("path");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 var path = require("path");
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 
 // Sets up the Express App
 // =============================================================
@@ -21,8 +24,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Sets up Handlebars as the designated frontend technology
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }, {helpers: {
+  formatDate: function (date, format) {
+      return moment(date).format(format);
+  }
+}}));
 app.set("view engine", "handlebars");
+
 
 // Passport Middleware
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));

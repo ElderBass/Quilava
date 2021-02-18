@@ -160,6 +160,7 @@
                     <div class="container">
                         <h4>{{this.dataValues.title}}</h4>
                         <p>{{this.dataValues.body}}</p>
+                        <p id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
                         <button class="editPostBtn" data-id={{this.dataValues.id}}><i
                                 class="fas fa-pencil-alt"></i></button>
                         <button class="deletePostBtn" data-id={{this.dataValues.id}}><i
