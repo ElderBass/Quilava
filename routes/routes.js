@@ -85,6 +85,10 @@ module.exports = function (app) {
       });
     });
   });
+
+  app.get('/drumpad', function(req, res) {
+    res.render("fullDrumpad");
+  })
   //================================================
 
   // Find all Artists, or by Genre and Location
