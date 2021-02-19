@@ -1,8 +1,23 @@
+<!-- Search Functionality -->
+<div class="container" id="searchFunction">
+  <div class="row" >
+    <div class="col-md-4">
+      <form class='citySearch input-group'>
+          <input type="text" class="form-control" id="citySearch" name="city" aria-describedby="button-addon3" placeholder="Search For A City">
+          <button type='submit' id="button-addon3" class="btn btn-default searchBtn">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<h1 id="allArtistsHeader"
+  style="padding-left: 10px; background-color:#99738E; color: #ffffff;">
+  Search Results</h1>
+<br><br>
+
 <div class='container'>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Search Results:</h1>
-            <hr>
             {{#each artists}}
             <img src='{{this.image}}' alt='Artist Profile Pic' style="width: 300px; height: 300px;"/>
             <br>
