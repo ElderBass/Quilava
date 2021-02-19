@@ -1,194 +1,105 @@
-    {{!-- Top 2 Containers --}}
-    <div class="container" id="landingTopContainer">
+{{!-- Top 2 Containers --}}
+<div class="container" id="landingTopContainer">
+  <div class="row">
+    <div class="col">
+      <h3>Featured Artists:</h3>
+      {{!-- Carousel --}}
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carouselLanding">
+          <div class="carousel-item active">
+            <img src="http://clipart-library.com/img/768084.png" class="d-block w-100" alt="artist 1">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e5fc477b-0d14-4d76-9d3c-878edb33ca53/d4cnqpm-bd3ca7f8-22e2-4b91-8ed9-8a14c8611a53.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZTVmYzQ3N2ItMGQxNC00ZDc2LTlkM2MtODc4ZWRiMzNjYTUzXC9kNGNucXBtLWJkM2NhN2Y4LTIyZTItNGI5MS04ZWQ5LThhMTRjODYxMWE1My5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.yLVQqqgCBXvUOvqqcenHhi6qxOGfAPuGWseCmGj5W4Y"
+              class="d-block w-100" alt="artist 2">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b126775-b3d8-459b-98d0-70a48302f552/d2jnrax-a0d56511-5093-42fc-8e75-4791ef21a5b3.jpg/v1/fill/w_800,h_800,q_75,strp/i_love_house_music_by_sonicrider69_d2jnrax-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD04MDAiLCJwYXRoIjoiXC9mXC83YjEyNjc3NS1iM2Q4LTQ1OWItOThkMC03MGE0ODMwMmY1NTJcL2Qyam5yYXgtYTBkNTY1MTEtNTA5My00MmZjLThlNzUtNDc5MWVmMjFhNWIzLmpwZyIsIndpZHRoIjoiPD04MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RTdl_ywu4WtD3I7wTr15OhgX5_4zx_KpkRsQAB_7eic"
+              class="d-block w-100" alt="Artist 3">
+          </div>
+          <div class="carousel-item">
+            <img src="http://clipart-library.com/images_k/dj-transparent-background/dj-transparent-background-9.png"
+              class="d-block w-100" alt="Artist 4">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0270/6109/2423/products/twister-drum-bass-samples-zenhiser_800x.jpg?v=1586253855"
+              class="d-block w-100" alt="Artist 5">
+          </div>
+        </div>
+      </div>
+      {{!-- Carousel End --}}
+
       <div class="row">
         <div class="col">
-          <h3>Featured Artists:</h3>
-            {{!-- Carousel --}}
-          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" id="carouselLanding">
-              <div class="carousel-item active">
-                <img src="http://clipart-library.com/img/768084.png" class="d-block w-100" alt="artist 1">
-              </div>
-              <div class="carousel-item">
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e5fc477b-0d14-4d76-9d3c-878edb33ca53/d4cnqpm-bd3ca7f8-22e2-4b91-8ed9-8a14c8611a53.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZTVmYzQ3N2ItMGQxNC00ZDc2LTlkM2MtODc4ZWRiMzNjYTUzXC9kNGNucXBtLWJkM2NhN2Y4LTIyZTItNGI5MS04ZWQ5LThhMTRjODYxMWE1My5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.yLVQqqgCBXvUOvqqcenHhi6qxOGfAPuGWseCmGj5W4Y" class="d-block w-100" alt="artist 2">
-              </div>
-              <div class="carousel-item">
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b126775-b3d8-459b-98d0-70a48302f552/d2jnrax-a0d56511-5093-42fc-8e75-4791ef21a5b3.jpg/v1/fill/w_800,h_800,q_75,strp/i_love_house_music_by_sonicrider69_d2jnrax-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD04MDAiLCJwYXRoIjoiXC9mXC83YjEyNjc3NS1iM2Q4LTQ1OWItOThkMC03MGE0ODMwMmY1NTJcL2Qyam5yYXgtYTBkNTY1MTEtNTA5My00MmZjLThlNzUtNDc5MWVmMjFhNWIzLmpwZyIsIndpZHRoIjoiPD04MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RTdl_ywu4WtD3I7wTr15OhgX5_4zx_KpkRsQAB_7eic" class="d-block w-100" alt="Artist 3">
-              </div>
-              <div class="carousel-item">
-                <img src="http://clipart-library.com/images_k/dj-transparent-background/dj-transparent-background-9.png" class="d-block w-100" alt="Artist 4">
-              </div>
-              <div class="carousel-item">
-                <img src="https://cdn.shopify.com/s/files/1/0270/6109/2423/products/twister-drum-bass-samples-zenhiser_800x.jpg?v=1586253855" class="d-block w-100" alt="Artist 5">
-              </div>
-            </div>
-          </div>
-                  {{!-- Carousel End --}}
 
-          <div class="row">
-            <div class="col">
-              
-            </div>
-          </div>
-        </div>
-        
-        <div class="col">
-          <div class="row">
-          </div>
-          <div class="col"></div>
-        <div class="row" id="drumulator">
-          <h6 id="drumMachineText">QUILAVA || DRUM EMULATOR</h6>
-            <div>
-              <p style="color:#e1e1e1">Power</p>
-              <label class="switch">
-                <input type="checkbox" id="checkbox">
-                <span class="slider round"></span>
-              </label>
-            </div>
-
-          <div class="pad">
-            <div class="box pad-1" data-code="81" id="drumpadButton">Q</div>
-            <div class="box pad-2" data-code="87" id="drumpadButton">W</div>
-            <div class="box pad-3" data-code="69" id="drumpadButton">E</div>
-            <div class="box pad-4" data-code="82" id="drumpadButton">R</div>
-
-            <div class="box pad-5" data-code="65" id="drumpadButton">A</div>
-            <div class="box pad-6" data-code="83" id="drumpadButton">S</div>
-            <div class="box pad-7" data-code="68" id="drumpadButton">D</div>
-            <div class="box pad-8" data-code="70" id="drumpadButton">F</div>
-
-            <div class="box pad-9" data-code="90" id="drumpadButton">Z</div>
-            <div class="box pad-10" data-code="88" id="drumpadButton">X</div>
-            <div class="box pad-11" data-code="67" id="drumpadButton">C</div>
-            <div class="box pad-12" data-code="86" id="drumpadButton">V</div>
-          </div>
         </div>
       </div>
     </div>
-  </div><br><br><br><br>
-  {{!-- Top 2 Containers End --}}
 
-  {{!-- Beginning Lower Container --}}
-      <div class="container" id="landingLowerContainer">
-        <div class="row align-items-start">
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-              <img src="assets/profile-icon.png" class="card-img-top" alt="profile icon">
-              <div class="card-body">
-                <h5 class="card-text">Create an artist profile showcasing your work!</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-              <img src="assets/studio-icon.png" class="card-img-top" alt="studio icon">
-              <div class="card-body">
-                <h5 class="card-text">Create music in our virtual studios!</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-              <img src="assets/phones-icon.png" class="card-img-top" alt="phones icon">
-              <div class="card-body">
-                <h5 class="card-text">Share your final projects on your Quilava profile!</h5>
-              </div>
-            </div>
-          </div>
+    <div class="col">
+      <div class="row">
       </div>
-
-
-
-
-  <!-- Sign Up Form -->
-  <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="mixes">Sign Up</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="col"></div>
+      <div class="row" id="drumulator">
+        <h6 id="drumMachineText">QUILAVA || DRUM EMULATOR</h6>
+        <div>
+          <p style="color:#e1e1e1">Power</p>
+          <label class="switch">
+            <input type="checkbox" id="checkbox">
+            <span class="slider round"></span>
+          </label>
         </div>
-        <div class="modal-body">
-          <form class="signup">
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputEmail1">Email address*</label>
-              <input type="email" class="form-control" id="email-input" name="email" placeholder="Email">
-            </div>
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">Password*</label>
-              <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
-            </div>
-            {{!-- <div class="form-group">
-              <label for="exampleInputPassword1">Confirm Password*</label>
-              <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
-            </div> --}}
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">First Name*</label>
-              <input type="text" class="form-control" id="first-name-input" name="first_name" placeholder="First Name">
-            </div>
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">Last Name*</label>
-              <input type="text" class="form-control" id="last-name-input" name="last_name" placeholder="Last Name">
-            </div>
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">Stage Name*</label>
-              <input type="text" class="form-control" id="stage-name-input" name="stage_name" placeholder="Stage Name">
-            </div>
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">Genre*</label>
-              <input type="text" class="form-control" id="genre-input" name="genre" placeholder="Genre">
-            </div>
-            <div class="form-group" class="mb-3">
-              <label for="exampleInputPassword1">City*</label>
-              <input type="text" class="form-control" id="city-input" name="city" placeholder="City">
-            </div>
-            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" id="signupBtn" class="btn btn-default">Sign
-                Up</button>
-            </div>
-          </form>
-        </div>
-        {{!-- <p>Or log in <a href="/login" style="color: #F37900;">here</a></p> --}}
-      </div>
-    </div>
-  </div>
 
-  <!-- Log In Form -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="login" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="login">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="login">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="login-email" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="login-password" placeholder="Password">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" id="loginBtn" class="btn btn-default"
-              >Login</button>
-            </div>
-          </form>
-          {{!-- <p>Or sign up <a href="/" style="color: #F37900;">here</a></p> --}}
+        <div class="pad">
+          <div class="box pad-1" data-code="81" id="drumpadButton">Q</div>
+          <div class="box pad-2" data-code="87" id="drumpadButton">W</div>
+          <div class="box pad-3" data-code="69" id="drumpadButton">E</div>
+          <div class="box pad-4" data-code="82" id="drumpadButton">R</div>
+
+          <div class="box pad-5" data-code="65" id="drumpadButton">A</div>
+          <div class="box pad-6" data-code="83" id="drumpadButton">S</div>
+          <div class="box pad-7" data-code="68" id="drumpadButton">D</div>
+          <div class="box pad-8" data-code="70" id="drumpadButton">F</div>
+
+          <div class="box pad-9" data-code="90" id="drumpadButton">Z</div>
+          <div class="box pad-10" data-code="88" id="drumpadButton">X</div>
+          <div class="box pad-11" data-code="67" id="drumpadButton">C</div>
+          <div class="box pad-12" data-code="86" id="drumpadButton">V</div>
         </div>
       </div>
     </div>
   </div>
+</div><br><br><br><br>
+{{!-- Top 2 Containers End --}}
 
-
-
-
-  
+{{!-- Beginning Lower Container --}}
+<div class="container" id="landingLowerContainer">
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="assets/profile-icon.png" class="card-img-top" alt="profile icon">
+        <div class="card-body">
+          <h5 class="card-text">Create an artist profile showcasing your work!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="assets/studio-icon.png" class="card-img-top" alt="studio icon">
+        <div class="card-body">
+          <h5 class="card-text">Create music in our virtual studios!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="assets/phones-icon.png" class="card-img-top" alt="phones icon">
+        <div class="card-body">
+          <h5 class="card-text">Share your final projects on your Quilava profile!</h5>
+        </div>
+      </div>
+    </div>
+  </div>

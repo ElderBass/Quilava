@@ -18,6 +18,17 @@ module.exports = function (app) {
     res.render("index");
   });
 
+  app.get("/drumpad", function (req, res) {
+    if (req.user) {
+      res.render("fullDrumpad", {
+        user: req.user.id,
+        userName: req.user.first_name,
+      });
+    } else {
+      res.render("fullDrumpad");
+    }
+  });
+
   //add get route for rendering the 'view only' artist page
   app.get("/artist/:id", function (req, res) {
     db.Artists.findOne({
@@ -56,8 +67,6 @@ module.exports = function (app) {
       order: [[{ model: db.Blogs }, "createdAt", "DESC"]],
       include: [db.Blogs, db.Extras, db.Mixes],
     }).then((data) => {
-
-
       res.render("profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -69,9 +78,6 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/drumpad", function (req, res) {
-    res.render("fullDrumpad");
-  });
   //================================================
 
   // Find all Artists, or by Genre and Location
@@ -128,7 +134,7 @@ module.exports = function (app) {
   //=============================================
   app.post("/login", passport.authenticate("local"), (req, res) => {
     console.log("inside api/login post");
-    
+
     console.log("req.body =", req.body);
     console.log("req.user =", req.user);
 
@@ -156,11 +162,11 @@ module.exports = function (app) {
       });
   });
 
-    // Route for logging user out
-    app.get("/logout", (req, res) => {
-      req.logout();
-      res.redirect("/");
-    });
+  // Route for logging user out
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
 
   //Blog Post routes
   //==================================================
@@ -171,7 +177,7 @@ module.exports = function (app) {
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
-      ArtistId: req.body.ArtistId
+      ArtistId: req.body.ArtistId,
     }).then(function (data) {
       console.log("query data in routes");
       console.log(data);
