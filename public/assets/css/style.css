@@ -104,6 +104,10 @@ h6 {
 
 .icon {
   color: #553567;
+  float:right;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .icon:hover{
   cursor: pointer;
