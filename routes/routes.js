@@ -89,7 +89,7 @@ module.exports = function (app) {
           userName: req.user.first_name,
         });
       } else {
-        res.render("search", { artists: unpack(dbArtists) });
+        res.render("all-artists", { artists: unpack(dbArtists) });
       }
     });
   });
