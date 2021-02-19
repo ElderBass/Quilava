@@ -40,7 +40,8 @@
                                     Studio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color:rgb(255, 255, 255)" href="/artists" id="browseAll">Browse Artists</a>
+                                <a class="nav-link" style="color:rgb(255, 255, 255)" href="/artists"
+                                    id="browseAll">Browse Artists</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
@@ -66,6 +67,103 @@
                         </ul>
                     </div>
             </nav>
+            <!-- Sign Up Form Hidden Modal-->
+            <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mixes">Sign Up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="signup">
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputEmail1">Email address*</label>
+                                    <input type="email" class="form-control" id="email-input" name="email"
+                                        placeholder="Email">
+                                </div>
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">Password*</label>
+                                    <input type="password" class="form-control" id="password-input" name="password"
+                                        placeholder="Password">
+                                </div>
+                                {{!-- <div class="form-group">
+                                    <label for="exampleInputPassword1">Confirm Password*</label>
+                                    <input type="password" class="form-control" id="password-input" name="password"
+                                        placeholder="Password">
+                                </div> --}}
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">First Name*</label>
+                                    <input type="text" class="form-control" id="first-name-input" name="first_name"
+                                        placeholder="First Name">
+                                </div>
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">Last Name*</label>
+                                    <input type="text" class="form-control" id="last-name-input" name="last_name"
+                                        placeholder="Last Name">
+                                </div>
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">Stage Name*</label>
+                                    <input type="text" class="form-control" id="stage-name-input" name="stage_name"
+                                        placeholder="Stage Name">
+                                </div>
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">Genre*</label>
+                                    <input type="text" class="form-control" id="genre-input" name="genre"
+                                        placeholder="Genre">
+                                </div>
+                                <div class="form-group" class="mb-3">
+                                    <label for="exampleInputPassword1">City*</label>
+                                    <input type="text" class="form-control" id="city-input" name="city"
+                                        placeholder="City">
+                                </div>
+                                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" id="signupBtn" class="btn btn-default">Sign
+                                        Up</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Log In Form  Hidden Modal-->
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="login">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="login">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="login-email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="login-password"
+                                        placeholder="Password">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" id="loginBtn" class="btn btn-default">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {{{body}}}
 
         </div>
@@ -75,6 +173,7 @@
                 id="footerBtn">Home</button></a>
         <p style="color:#3f47b8">QUILAVA&#174; 2021</p>
     </footer>
+
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'
     integrity='sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=='
@@ -84,5 +183,8 @@
 <script type='text/javascript' src='../../assets/js/login.js'></script>
 <script type='text/javascript' src='../../assets/js/script.js'></script>
 <script type='text/javascript' src='../../assets/js/signup.js'></script>
+<script type='text/javascript' src='../../assets/js/blogs.js'></script>
+<script type='text/javascript' src='../../assets/js/mixes.js'></script>
+<script type='text/javascript' src='../../assets/js/extras.js'></script>
 
 </html>

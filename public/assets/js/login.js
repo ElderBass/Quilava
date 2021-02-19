@@ -1,5 +1,3 @@
-
-
 $(document).ready(() => {
     // Getting references to our form and inputs
     const loginForm = $("form.login");
@@ -31,7 +29,7 @@ $(document).ready(() => {
         password: password
       })
         .then((response) => {
-          console.log(response);
+
           window.location.assign("/id/"+response.id)
           
         })

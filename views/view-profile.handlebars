@@ -6,7 +6,7 @@
                 <aside>
                     <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture">
                     <hr>
-                    <p >Real Name: {{artist.first_name}} {{artist.last_name}}</p>
+                    <p>Real Name: {{artist.first_name}} {{artist.last_name}}</p>
                     <p>{{artist.genre}}</p>
                     <p>{{artist.city}}</p>
                 </aside>
@@ -52,28 +52,6 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">
-                <div class="container" id="blogFeed">
-                    <h2 style="color: white;">Message Feed</h2>
-                </div>
-                <hr>
-                {{#unless blog}}
-                <div class="container" id="blogText">
-                    <h5>This artist hasn't updated since, like, forever. Check back later!</h5>
-                </div>
-                {{/unless}}
-
-                {{#if blog}}
-                {{#each blog}}
-                <div class="container"  style="background-color: #99738E;">
-                    <h4 id="blogTitle" >{{this.dataValues.title}}</h4>
-                    <p style="font-size: 20px;">{{this.dataValues.body}}</p>
-                    <p style="font-size: 8px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
-                </div>
-                {{/each}}
-                {{/if}}
-            </div>
-            <br><br>
-            <div class="row">
                 <div class="container" id="mixesContainer">
                     <div class="row">
                         <h2 style="color: white;">Mixes</h2>
@@ -118,6 +96,28 @@
                         {{/if}}
                     </div>
                 </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="container" id="blogFeed">
+                    <h2 style="color: white;">Message Feed</h2>
+                </div>
+                <hr>
+                {{#unless blog}}
+                <div class="container" id="blogText">
+                    <h5>This artist hasn't updated since, like, forever. Check back later!</h5>
+                </div>
+                {{/unless}}
+
+                {{#if blog}}
+                {{#each blog}}
+                <div class="container" style="background-color: #99738E;">
+                    <h4 id="blogTitle">{{this.dataValues.title}}</h4>
+                    <p style="font-size: 20px;">{{this.dataValues.body}}</p>
+                    <p style="font-size: 10px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
+                </div>
+                {{/each}}
+                {{/if}}
             </div>
         </div>
     </div>

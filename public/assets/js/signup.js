@@ -71,15 +71,8 @@ $(document).ready(function () {
       city: city,
     })
       .then((response) => {
-        console.log("response from signUpUser .then");
 
        window.location.assign("/id/"+response.id)
-       // window.location.assign("/api/artist/" + response.id);
-
-            
-        let profile = document.getElementById("jumpToMyProfile");
-        profile.classList.remove("hide");
-        profile.classList.add("nav-item");
       })
       .catch(handleLoginErr);
   }
