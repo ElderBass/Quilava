@@ -45,14 +45,23 @@ module.exports = function (app) {
           }
         }
       }
-      res.render("view-profile", {
-        artist: data.dataValues,
-        blog: data.dataValues.Blogs,
-        extras: data.dataValues.Extras,
-        mixes: data.dataValues.Mixes,
-        user: req.user.id,
-        userName: req.user.first_name,
-      });
+      if (req.user) {
+        res.render("view-profile", {
+          artist: data.dataValues,
+          blog: data.dataValues.Blogs,
+          extras: data.dataValues.Extras,
+          mixes: data.dataValues.Mixes,
+          user: req.user.id,
+          userName: req.user.first_name,
+        });
+      } else {
+        res.render("view-profile", {
+          artist: data.dataValues,
+          blog: data.dataValues.Blogs,
+          extras: data.dataValues.Extras,
+          mixes: data.dataValues.Mixes,
+        });
+      }
     });
   });
 
@@ -94,7 +103,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/artists/genre/:genre", function (req, res) {
+  app.get("/genre/:genre", function (req, res) {
     db.Artists.findAll({
       where: {
         genre: req.params.genre,
@@ -113,7 +122,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/artists/city/:city", function (req, res) {
+  app.get("/city/:city", function (req, res) {
     db.Artists.findAll({
       where: {
         city: req.params.city,

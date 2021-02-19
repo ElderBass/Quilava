@@ -2,6 +2,9 @@
   background-color: #242582;
 
 }
+body {
+  overflow-x: hidden;
+}
 
 .navbar {
     margin-bottom: 15px;
