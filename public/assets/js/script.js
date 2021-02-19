@@ -1,12 +1,6 @@
 $(document).ready(() => {
   //Search Results functions and requests
   //=======================================================
-  $("#browseAll").on("click", function () {
-    $.get("/artists", function () {
-      console.log("getting artists");
-      window.location.assign("/artists");
-    });
-  });
 
   //Searching by Genre
   $("form.genreSearch").on("submit", function (event) {
@@ -64,7 +58,7 @@ $(document).ready(() => {
     });
   });
 
-  $(".editPostBtn").on("click", function (event) {
+  $("#editPostBtn").on("click", function (event) {
     event.preventDefault();
     let id = $(this).data("id");
     console.log(id);
@@ -102,7 +96,7 @@ $(document).ready(() => {
     });
   });
 
-  $(".deletePostBtn").on("click", function (event) {
+  $("#deletePostBtn").on("click", function (event) {
     event.preventDefault();
     let id = $(this).data("id");
     console.log("delete button data-id = " + id);

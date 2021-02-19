@@ -102,6 +102,15 @@ h6 {
   color:#ffffff;
 }
 
+.icon {
+  color: #553567;
+}
+.icon:hover{
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
+}
+
 #blogText {
   background-color: #99738E;
   color:#ffffff;
@@ -344,6 +353,10 @@ h6 {
 
 #profilePic {
   border: solid 3px #99738E;
+}
+
+#profilePic:hover {
+  cursor: pointer;
 }
 
 #aboutArtistProfile {
