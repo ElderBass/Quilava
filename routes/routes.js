@@ -45,7 +45,6 @@ module.exports = function (app) {
           }
         }
       }
-
       res.render("view-profile", {
         artist: data.dataValues,
         blog: data.dataValues.Blogs,
@@ -58,8 +57,6 @@ module.exports = function (app) {
   });
 
   app.get("/user/:id", function (req, res) {
-    console.log("inside api/artist/:id get");
-    console.log(req.session);
     db.Artists.findOne({
       where: {
         id: req.params.id,
@@ -83,61 +80,61 @@ module.exports = function (app) {
   // Find all Artists, or by Genre and Location
   //================================================
   app.get("/artists", function (req, res) {
-    console.log("inside /aritsts");
-    console.log(req.user);
     db.Artists.findAll({}).then(function (dbArtists) {
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("all-artists", {
-        artists: unpack(dbArtists),
-        user: req.user.id,
-        userName: req.user.first_name,
-      });
+      if (req.user) {
+        res.render("all-artists", {
+          artists: unpack(dbArtists),
+          user: req.user.id,
+          userName: req.user.first_name,
+        });
+      } else {
+        res.render("search", { artists: unpack(dbArtists) });
+      }
     });
   });
 
   app.get("/artists/genre/:genre", function (req, res) {
-    console.log("req.params ", req.params.genre);
-    console.log("req.user.id = ", req.user.id);
     db.Artists.findAll({
       where: {
         genre: req.params.genre,
       },
     }).then(function (dbArtists) {
-      console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("search", {
-        artists: unpack(dbArtists),
-        user: req.user.id,
-        userName: req.user.first_name,
-      });
+      if (req.user) {
+        res.render("search", {
+          artists: unpack(dbArtists),
+          user: req.user.id,
+          userName: req.user.first_name,
+        });
+      } else {
+        res.render("search", { artists: unpack(dbArtists) });
+      }
     });
   });
 
   app.get("/artists/city/:city", function (req, res) {
-    console.log("inside city search");
     db.Artists.findAll({
       where: {
         city: req.params.city,
       },
     }).then(function (dbArtists) {
-      console.log(JSON.parse(JSON.stringify(dbArtists)));
       let unpack = (dbArtists) => JSON.parse(JSON.stringify(dbArtists));
-      res.render("search", {
-        artists: unpack(dbArtists),
-        user: req.user.id,
-        userName: req.user.first_name,
-      });
+      if (req.user) {
+        res.render("search", {
+          artists: unpack(dbArtists),
+          user: req.user.id,
+          userName: req.user.first_name,
+        });
+      } else {
+        res.render("search", { artists: unpack(dbArtists) });
+      }
     });
   });
 
   // Login and Signup Routes
   //=============================================
   app.post("/login", passport.authenticate("local"), (req, res) => {
-    console.log("inside api/login post");
-
-    console.log("req.body =", req.body);
-    console.log("req.user =", req.user);
-
     res.json({
       email: req.user.email,
       id: req.user.id,
@@ -171,23 +168,16 @@ module.exports = function (app) {
   //Blog Post routes
   //==================================================
   app.post("/api/artists/blog", function (req, res) {
-    console.log("req.body");
-    console.log(req.body);
-
     db.Blogs.create({
       title: req.body.title,
       body: req.body.body,
       ArtistId: req.body.ArtistId,
     }).then(function (data) {
-      console.log("query data in routes");
-      console.log(data);
       res.json(data);
     });
   });
 
   app.put("/api/artists/blog/:id", function (req, res) {
-    console.log("put request req.params");
-
     let id = parseInt(req.params.id);
 
     db.Blogs.update(req.body, {
@@ -195,15 +185,11 @@ module.exports = function (app) {
         id: id,
       },
     }).then(function (result) {
-      console.log("result from put request:");
-      console.log(JSON.parse(result));
       res.send(result);
     });
   });
 
   app.delete("/api/artists/blog/:id", function (req, res) {
-    console.log("delete request req.params");
-
     let id = parseInt(req.params.id);
 
     db.Blogs.destroy({
@@ -211,8 +197,6 @@ module.exports = function (app) {
         id: id,
       },
     }).then(function (result) {
-      console.log("result from delete request:");
-      console.log(result);
       res.end();
     });
   });
@@ -220,9 +204,6 @@ module.exports = function (app) {
   // Extras Routes
   //==========================================================
   app.post("/api/artists/extras", function (req, res) {
-    console.log("req.body for extras post request");
-    console.log(req.body);
-
     db.Extras.create({
       github: req.body.github,
       twitch: req.body.twitch,
@@ -230,22 +211,16 @@ module.exports = function (app) {
       bio: req.body.bio,
       ArtistId: req.body.ArtistId,
     }).then(function (data) {
-      console.log("query data in extras post route .then");
-      console.log(data);
       res.json(data);
     });
   });
 
   app.put("/artists/extras", function (req, res) {
-    console.log("put request forEXTRAS REMIX");
-    console.log(req.body);
     db.Extras.update(req.body, {
       where: {
         ArtistId: req.user.id,
       },
     }).then(function (result) {
-      console.log("result from EXTRAS PUT :");
-      console.log(JSON.parse(result));
       res.send(result);
     });
   });
@@ -253,32 +228,22 @@ module.exports = function (app) {
   //Mixes Routes
   //=================================================
   app.post("/api/artists/mixes", function (req, res) {
-    console.log("req.body for adding mixes = ");
-    console.log(req.body);
     let artistId = parseInt(req.body.ArtistId);
     db.Mixes.create({
       url: req.body.url,
       name: req.body.name,
       ArtistId: artistId,
     }).then(function (result) {
-      console.log("query data in MIXES post route .then");
-
-      console.log(result.dataValues.ArtistId);
       res.json(result.dataValues.ArtistId);
     });
   });
 
   app.delete("/delete/mix", function (req, res) {
-    console.log("mix delete request req.body");
-    console.log(req.body);
-
     db.Mixes.destroy({
       where: {
         url: req.body.url,
       },
     }).then(function (result) {
-      console.log("result from delete request:");
-      console.log(result);
       res.end();
     });
   });
@@ -286,15 +251,11 @@ module.exports = function (app) {
   //Profile Picture PUT route
   //========================================
   app.put("/artists/image", function (req, res) {
-    console.log("put request for PROFILE PIC");
-    console.log(req.body);
     db.Artists.update(req.body, {
       where: {
         id: req.user.id,
       },
     }).then(function (result) {
-      console.log("result from put request:");
-      console.log(JSON.parse(result));
       res.send(result);
     });
   });
