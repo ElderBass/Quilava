@@ -1,14 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="col-sm-4 col-md-4 col-lg-4">
             <div class="container" id="artistNameBold">
                 <div class="row">
                     <h3>{{artist.stage_name}}</h3>
                     <aside>
-                        <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
+                        <img id="profilePic" src="{{artist.image}}" width="260" height="260" alt="Profile Picture"
                             data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
                             title="Click to Change Profile Picture">
-                        <hr>
+                            <br>
+                            <br>
                         <p id="boldInfo">NAME: {{artist.first_name}} {{artist.last_name}}</p>
                         <p id="boldInfo">{{artist.city}}</p>
                         <p id="boldInfo">{{artist.genre}}</p>
@@ -79,7 +80,7 @@
                                     <p>{{this.dataValues.bio}}</p>
                                 </div>
                                 <div class="row">
-                                <h6 style="color: #F64C72">Links:</h6>
+                                <h6 style="text-align:left; color: #F64C72">Links:</h6>
                                     <p>Bandcamp: <a id="extrasLinks" href="{{this.dataValues.bandcamp}}"
                                             target="_blank">{{this.dataValues.bandcamp}}</a>
                                     </p>
@@ -141,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-9 col-md-9 col-lg-9">
+        <div class="col-sm-8 col-md-8 col-lg-8">
             <div class="container" id="mixesContainer">
                 <div class="row">
                     <h2 id="profilePosts">Your Mixes</h2>
