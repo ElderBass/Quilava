@@ -164,11 +164,12 @@
                         
                         <h4 id="blogTitle" >{{this.dataValues.title}}</h4>
                         <p style="font-size: 20px;">{{this.dataValues.body}}</p>
+                        <br>
                         <p style="font-size: 8px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
                         <i id="editPostBtn" data-id={{this.dataValues.id}}
-                                class="fas fa-pencil-alt"></i>
+                                class="fas fa-pencil-alt icon"></i>
                         <i id="deletePostBtn" data-id={{this.dataValues.id}}
-                                class="fa fa-trash"></i>
+                                class="fa fa-trash icon"></i>
                     </div>
                     <hr>
                     <!-- For Editing Blog Posts -->
