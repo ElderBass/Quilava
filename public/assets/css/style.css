@@ -311,6 +311,10 @@ h6 {
   text-align: center;
 }
 
+#jumpProfileBtn {
+  margin-bottom: 30px;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
