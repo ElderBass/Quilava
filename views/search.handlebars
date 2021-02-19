@@ -1,36 +1,38 @@
 <!-- Search Functionality -->
-<div class="container" id="searchFunction">
-  <div class="row" >
-    <div class="col-md-4">
-      <form class='citySearch input-group'>
-          <input type="text" class="form-control" id="citySearch" name="city" aria-describedby="button-addon3" placeholder="Search For A City">
-          <button type='submit' id="button-addon3" class="btn btn-default searchBtn">Search</button>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <form class='citySearch input-group' style="margin-left: 10px;">
+      <input type="text" class="form-control" id="citySearch" name="city" aria-describedby="button-addon3"
+        placeholder="Enter Your City To See Artists Near You!">
+      <button type='submit' id="button-addon3" class="btn btn-default searchBtn">Search</button>
+    </form>
   </div>
 </div>
 
-<h1 id="allArtistsHeader"
-  style="padding-left: 10px; background-color:#99738E; color: #ffffff;">
+<h1 id="allArtistsHeader" style="padding-left: 10px; background-color:#99738E; color: #ffffff;">
   Search Results</h1>
 <br><br>
 
 <div class='container'>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            {{#each artists}}
-            <img src='{{this.image}}' alt='Artist Profile Pic' style="width: 300px; height: 300px;"/>
-            <br>
-            <h3>{{this.stage_name}}</h3>
-            <p>Real Name: {{this.first_name}} {{this.last_name}}</p>
-            <p>Genre: {{this.genre}}</p>
-            <p>Location: {{this.city}}</p>
-            <a href="/artist/{{this.id}}"><button class="btn btn-danger" style="background-color:#F64c72" data-id={{this.id}}>Jump to Profile</button></a>
-            {{/each}}
-            <hr>
-        </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      {{#unless artists}}
+      <div class="container">
+        <h2 style="color: #F64c72">Playin' to an empty room...</h2>
+        <h4 style="color: white;">This search produced no results.</h4>
+      </div>
+      {{/unless}}
+      {{#each artists}}
+      <img src='{{this.image}}' alt='Artist Profile Pic' style="width: 300px; height: 300px;" />
+      <br>
+      <h3>{{this.stage_name}}</h3>
+      <p>Real Name: {{this.first_name}} {{this.last_name}}</p>
+      <p>Genre: {{this.genre}}</p>
+      <p>Location: {{this.city}}</p>
+      <a href="/artist/{{this.id}}"><button class="btn btn-danger" style="background-color:#F64c72"
+          data-id={{this.id}}>Jump to Profile</button></a>
+      {{/each}}
+      <hr>
     </div>
+  </div>
 </div>
-
-
-
