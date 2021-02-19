@@ -214,9 +214,9 @@ module.exports = function (app) {
   //==========================================================
   app.post("/api/artists/extras", function (req, res) {
     db.Extras.create({
-      github: req.body.github,
+      bandcamp: req.body.bandcamp,
       twitch: req.body.twitch,
-      favorite_mix: req.body.favorite_mix,
+      discogs: req.body.discogs,
       bio: req.body.bio,
       ArtistId: req.body.ArtistId,
     }).then(function (data) {
