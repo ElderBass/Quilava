@@ -8,7 +8,7 @@
                         <img id="profilePic" src="{{artist.image}}" width="200" height="200" alt="Profile Picture"
                             data-bs-toggle="tooltip" data-bs-placement="right" data-id={{artist.id}}
                             title="Click to Change Profile Picture">
-                            <hr>
+                        <hr>
                         <p id="boldInfo">NAME: {{artist.first_name}} {{artist.last_name}}</p>
                         <p id="boldInfo">{{artist.city}}</p>
                         <p id="boldInfo">{{artist.genre}}</p>
@@ -83,12 +83,12 @@
                                     <p>Bandcamp: <a id="extrasLinks" href="{{this.dataValues.bandcamp}}"
                                             target="_blank">{{this.dataValues.bandcamp}}</a>
                                     </p>
-                                    <p>Twitch: <a  id="extrasLinks" href="{{this.dataValues.twitch}}"
+                                    <p>Twitch: <a id="extrasLinks" href="{{this.dataValues.twitch}}"
                                             target="_blank">{{this.dataValues.twitch}}</a>
                                     </p>
                                 </div>
                                 <div class="row">
-                                    <p>Discogs: <a  id="extrasLinks" href="{{this.dataValues.discogs}}"
+                                    <p>Discogs: <a id="extrasLinks" href="{{this.dataValues.discogs}}"
                                             target="_blank">{{this.dataValues.discogs}}</a></p>
                                 </div>
                             </div>
@@ -142,122 +142,6 @@
             </div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
-            <div class="container" id="blogFeed">
-                <div class="row">
-                    <h2 id="profilePosts">Your Feed</h2>
-                    <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
-                        data-bs-toggle="modal" data-bs-target="#blogPost">
-                        Create Post
-                    </button>
-                </div>
-                <hr>
-                <div class="row">
-                    {{#unless blog}}
-                    <div class="container" id="blogText">
-                        <h5>-- Empty --</h5><br>
-                        <p>Tell Your Fans What's Goin' On!</p>
-                    </div>
-                    {{/unless}}
-                    {{#if blog}}
-                    {{#each blog}}
-                    <div class="container" style="background-color: #99738E;">
-                        
-                        <h4 id="blogTitle" >{{this.dataValues.title}}</h4>
-                        <br>
-                        <p style="font-size: 20px;">{{this.dataValues.body}}</p>
-                        <br>
-                        <p style="font-size: 8px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
-                        <i id="editPostBtn" data-id={{this.dataValues.id}}
-                                class="fas fa-pencil-alt icon"></i>
-                        <i id="deletePostBtn" data-id={{this.dataValues.id}}
-                                class="fa fa-trash icon"></i>
-                    </div>
-                    <hr>
-                    <!-- For Editing Blog Posts -->
-                    <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="blogEntry">Edit Post</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="editBlog">
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Title:</label>
-                                            <input type="text" class="form-control" id="editPostTitle">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Message:</label>
-                                            <textarea class="form-control" id="editPostBody"></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-default saveChanges">Save
-                                                Changes</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--For Deleting Posts -->
-                    <div class="modal" id="confirmDelete" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Scratch the Record</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p style="color:#242582; font-size: 18px;">You sure you want to delete this post?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" id="deleteBtn"
-                                        class="btn btn-default deletePost">Confirm</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{/each}}
-                    {{/if}}
-                    <div class="modal fade" id="blogPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="blogEntry">What's Happening?</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="blogForm" data-id={{artist.id}}>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Title:</label>
-                                            <input type="text" class="form-control" id="blogPostTitle">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Message:</label>
-                                            <textarea class="form-control" id="blogPostBody"></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-default" id="savePostBtn">Save
-                                                Post</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- End of 'blog feed' container -->
-           <br><br>
             <div class="container" id="mixesContainer">
                 <div class="row">
                     <h2 id="profilePosts">Your Mixes</h2>
@@ -314,6 +198,7 @@
                     {{/if}}
                 </div>
             </div>
+            <br><br>
             <!--Adding Mixes Modal-->
             <div class="modal fade" id="newMixModal" tabindex="-1" aria-labelledby="mixes" aria-hidden="true">
                 <div class="modal-dialog">
@@ -326,7 +211,8 @@
                             <form id="newMixForm" data-id={{artist.id}}>
                                 <div class="mb-3">
                                     <label for="newMixURL" class="col-form-label">Enter Embed Code:</label>
-                                    <input type="text" class="form-control" id="newMixURL" placeholder="Grab Embed '<iframe>' Link From YouTube">
+                                    <input type="text" class="form-control" id="newMixURL"
+                                        placeholder="Grab Embed '<iframe>' Link From YouTube">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -365,6 +251,120 @@
                     </div>
                 </div>
             </div>
+            <div class="container" id="blogFeed">
+                <div class="row">
+                    <h2 id="profilePosts">Your Feed</h2>
+                    <button type="button" class="btn btn-default" id="newBlogBtn" data-id={{artist.id}}
+                        data-bs-toggle="modal" data-bs-target="#blogPost">
+                        Create Post
+                    </button>
+                </div>
+                <hr>
+                <div class="row">
+                    {{#unless blog}}
+                    <div class="container" id="blogText">
+                        <h5>-- Empty --</h5><br>
+                        <p>Tell Your Fans What's Goin' On!</p>
+                    </div>
+                    {{/unless}}
+                    {{#if blog}}
+                    {{#each blog}}
+                    <div class="container" style="background-color: #99738E;">
+
+                        <h4 id="blogTitle">{{this.dataValues.title}}</h4>
+                        <br>
+                        <p style="font-size: 20px;">{{this.dataValues.body}}</p>
+                        <br>
+                        <p style="font-size: 10px;" id="createdAt">{{moment this.dataValues.createdAt "fromNow"}}</p>
+                        <i id="editPostBtn" data-id={{this.dataValues.id}} class="fas fa-pencil-alt icon"></i>
+                        <i id="deletePostBtn" data-id={{this.dataValues.id}} class="fa fa-trash icon"></i>
+                    </div>
+                    <hr>
+                    <!-- For Editing Blog Posts -->
+                    <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="blogEntry">Edit Post</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editBlog">
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Title:</label>
+                                            <input type="text" class="form-control" id="editPostTitle">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Message:</label>
+                                            <textarea class="form-control" id="editPostBody"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-default saveChanges">Save
+                                                Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--For Deleting Posts -->
+                    <div class="modal" id="confirmDelete" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Scratch the Record</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p style="color:#242582; font-size: 18px;">You sure you want to delete this post?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" id="deleteBtn"
+                                        class="btn btn-default deletePost">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <div class="modal fade" id="blogPost" tabindex="-1" aria-labelledby="blogEntry" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="blogEntry">What's Happening?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="blogForm" data-id={{artist.id}}>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Title:</label>
+                                            <input type="text" class="form-control" id="blogPostTitle">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Message:</label>
+                                            <textarea class="form-control" id="blogPostBody"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-default" id="savePostBtn">Save
+                                                Post</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End of 'blog feed' container -->
         </div>
         <!--End of col-9 -->
     </div>
