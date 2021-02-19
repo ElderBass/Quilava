@@ -1,13 +1,13 @@
 <!-- Search Functionality -->
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6">
-      <form class='citySearch input-group' style="margin-left: 10px;">
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <form class='citySearch input-group' style="margin-left: 10px;">
+      <input type="text" class="form-control" id="citySearch" name="city" aria-describedby="button-addon3"
+        placeholder="Enter Your City To See Artists Near You!">
         <button type='submit' id="button-addon3" class="btn btn-default searchBtn">Search</button>
-        <input type="text" class="form-control" id="citySearch" name="city" aria-describedby="button-addon3"
-          placeholder="Enter Your City To See Artists Near You!">
-      </form>
-    </div>
+    </form>
   </div>
+</div>
 <br><br>
 <h1 id="allArtistsHeader" style="padding-left: 10px; background-color:#99738E; color: #ffffff;">
   All Artists</h1>
@@ -16,10 +16,10 @@
 <div class='container'>
   <div class="row">
     {{#unless artists}}
-      <div class="container">
-        <h2 style="color: #F64c72">Playin' to an empty room...</h2>
-        <h4 style="color: white;">This search produced no results.</h4>
-      </div>
+    <div class="container">
+      <h2 style="color: #F64c72">Playin' to an empty room...</h2>
+      <h4 style="color: white;">This search produced no results.</h4>
+    </div>
     {{/unless}}
     {{#if artists}}
     {{#each artists}}
@@ -33,8 +33,9 @@
       <a href="/artist/{{this.id}}"><button class="btn btn-danger" style="background-color:#F64c72"
           data-id={{this.id}}>Jump to
           Profile</button></a>
-      <hr>
+      <br>
     </div>
     {{/each}}
     {{/if}}
   </div>
+</div>

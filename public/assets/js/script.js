@@ -9,8 +9,8 @@ $(document).ready(() => {
 
     let genre = $("input#genreSearch").val().trim();
 
-    $.get("/artists/genre/" + genre, function () {
-      window.location.assign("/artists/genre/" + genre);
+    $.get("/genre/" + genre, function () {
+      window.location.assign("/genre/" + genre);
     });
   });
 
@@ -20,8 +20,8 @@ $(document).ready(() => {
 
     let city = $("input#citySearch").val().trim();
 
-    $.get("/artists/city/" + city, function () {
-      window.location.assign("/artists/city/" + city);
+    $.get("/city/" + city, function () {
+      window.location.assign("/city/" + city);
     });
   });
 

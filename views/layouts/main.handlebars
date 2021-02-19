@@ -36,6 +36,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
+                                <a class="nav-link" style="color: rgb(255, 255, 255)" {{#if user}}href="/id/{{user}}" {{else}} href="/" {{/if}}>Home</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" style="color:rgb(255, 255, 255)" href="/drumpad">Enter
                                     Studio</a>
                             </li>
@@ -59,10 +62,10 @@
                             {{#if userName}}
                             <li class="nav-item"><span class="nav-link" id="welcome-msg">Welcome,
                                     {{userName}}!</span></li>
-                            <li class="nav-item" id="jumpToMyProfile"><a class="nav-link" style="color: #F64C72"
-                                    href="/user/{{user}}">My Profile</a></li>
-                            <li class="nav-item" id="logoutLink"><a class="nav-link" style="color: white;"
-                                    href="/logout">Logout</a></li>
+                            <li class="nav-item" id="jumpToMyProfile"><a class="nav-link"
+                                    style="color: rgb(255, 255, 255); font-size: 18px;" href="/user/{{user}}">My Profile</a></li>
+                            <li class="nav-item" id="logoutLink"><a class="nav-link"
+                                    style="color: white; font-size: 18px;" href="/logout">Logout</a></li>
                             {{/if}}
                         </ul>
                     </div>
