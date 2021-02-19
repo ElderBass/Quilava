@@ -104,6 +104,10 @@ h6 {
   align-items: center;
   padding-bottom: 100px;
 }
+#testRow {
+  margin-left: 5%;
+}
+
 /* Profile Page */
 #newBlogBtn {
   background-color: #F64c72;
@@ -166,6 +170,7 @@ h6 {
     text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
     border-style: solid;
     border-color: #F64c72;
+    border-radius: 15px;
   }
 
 

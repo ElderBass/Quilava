@@ -71,10 +71,6 @@
                                 <div class="carousel-item active">
                                     <div class="ratio ratio-16x9">
                                         {{{ this.dataValues.url}}}
-
-                                        <div class="carousel-caption d-none d-md-block d-lg-block">
-                                            <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
-                                        </div>
                                     </div>
                                 </div>
                                 {{else}}
@@ -82,15 +78,23 @@
                                 <div class="carousel-item">
                                     <div class="ratio ratio-16x9">
                                         {{{ this.dataValues.url}}}
-
-                                        <div class="carousel-caption d-none d-md-block d-lg-block">
-                                            <h4 style="color: #F64c72">{{this.dataValues.name}}</h4>
-                                        </div>
                                     </div>
                                 </div>
                                 {{/if}}
                                 {{/each}}
                             </div>
+
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#mixesCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                <span style="color: #ffffff;">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#mixesCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                                <span style="color: #ffffff;">Next</span>
+                            </button>
                         </div>
                         {{/if}}
                     </div>
