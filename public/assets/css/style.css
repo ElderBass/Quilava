@@ -167,7 +167,6 @@ h6 {
     align-items: center;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
-    text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
     border-style: solid;
     border-color: #F64c72;
     border-radius: 15px;
@@ -204,7 +203,7 @@ h6 {
     width: 100px;
     height: 100px;
     margin: 10px 0;
-    background-color: #77797A;
+    background-color: #353637;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,7 +217,7 @@ h6 {
     width: 125px;
     height: 125px;
     margin: auto;
-    background-color: #77797A;
+    background-color: #353637;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,7 +242,6 @@ h6 {
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-bottom: 20px;
   }
   
   .switch input {
@@ -289,6 +287,7 @@ h6 {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+
 /* <<--- END DRUM KIT -->> */
 
 /* CARDS BELOW DRUM KIT */
@@ -324,10 +323,6 @@ h6 {
   padding-bottom: 2.5rem;    /* Footer height */
 }
 
-#drumpadButton {
-  text-shadow: 1px 0 0 black, 0 -1px 0 black, 0 1px 0 black, -1px 0 0 black;
-}
-
 .slider.round {
   border-radius: 34px;
 }
@@ -336,15 +331,16 @@ h6 {
   border-radius: 50%;
 }
 
+
+
 #artistUnderlined {
-  /* text-decoration: underline; Should not underline text unless it's a link*/
   color: rgb(255, 255, 255);
-  /* text-shadow: 1px 0 0 #DD1301, 0 -1px 0 #DD1301, 0 1px 0 #DD1301, -1px 0 0 #DD1301; */
+
 }
 
 #profilePosts {
   color: rgb(255, 255, 255);
-  /* text-decoration: underline; Should not underline text unless it's a link*/
+
 }
 
 #boldInfo {
@@ -410,5 +406,6 @@ textarea {
 #kitName  {
   color: white;
   text-align: left;
+  padding-top: 5px;
 }
 
